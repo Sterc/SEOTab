@@ -1,0 +1,5 @@
+Changelog for StercSEO.
+
+StercSEO 1.0.0-pl
+==============
+- Initial release
