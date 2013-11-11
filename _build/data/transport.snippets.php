@@ -15,7 +15,7 @@ $snippets[1]= $modx->newObject('modSnippet');
 $snippets[1]->fromArray(array(
     'id' => 1,
     'name' => 'StercSeoSiteMap',
-    'description' => 'Custom output filter to make thumbnails image-style based',
+    'description' => 'Outputs the sitemap based on the page settings made in SEO-tab',
     'snippet' => getSnippetContent($sources['source_core'].'/elements/snippets/StercSeoSiteMap.snippet.php'),
 ), '', true, true);
 unset($properties);
