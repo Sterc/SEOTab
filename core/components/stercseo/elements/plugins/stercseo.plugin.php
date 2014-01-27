@@ -125,5 +125,19 @@ switch ($modx->event->name) {
 			$modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
 		}
 		break;
+	case 'OnResourceBeforeSort':
+		foreach($nodes as $node) {
+			$oldResource = $modx->getObject('modResource',$node['id']);
+			$resource 	 = $modx->getObject('modResource',$node['id']);
+			$resource->set('parent', $node['parent']);
+
+			if($oldResource->get('uri') != $resource->getAliasPath($resource->get('alias')) && $oldResource->get('uri') != ''){
+				$newProperties = $oldResource->getProperties('stercseo');
+				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
+				$oldResource->setProperties($newProperties,'stercseo');
+				$oldResource->save();
+			}
+		}
+		return true;
 }
 return;
