@@ -2,7 +2,7 @@
 
 $modx =& $object->xpdo;
 
-$pluginEvents = array('OnBeforeDocFormSave', 'OnBeforeDocFormSave', 'OnDocFormPrerender', 'OnDocFormSave', 'OnEmptyTrash', 'OnPageNotFound', 'OnResourceDuplicate');
+$pluginEvents = array('OnBeforeDocFormSave', 'OnHandleRequest', 'OnDocFormPrerender', 'OnDocFormSave', 'OnEmptyTrash', 'OnPageNotFound', 'OnResourceDuplicate','OnResourceBeforeSort');
 $plugins = array('StercSEO');
 
 $success = true;
