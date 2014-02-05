@@ -1,5 +1,15 @@
 Changelog for StercSEO.
 
+
+StercSEO 1.0.1-pl
+==============
+- Loading tab with Articles
+- Added RU localization
+- French translation
+- Update transport.snippets.php
+- Enable drag&drop sorting creating redirects
+- Changed the sitemap
+
 StercSEO 1.0.0-pl
 ==============
 - Initial release
