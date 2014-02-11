@@ -1,6 +1,11 @@
 Changelog for StercSEO.
 
 
+StercSEO 1.0.2-pl
+==============
+- Fixed the install for plugin events
+- Changed datetime format for Google Sitemap
+
 StercSEO 1.0.1-pl
 ==============
 - Loading tab with Articles
