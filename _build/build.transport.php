@@ -9,7 +9,7 @@
 
 define('PKG_NAME', 'StercSEO');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
-define('PKG_VERSION', '1.0.1');
+define('PKG_VERSION', '1.0.2');
 define('PKG_RELEASE', 'pl');
 define('PKG_CATEGORY', PKG_NAME);
 
@@ -28,7 +28,6 @@ $sources = array (
     /* note that the next two must not have a trailing slash */
     'source_core' => $root.'core/components/'.PKG_NAME_LOWER,
     'source_assets' => $root.'assets/components/'.PKG_NAME_LOWER,
-    'resolvers' => $root.'_build/resolvers/',
     'validators'=> $root.'_build/validators/',
     'data' => $root.'_build/data/',
     'docs' => $root.'core/components/'.PKG_NAME_LOWER.'/docs/',
@@ -62,13 +61,6 @@ if(is_array($snippets)) {
 	$category->addMany($snippets);
 } else { $modx->log(modX::LOG_LEVEL_FATAL,'Adding snippets failed...'); }
 
-// adding plugins
-$modx->log(modX::LOG_LEVEL_INFO, 'Adding in Plugins...');
-$plugins = include $sources['data'].'transport.plugins.php';
-if(is_array($plugins)) {
-	$category->addMany($plugins);
-} else { $modx->log(modX::LOG_LEVEL_FATAL, 'Adding plugins failed...'); }
-
 // create category attributes
 $attr = array(
 	xPDOTransport::UNIQUE_KEY => 'category',
@@ -82,16 +74,45 @@ $attr = array(
 			xPDOTransport::UPDATE_OBJECT => true,
 			xPDOTransport::UNIQUE_KEY => 'name',
 		),
-		'Plugins' => array(
-			xPDOTransport::PRESERVE_KEYS => false,
-			xPDOTransport::UPDATE_OBJECT => true,
-			xPDOTransport::UNIQUE_KEY => 'name',
-		),
 	),
 );
 
 // create vehicle of all
 $vehicle = $builder->createVehicle($category, $attr);
+
+// put vehicle in builder
+$builder->putVehicle($vehicle);
+
+/* create the plugin object */
+$plugin= $modx->newObject('modPlugin');
+$plugin->set('id',1);
+$plugin->set('name', 'StercSEO');
+$plugin->set('description', 'Plugin to render the seo tab and save all the data');
+$plugin->set('plugincode', getSnippetContent($sources['source_core'].'/elements/plugins/stercseo.plugin.php'));
+
+/* add plugin events */
+$events = include $sources['data'].'transport.plugin.events.php';
+if (is_array($events) && !empty($events)) {
+    $plugin->addMany($events);
+    $modx->log(xPDO::LOG_LEVEL_INFO,'Packaged in '.count($events).' Plugin Events.'); flush();
+} else {
+    $modx->log(xPDO::LOG_LEVEL_ERROR,'Could not find plugin events!');
+}
+
+$attributes= array(
+    xPDOTransport::UNIQUE_KEY => 'name',
+    xPDOTransport::PRESERVE_KEYS => false,
+    xPDOTransport::UPDATE_OBJECT => true,
+    xPDOTransport::RELATED_OBJECTS => true,
+    xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
+        'PluginEvents' => array(
+            xPDOTransport::PRESERVE_KEYS => true,
+            xPDOTransport::UPDATE_OBJECT => false,
+            xPDOTransport::UNIQUE_KEY => array('pluginid','event'),
+        ),
+    ),
+);
+$vehicle = $builder->createVehicle($plugin, $attributes);
 
 // add in core and assets
 $vehicle->resolve('file',array(
@@ -101,11 +122,6 @@ $vehicle->resolve('file',array(
 $vehicle->resolve('file',array(
 	'source' => $sources['source_assets'],
 	'target' => "return MODX_ASSETS_PATH . 'components/';",
-));
-
-// add resolvers
-$vehicle->resolve('php', array(
-    'source' => $sources['resolvers'] . 'install.script.php',
 ));
 
 // put vehicle in builder
