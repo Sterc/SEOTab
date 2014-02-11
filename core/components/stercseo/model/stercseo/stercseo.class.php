@@ -150,7 +150,7 @@ class StercSEO {
             $createdon = $resource->get('createdon');
             $output .= $this->getChunk($rowTpl,array(
                 'url' => $this->modx->makeUrl($resource->get('id'), '', '', 'full'),
-                'lastmod' => (($editedon > 0) ? $editedon : $createdon),
+                'lastmod' => date('c', strtotime((($editedon > 0) ? $editedon : $createdon))),
                 'changefreq' => (!empty($properties['changefreq']) ? $properties['changefreq'] : 'weekly'),
                 'priority' => (!empty($properties['priority']) ? $properties['priority'] : '0.5'),
             ));
