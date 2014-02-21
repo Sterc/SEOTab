@@ -103,14 +103,13 @@ switch ($modx->event->name) {
 
         	$resource->setProperties($newProperties,'stercseo');
 		break;
-	case 'OnHandleRequest':
-		$resource = $modx->getObject('modResource', array('uri' => $_GET['q']));
-		if($resource){
-			$properties = $resource->getProperties('stercseo');
+	case 'OnLoadWebDocument':
+		if($modx->resource){
+			$properties = $modx->resource->getProperties('stercseo');
 			$metaContent = array('noopd', 'noydir');
 			if(!$properties['index']) $metaContent[] = 'noindex';
 			if(!$properties['follow']) $metaContent[] = 'nofollow';
-			$modx->regClientStartupHTMLBlock('<meta name="robots" content="'.implode(',', $metaContent).'" />');
+			$modx->setPlaceholder('seoTab.robotsTag',implode(',', $metaContent));
 		}
 
 		break;

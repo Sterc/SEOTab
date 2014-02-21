@@ -13,9 +13,9 @@ $events['OnBeforeDocFormSave']->fromArray(array(
     'priority' => 0,
     'propertyset' => 0,
 ),'',true,true);
-$events['OnHandleRequest']= $modx->newObject('modPluginEvent');
-$events['OnHandleRequest']->fromArray(array(
-    'event' => 'OnHandleRequest',
+$events['OnLoadWebDocument']= $modx->newObject('modPluginEvent');
+$events['OnLoadWebDocument']->fromArray(array(
+    'event' => 'OnLoadWebDocument',
     'priority' => 0,
     'propertyset' => 0,
 ),'',true,true);
