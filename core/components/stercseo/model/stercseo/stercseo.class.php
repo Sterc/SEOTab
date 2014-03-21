@@ -143,7 +143,7 @@ class StercSEO {
         return $chunk;
     }
     public function sitemap($rowTpl, $outerTpl){
-        $resources = $this->modx->getCollection('modResource', array('properties:LIKE' => '%"sitemap":"1"%', 'OR:properties:IS' => NULL));
+        $resources = $this->modx->getCollection('modResource', array('properties:LIKE' => '%"sitemap":"1"%', 'OR:properties:LIKE' => '%"sitemap":null%', 'OR:properties:IS' => NULL));
         foreach($resources AS $resource){
             $properties = $resource->getProperties('stercseo');
             $editedon = $resource->get('editedon');
