@@ -108,8 +108,10 @@ switch ($modx->event->name) {
 		if($resource){
 			$properties = $resource->getProperties('stercseo');
 			$metaContent = array('noopd', 'noydir');
-			if(!$properties['index']) $metaContent[] = 'noindex';
-			if(!$properties['follow']) $metaContent[] = 'nofollow';
+			if($properties){
+				if(!$properties['index']) $metaContent[] = 'noindex';
+				if(!$properties['follow']) $metaContent[] = 'nofollow';
+			}
 			$modx->regClientStartupHTMLBlock('<meta name="robots" content="'.implode(',', $metaContent).'" />');
 		}
 
