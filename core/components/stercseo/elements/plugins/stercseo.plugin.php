@@ -109,7 +109,7 @@ switch ($modx->event->name) {
 		$resource = $modx->getObject('modResource', array('uri' => $uri));
 		if($resource){
 			$properties = $resource->getProperties('stercseo');
-			$metaContent = array('noopd', 'noydir');
+			$metaContent = array('noodp', 'noydir');
 			if($properties){
 				if(!$properties['index']) $metaContent[] = 'noindex';
 				if(!$properties['follow']) $metaContent[] = 'nofollow';
