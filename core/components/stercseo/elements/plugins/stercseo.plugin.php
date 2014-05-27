@@ -104,7 +104,9 @@ switch ($modx->event->name) {
         	$resource->setProperties($newProperties,'stercseo');
 		break;
 	case 'OnHandleRequest':
-		$resource = $modx->getObject('modResource', array('uri' => $_GET['q']));
+		if ($modx->context->get('key') == 'mgr') return;
+		$uri = $_REQUEST[$modx->getOption('request_param_alias', null, 'q')];
+		$resource = $modx->getObject('modResource', array('uri' => $uri));
 		if($resource){
 			$properties = $resource->getProperties('stercseo');
 			$metaContent = array('noopd', 'noydir');
