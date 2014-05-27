@@ -120,13 +120,13 @@ switch ($modx->event->name) {
 		break;
 
 	case 'OnPageNotFound':
-		$convertedUrl = str_replace('/', '_/', ltrim($_SERVER['REQUEST_URI'], '/'));
+		$url = $_REQUEST[$modx->getOption('request_param_alias', null, 'q')];
 		$alreadyExists = $modx->getObject('modResource', array(
-			'properties:LIKE' => '%"'.$convertedUrl.'"%'
+			'properties:LIKE' => '%"'.$url.'"%'
 		));
 		if($alreadyExists){
-			$url = $modx->makeUrl($alreadyExists->get('id'));
-			$modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+			$id = $modx->makeUrl($alreadyExists->get('id'));
+			$modx->sendRedirect($id, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
 		}
 		break;
 	case 'OnResourceBeforeSort':
