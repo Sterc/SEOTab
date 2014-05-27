@@ -79,11 +79,11 @@ switch ($modx->event->name) {
 	        $oldResource = ($mode == 'upd') ? $modx->getObject('modResource',$resource->get('id')) : $resource;
 			if($_POST['urls'] != 'false'){
 				$newProperties = array(
-					'index' => $_POST['index'],
-					'follow' => $_POST['follow'],
-					'sitemap' => $_POST['sitemap'],
-					'priority' => $_POST['priority'],
-					'changefreq' => $_POST['changefreq'],
+					'index' => (isset($_POST['index']) ? $_POST['index'] : 1),
+					'follow' => (isset($_POST['follow']) ? $_POST['follow'] : 1),
+					'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : 1),
+					'priority' => (isset($_POST['priority']) ? $_POST['priority'] : '0.5'),
+					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : 'weekly'),
 					'urls' => $modx->fromJSON($_POST['urls'])
 				);
 			}else{
@@ -120,13 +120,14 @@ switch ($modx->event->name) {
 		break;
 
 	case 'OnPageNotFound':
-		$convertedUrl = str_replace('/', '_/', ltrim($_SERVER['REQUEST_URI'], '/'));
+		$url = $_REQUEST[$modx->getOption('request_param_alias', null, 'q')];
+		$convertedUrl = str_replace('/', '_/', ltrim($url, '/'));
 		$alreadyExists = $modx->getObject('modResource', array(
 			'properties:LIKE' => '%"'.$convertedUrl.'"%'
 		));
 		if($alreadyExists){
-			$url = $modx->makeUrl($alreadyExists->get('id'));
-			$modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+			$id = $modx->makeUrl($alreadyExists->get('id'));
+			$modx->sendRedirect($id, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
 		}
 		break;
 	case 'OnResourceBeforeSort':
