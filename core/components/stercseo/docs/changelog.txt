@@ -1,5 +1,7 @@
 Changelog for StercSEO.
 
+StercSEO 1.0.6-pl
+==============
 
 StercSEO 1.0.2-pl
 ==============
