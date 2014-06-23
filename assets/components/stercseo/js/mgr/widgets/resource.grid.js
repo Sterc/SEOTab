@@ -130,6 +130,10 @@ StercSEO.window.CreateItem = function(config) {
         ,height: 150
         ,width: 475
         ,url: StercSEO.config.connector_url
+        ,baseParams: {
+            action: 'mgr/url/return'
+            ,id: MODx.request.id
+        }		
         ,labelAlign: 'left'
         ,labelWidth: 'auto'
         ,action: 'mgr/url/return'

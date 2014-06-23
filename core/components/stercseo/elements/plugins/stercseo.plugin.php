@@ -117,7 +117,8 @@ switch ($modx->event->name) {
 		$url = $_REQUEST[$modx->getOption('request_param_alias', null, 'q')];
 		$convertedUrl = str_replace('/', '_/', ltrim($url, '/'));
 		$alreadyExists = $modx->getObject('modResource', array(
-			'properties:LIKE' => '%"'.$convertedUrl.'"%'
+			'properties:LIKE' => '%"'.$convertedUrl.'"%',
+			'context_key' => $modx->context->key
 		));
 		if($alreadyExists){
 			$id = $modx->makeUrl($alreadyExists->get('id'));

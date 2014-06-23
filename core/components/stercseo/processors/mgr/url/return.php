@@ -1,8 +1,10 @@
 <?php
 
+$page = $modx->getObject('modResource', $scriptProperties['id']);
 $convertedUrl = str_replace('/', '_/', $scriptProperties['url']);
 $alreadyExists = $modx->getObject('modResource', array(
-	'properties:LIKE' => '%"'.$convertedUrl.'"%'
+	'properties:LIKE' => '%"'.$convertedUrl.'"%',
+	'context_key' => $page->get('context_key')
 ));
 if($alreadyExists){
 	return $modx->error->failure($modx->lexicon('stercseo.alreadyexists', array('+site_URI' => $modx->getOption('site_url'), 'URI' => $scriptProperties['url'], 'id' => $alreadyExists->get('id'), 'pagetitle' => $alreadyExists->get('pagetitle'))));
