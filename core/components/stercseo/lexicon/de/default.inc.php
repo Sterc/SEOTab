@@ -63,6 +63,14 @@ $_lang['stercseo.freeze_uri'] = 'Feste URL';
 $_lang['stercseo.uri_override'] = 'Legen Sie eine feste URL für diese Seite fest';
 $_lang['stercseo.uri_after'] = 'URL nach ';
 
+//Settings
+$_lang['settings_stercseo.context-aware-alias'] = '301 Weiterleitungen sind eindeutig pro Kontext';
+$_lang['settings_stercseo.index'] = 'Voreinstellung: In Suchmaschinen anzeigen';
+$_lang['settings_stercseo.follow'] = 'Voreinstellung: Links folgen';
+$_lang['settings_stercseo.search'] = 'Voreinstellung: Seite in interner Suche auflisten';
+$_lang['settings_stercseo.sitemap'] = 'Voreinstellung: Seite zur Google Sitemap XML hinzufügen';
+$_lang['settings_stercseo.priority'] = 'Voreinstellung: Priorität';
+$_lang['settings_stercseo.changefreq'] = 'Voreinstellung: Update Frequenz';
 
 
 

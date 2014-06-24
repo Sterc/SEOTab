@@ -127,11 +127,32 @@ $vehicle->resolve('file',array(
 // put vehicle in builder
 $builder->putVehicle($vehicle);
 
+/* load system settings */
+ $settings = include $sources['data'].'transport.settings.php';
+ if (is_array($settings) && !empty($settings)) {
+     $attributes= array(
+         xPDOTransport::UNIQUE_KEY => 'key',
+         xPDOTransport::PRESERVE_KEYS => true,
+         xPDOTransport::UPDATE_OBJECT => false,
+     );
+     foreach ($settings as $setting) {
+         $vehicle = $builder->createVehicle($setting,$attributes);
+         $builder->putVehicle($vehicle);
+     }
+     $modx->log(xPDO::LOG_LEVEL_INFO,'Packaged in '.count($settings).' System Settings.'); flush();
+ } else {
+     $modx->log(xPDO::LOG_LEVEL_ERROR,'Could not package System Settings.');
+ }
+ unset($settings,$setting);
+
 // add some textfiles
 $builder->setPackageAttributes(array(
 	'license' => file_get_contents($sources['docs'].'license.txt'),
 	'readme' => file_get_contents($sources['docs'].'readme.txt'),
 	'changelog' => file_get_contents($sources['docs'].'changelog.txt'),
+	'setup-options' => array(
+        'source' => $sources['build'].'_setup.options.php',
+    ),	
 ));
 
 // Last step - zip up the package

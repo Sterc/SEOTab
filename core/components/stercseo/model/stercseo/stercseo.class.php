@@ -53,6 +53,8 @@ class StercSEO {
      * 		Example: web:1;de:4;es:7;fr:10
      */
     public $stercseoTv = null;
+	
+	public $defaults = array();
 
     /**
      * The StercSEO Constructor.
@@ -92,6 +94,15 @@ class StercSEO {
         if ($this->modx->lexicon) {
             $this->modx->lexicon->load('stercseo:default');
         }
+		
+		$this->defaults = array(
+			'index' => $this->modx->getOption('stercseo.index', null, '1'),
+			'follow' => $this->modx->getOption('stercseo.follow', null, '1'),
+			'search' => $this->modx->getOption('stercseo.search', null, '1'),
+			'sitemap' => $this->modx->getOption('stercseo.sitemap', null, '1'),
+			'changefreq' => $this->modx->getOption('stercseo.changefreq', null, 'weekly'),
+			'priority' => $this->modx->getOption('stercseo.priority', null, '0.5'),
+		);
 	}
 
     /**
@@ -156,8 +167,8 @@ class StercSEO {
             $output .= $this->getChunk($rowTpl,array(
                 'url' => $this->modx->makeUrl($resource->get('id'), '', '', 'full'),
                 'lastmod' => date('c', strtotime((($editedon > 0) ? $editedon : $createdon))),
-                'changefreq' => (!empty($properties['changefreq']) ? $properties['changefreq'] : 'weekly'),
-                'priority' => (!empty($properties['priority']) ? $properties['priority'] : '0.5'),
+                'changefreq' => (!empty($properties['changefreq']) ? $properties['changefreq'] : $this->defaults['changefreg']),
+                'priority' => (!empty($properties['priority']) ? $properties['priority'] : $this->defaults['priority']),
             ));
         }
         return $this->getChunk($outerTpl, array('wrapper' => $output));
