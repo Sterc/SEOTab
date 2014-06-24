@@ -63,8 +63,14 @@ $_lang['stercseo.freeze_uri'] = 'Freeze URL';
 $_lang['stercseo.uri_override'] = 'Set a Freeze URL for this page';
 $_lang['stercseo.uri_after'] = 'URL after ';
 
-
-
+//Settings
+$_lang['settings_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
+$_lang['settings_stercseo.index'] = 'Default-Setting: Include in search engines';
+$_lang['settings_stercseo.follow'] = 'Default-Setting: Following links';
+$_lang['settings_stercseo.search'] = 'Default-Setting: Include pages in internal search engine';
+$_lang['settings_stercseo.sitemap'] = 'Default-Setting: Include pages in the Google Sitemap';
+$_lang['settings_stercseo.priority'] = 'Default-Setting: Priority';
+$_lang['settings_stercseo.changefreq'] = 'Default-Setting: Update frequency';
 
 
 
