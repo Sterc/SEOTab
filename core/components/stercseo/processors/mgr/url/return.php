@@ -8,7 +8,7 @@ $w = array(
 if($modx->getOption('stercseo.context-aware-alias', null, '0')){
 	$w['context_key'] = $modx->context->key;
 }
-$alreadyExists = $modx->getObject('modResource', $w));
+$alreadyExists = $modx->getObject('modResource', $w);
 if($alreadyExists){
 	return $modx->error->failure($modx->lexicon('stercseo.alreadyexists', array('+site_URI' => $modx->getOption('site_url'), 'URI' => $scriptProperties['url'], 'id' => $alreadyExists->get('id'), 'pagetitle' => $alreadyExists->get('pagetitle'))));
 }
