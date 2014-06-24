@@ -99,7 +99,7 @@ class StercSEO {
 			'index' => $this->modx->getOption('stercseo.index', null, '1'),
 			'follow' => $this->modx->getOption('stercseo.follow', null, '1'),
 			'search' => $this->modx->getOption('stercseo.search', null, '1'),
-			'sitemap' => $this->modx->getOption('stercseo.sitemap', null, '1)',
+			'sitemap' => $this->modx->getOption('stercseo.sitemap', null, '1'),
 			'changefreq' => $this->modx->getOption('stercseo.changefreq', null, 'weekly'),
 			'priority' => $this->modx->getOption('stercseo.priority', null, '0.5'),
 		);
