@@ -6,7 +6,7 @@ $w = array(
 	'properties:LIKE' => '%"'.$convertedUrl.'"%'
 );
 if($modx->getOption('stercseo.context-aware-alias', null, '0')){
-	$w['context_key'] = $modx->context->key;
+	$w['context_key'] = $page->get('context_key');
 }
 $alreadyExists = $modx->getObject('modResource', $w);
 if($alreadyExists){
