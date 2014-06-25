@@ -1,6 +1,6 @@
 <?php
 /**
- * @package stercSEO
+ * @package stercseo
  * @subpackage build
  */
 $settings = array();
@@ -15,7 +15,7 @@ $settings['stercseo.context-aware-alias']->fromArray(array(
 ),'',true,true);
 $settings['stercseo.index']= $modx->newObject('modSystemSetting');
 $settings['stercseo.index']->fromArray(array(
-    'key' => 'stercseo.google-index',
+    'key' => 'stercseo.index',
      'value' => '1',
      'xtype' => 'combo-boolean',
     'namespace' => 'stercseo',
@@ -23,15 +23,7 @@ $settings['stercseo.index']->fromArray(array(
 ),'',true,true);
 $settings['stercseo.follow']= $modx->newObject('modSystemSetting');
 $settings['stercseo.follow']->fromArray(array(
-    'key' => 'stercseo.google-follow',
-     'value' => '1',
-     'xtype' => 'combo-boolean',
-    'namespace' => 'stercseo',
-     'area' => 'general',
-),'',true,true);
-$settings['stercseo.search']= $modx->newObject('modSystemSetting');
-$settings['stercseo.search']->fromArray(array(
-    'key' => 'stercseo.search',
+    'key' => 'stercseo.follow',
      'value' => '1',
      'xtype' => 'combo-boolean',
     'namespace' => 'stercseo',

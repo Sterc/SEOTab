@@ -167,7 +167,7 @@ class StercSEO {
             $output .= $this->getChunk($rowTpl,array(
                 'url' => $this->modx->makeUrl($resource->get('id'), '', '', 'full'),
                 'lastmod' => date('c', strtotime((($editedon > 0) ? $editedon : $createdon))),
-                'changefreq' => (!empty($properties['changefreq']) ? $properties['changefreq'] : $this->defaults['changefreg']),
+                'changefreq' => (!empty($properties['changefreq']) ? $properties['changefreq'] : $this->defaults['changefreq']),
                 'priority' => (!empty($properties['priority']) ? $properties['priority'] : $this->defaults['priority']),
             ));
         }

@@ -64,13 +64,18 @@ $_lang['stercseo.uri_override'] = 'Set a Freeze URL for this page';
 $_lang['stercseo.uri_after'] = 'URL after ';
 
 //Settings
-$_lang['settings_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
-$_lang['settings_stercseo.index'] = 'Default-Setting: Include in search engines';
-$_lang['settings_stercseo.follow'] = 'Default-Setting: Following links';
-$_lang['settings_stercseo.search'] = 'Default-Setting: Include pages in internal search engine';
-$_lang['settings_stercseo.sitemap'] = 'Default-Setting: Include pages in the Google Sitemap';
-$_lang['settings_stercseo.priority'] = 'Default-Setting: Priority';
-$_lang['settings_stercseo.changefreq'] = 'Default-Setting: Update frequency';
+$_lang['setting_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
+$_lang['setting_stercseo.context-aware-alias_desc'] = 'make old urls unique to context';
+$_lang['setting_stercseo.index'] = 'Default-Setting: Include in search engines';
+$_lang['setting_stercseo.index_desc'] = 'Include new pages in search engines per default';
+$_lang['setting_stercseo.follow'] = 'Default-Setting: Following links';
+$_lang['setting_stercseo.follow_desc'] = 'Follow links on new pages per default';
+$_lang['setting_stercseo.sitemap'] = 'Default-Setting: Include pages in the Google Sitemap';
+$_lang['setting_stercseo.sitemap_desc'] = 'Include new pages in sitemap.xml per default';
+$_lang['setting_stercseo.priority'] = 'Default-Setting: Priority';
+$_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
+$_lang['setting_stercseo.changefreq'] = 'Default-Setting: Update frequency';
+$_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
 
 
 

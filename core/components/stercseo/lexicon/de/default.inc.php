@@ -64,14 +64,18 @@ $_lang['stercseo.uri_override'] = 'Legen Sie eine feste URL für diese Seite fes
 $_lang['stercseo.uri_after'] = 'URL nach ';
 
 //Settings
-$_lang['settings_stercseo.context-aware-alias'] = '301 Weiterleitungen sind eindeutig pro Kontext';
-$_lang['settings_stercseo.index'] = 'Voreinstellung: In Suchmaschinen anzeigen';
-$_lang['settings_stercseo.follow'] = 'Voreinstellung: Links folgen';
-$_lang['settings_stercseo.search'] = 'Voreinstellung: Seite in interner Suche auflisten';
-$_lang['settings_stercseo.sitemap'] = 'Voreinstellung: Seite zur Google Sitemap XML hinzufügen';
-$_lang['settings_stercseo.priority'] = 'Voreinstellung: Priorität';
-$_lang['settings_stercseo.changefreq'] = 'Voreinstellung: Update Frequenz';
-
+$_lang['setting_stercseo.context-aware-alias'] = '301 Weiterleitungen sind eindeutig pro Kontext';
+$_lang['setting_stercseo.context-aware-alias_desc'] = 'Alte URLs sind eindeutig pro Kontext, Redirects funtkionieren also nur innerhalb eines Kontextes';
+$_lang['setting_stercseo.index'] = 'Voreinstellung: In Suchmaschinen anzeigen';
+$_lang['setting_stercseo.index_desc'] = 'Neue Seiten in Suchmaschine anzeigen? (0, 1)';
+$_lang['setting_stercseo.follow'] = 'Voreinstellung: Links folgen';
+$_lang['setting_stercseo.follow_desc'] = 'Links auf neuen seiten folgen? (0 = nofollow, 1 = follow)';
+$_lang['setting_stercseo.sitemap'] = 'Voreinstellung: Seite zur Google Sitemap XML hinzufügen';
+$_lang['setting_stercseo.sitemap_desc'] = 'Neue Seite in sitemap.xml einschließen (0 = nein, 1 = ja)';
+$_lang['setting_stercseo.priority'] = 'Voreinstellung: Priorität';
+$_lang['setting_stercseo.priority_desc'] = 'Wichtigkeit von neuen Seiten (0.25, 0.5 oder 1)';
+$_lang['setting_stercseo.changefreq'] = 'Voreinstellung: Update Frequenz';
+$_lang['setting_stercseo.changefreq_desc'] = 'Update Frequenz für neue Seiten (daily, weekly, monthly)';
 
 
 
