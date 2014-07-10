@@ -77,7 +77,7 @@ switch ($modx->event->name) {
 
 	case 'OnBeforeDocFormSave':
 	        $oldResource = ($mode == 'upd') ? $modx->getObject('modResource',$resource->get('id')) : $resource;
-			if($_POST['urls'] != 'false'){
+			if($_POST['urls'] != 'false' && isset($_POST['urls'])){
 				$newProperties = array(
 					'index' => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index', null, '1')),
 					'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow', null, '1')),
@@ -89,11 +89,11 @@ switch ($modx->event->name) {
 			}else{
 				$properties = $oldResource->getProperties('stercseo');
 				$newProperties = array(
-					'index' => $_POST['index'],
-					'follow' => $_POST['follow'],
-					'sitemap' => $_POST['sitemap'],
-					'priority' => $_POST['priority'],
-					'changefreq' => $_POST['changefreq'],
+					'index' => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
+					'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
+					'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
+					'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
+					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq']),
 					'urls' => $properties['urls']
 				);
 			}
