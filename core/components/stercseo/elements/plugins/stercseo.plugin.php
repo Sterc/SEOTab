@@ -45,11 +45,11 @@ switch ($modx->event->name) {
 		}
 		if(empty($properties)){
 			$properties = array(
-				'index' => '1',
-				'follow' => '1',
-				'sitemap' => '1',
-				'priority' => '0.5',
-				'changefreq' => 'weekly',
+				'index' => $modx->getOption('stercseo.index', null, '1'),
+				'follow' => $modx->getOption('stercseo.follow', null, '1'),
+				'sitemap' => $modx->getOption('stercseo.sitemap', null, '1'),
+				'priority' => $modx->getOption('stercseo.priority', null, '0.5'),
+				'changefreq' => $modx->getOption('stercseo.changefreq', null, 'weekly'),
 				//'urls' => $modx->fromJSON($_POST['urls'])
 			);
 		}
@@ -79,11 +79,11 @@ switch ($modx->event->name) {
 	        $oldResource = ($mode == 'upd') ? $modx->getObject('modResource',$resource->get('id')) : $resource;
 			if($_POST['urls'] != 'false'){
 				$newProperties = array(
-					'index' => (isset($_POST['index']) ? $_POST['index'] : 1),
-					'follow' => (isset($_POST['follow']) ? $_POST['follow'] : 1),
-					'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : 1),
-					'priority' => (isset($_POST['priority']) ? $_POST['priority'] : '0.5'),
-					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : 'weekly'),
+					'index' => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index', null, '1')),
+					'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow', null, '1')),
+					'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap', null, '1')),
+					'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority', null, '0.5')),
+					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly')),
 					'urls' => $modx->fromJSON($_POST['urls'])
 				);
 			}else{
@@ -116,9 +116,13 @@ switch ($modx->event->name) {
 	case 'OnPageNotFound':
 		$url = $_REQUEST[$modx->getOption('request_param_alias', null, 'q')];
 		$convertedUrl = str_replace('/', '_/', ltrim($url, '/'));
-		$alreadyExists = $modx->getObject('modResource', array(
+		$w = array(
 			'properties:LIKE' => '%"'.$convertedUrl.'"%'
-		));
+		);
+		if($modx->getOption('stercseo.context-aware-alias', null, '0')){
+			$w['context_key'] = $modx->context->key;
+		}
+		$alreadyExists = $modx->getObject('modResource', $w);
 		if($alreadyExists){
 			$id = $modx->makeUrl($alreadyExists->get('id'));
 			$modx->sendRedirect($id, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
