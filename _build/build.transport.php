@@ -9,7 +9,7 @@
 
 define('PKG_NAME', 'StercSEO');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
-define('PKG_VERSION', '1.0.6');
+define('PKG_VERSION', '1.0.7');
 define('PKG_RELEASE', 'pl');
 define('PKG_CATEGORY', PKG_NAME);
 
@@ -152,7 +152,7 @@ $builder->setPackageAttributes(array(
 	'changelog' => file_get_contents($sources['docs'].'changelog.txt'),
 	'setup-options' => array(
         'source' => $sources['build'].'_setup.options.php',
-    ),	
+    ),
 ));
 
 // Last step - zip up the package

@@ -1,7 +1,12 @@
 Changelog for StercSEO.
 
-StercSEO 1.0.6-pl
+StercSEO 1.0.7-pl
 ==============
+- Test against explicit removal from sitemap #30
+- Get defaults from modx settings. Add Context aware redirects #28
+
+StercSEO 1.0.6-pl
+- Fix OnPageNotFound #23
 
 StercSEO 1.0.2-pl
 ==============
