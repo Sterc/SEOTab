@@ -156,8 +156,7 @@ class StercSEO {
     public function sitemap($contextKey = 'web', $rowTpl, $outerTpl){
         $resources = $this->modx->getCollection('modResource',
             array(
-                array('context_key' => $contextKey, 'published' => 1, 'deleted' => 0),
-                array('properties:LIKE' => '%"sitemap":"1"%', 'OR:properties:LIKE' => '%"sitemap":null%', 'OR:properties:IS' => NULL)
+                array('context_key' => $contextKey, 'published' => 1, 'deleted' => 0, 'properties:NOT LIKE'=> '%"sitemap":"0"%')
             )
         );
         foreach($resources AS $resource){
