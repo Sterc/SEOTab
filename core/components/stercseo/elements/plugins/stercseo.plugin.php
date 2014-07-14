@@ -62,9 +62,14 @@ switch ($modx->event->name) {
             StercSEO.record = '.$modx->toJSON($properties).';
         });
         </script>');
+	    $version = $modx->getVersionData();
 
 		/* include CSS and JS*/
-		$modx->regClientCSS($stercseo->config['cssUrl'].'stercseo.css');
+		if($version['version'] == 2 && $version['major_version'] == 3){
+			$modx->regClientCSS($stercseo->config['cssUrl'].'stercseo23.css');
+	    }else{
+	    	$modx->regClientCSS($stercseo->config['cssUrl'].'stercseo.css');
+	    }
 		$modx->regClientStartupScript($stercseo->config['jsUrl'].'mgr/stercseo.js');
 		$modx->regClientStartupScript($stercseo->config['jsUrl'].'mgr/sections/resource.js');
 		$modx->regClientStartupScript($stercseo->config['jsUrl'].'mgr/widgets/resource.grid.js');
