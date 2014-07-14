@@ -77,17 +77,28 @@ switch ($modx->event->name) {
 
 	case 'OnBeforeDocFormSave':
 	        $oldResource = ($mode == 'upd') ? $modx->getObject('modResource',$resource->get('id')) : $resource;
+			$properties = $oldResource->getProperties('stercseo');
 			if($_POST['urls'] != 'false' && isset($_POST['urls'])){
-				$newProperties = array(
-					'index' => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index', null, '1')),
-					'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow', null, '1')),
-					'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap', null, '1')),
-					'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority', null, '0.5')),
-					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly')),
-					'urls' => $modx->fromJSON($_POST['urls'])
-				);
+				if($mode == 'upd'){
+					$newProperties = array(
+						'index' => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
+						'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
+						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
+						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
+						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq']),
+						'urls' => $modx->fromJSON($_POST['urls'])
+					);
+				}else{
+					$newProperties = array(
+						'index' => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index', null, '1')),
+						'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow', null, '1')),
+						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap', null, '1')),
+						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority', null, '0.5')),
+						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly')),
+						'urls' => $modx->fromJSON($_POST['urls'])
+					);
+				}
 			}else{
-				$properties = $oldResource->getProperties('stercseo');
 				$newProperties = array(
 					'index' => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
 					'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
@@ -98,6 +109,7 @@ switch ($modx->event->name) {
 				);
 			}
 			if($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != ''){
+$modx->log(modX::LOG_LEVEL_ERROR, 'OLD: '.$oldResource->get('uri').' - NEW: '. $resource->get('uri'));
 				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
 			}
 
