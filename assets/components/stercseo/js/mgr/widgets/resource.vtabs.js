@@ -9,9 +9,8 @@ StercSEO.panel.Options = function(config) {
             bodyCssClass: 'vertical-tabs-body'
             ,autoScroll: true
             ,autoHeight: true
+            ,autoWidth: true
             ,border: false
-            ,anchor: '100%'
-            ,bodyStyle: 'padding: 15px 15px 15px 15px;'
         }
         ,listeners:{    //Dirty fix
             tabchange: function(tb, pnl){
