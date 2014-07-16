@@ -9,7 +9,7 @@
 
 define('PKG_NAME', 'StercSEO');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
-define('PKG_VERSION', '1.0.8');
+define('PKG_VERSION', '1.0.9');
 define('PKG_RELEASE', 'pl');
 define('PKG_CATEGORY', PKG_NAME);
 

@@ -1,5 +1,8 @@
 Changelog for StercSEO.
 
+StercSEO 1.0.9-pl
+-Fixed wide vtabs body for MODX 2.3
+
 StercSEO 1.0.8-pl
 - Fixed disappearing values when only update 301 redirects. This also fixes the multi context bug. 
 - Removed custom CSS for MODX 2.3
