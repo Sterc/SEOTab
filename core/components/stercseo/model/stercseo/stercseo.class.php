@@ -53,7 +53,7 @@ class StercSEO {
      * 		Example: web:1;de:4;es:7;fr:10
      */
     public $stercseoTv = null;
-	
+
 	public $defaults = array();
 
     /**
@@ -94,7 +94,7 @@ class StercSEO {
         if ($this->modx->lexicon) {
             $this->modx->lexicon->load('stercseo:default');
         }
-		
+
 		$this->defaults = array(
 			'index' => $this->modx->getOption('stercseo.index', null, '1'),
 			'follow' => $this->modx->getOption('stercseo.follow', null, '1'),
@@ -156,7 +156,8 @@ class StercSEO {
     public function sitemap($contextKey = 'web', $rowTpl, $outerTpl){
         $resources = $this->modx->getCollection('modResource',
             array(
-                array('context_key' => $contextKey, 'published' => 1, 'deleted' => 0, 'properties:NOT LIKE'=> '%"sitemap":"0"%')
+                array('context_key' => $contextKey, 'published' => 1, 'deleted' => 0),
+                array('properties:LIKE' => '%"sitemap":"1"%', 'OR:properties:LIKE' => '%"sitemap":null%', 'OR:properties:IS' => NULL)
             )
         );
         foreach($resources AS $resource){
