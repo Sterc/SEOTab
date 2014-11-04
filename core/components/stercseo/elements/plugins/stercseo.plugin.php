@@ -158,6 +158,13 @@ $modx->log(modX::LOG_LEVEL_ERROR, 'OLD: '.$oldResource->get('uri').' - NEW: '. $
 				$oldResource->save();
 			}
 		}
-		return true;
+		break;
+	case 'OnResourceDuplicate':
+		$props = $newResource->getProperties('stercseo');
+		$props['urls'] = array();
+		$newResource->setProperties($props,'stercseo');
+		$newResource->save();
+		break;
+
 }
 return;
