@@ -1,5 +1,8 @@
 Changelog for StercSEO.
 
+StercSEO 1.0.11-pl
+- Changed save function on new document
+
 StercSEO 1.0.10-pl
 -Reversed Pull request #30 for not working properly
 
