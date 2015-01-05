@@ -1,6 +1,6 @@
 Changelog for StercSEO.
 
-StercSEO 1.0.11-pl
+StercSEO 1.1.0-pl
 - Changed save function on new document
 
 StercSEO 1.0.10-pl
