@@ -63,6 +63,10 @@ $_lang['stercseo.freeze_uri'] = 'Freeze URL';
 $_lang['stercseo.uri_override'] = 'Stel een Freeze URL in voor deze pagina';
 $_lang['stercseo.uri_after'] = 'URL ná ';
 
+//Settings
+$_lang['setting_stercseo.oldurl'] = 'Oude website URL';
+$_lang['setting_stercseo.oldurl_desc'] = 'Zet de oude website URL voor als deze afwijkt van de huidige site URL (eindigend met een /)';
+
 
 
 

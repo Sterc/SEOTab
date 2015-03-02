@@ -1,5 +1,6 @@
 StercSEO.grid.Items = function(config) {
     config = config || {};
+    var siteUrl = (MODx.config['stercseo.oldurl']) ? MODx.config['stercseo.oldurl'] : MODx.config.site_url;
     Ext.applyIf(config,{
         id: 'stercseo-grid-items'
         ,cls: 'stercseo-grid'
@@ -24,7 +25,7 @@ StercSEO.grid.Items = function(config) {
             ,dataIndex: 'url'
             ,width: 700
             ,renderer: function(value){
-                return MODx.config.site_url+value;
+                return siteUrl+value;
             }
         }]
         ,tbar: [{
@@ -118,10 +119,9 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
 Ext.reg('stercseo-grid-items',StercSEO.grid.Items);
 
 
-
-
 StercSEO.window.CreateItem = function(config) {
     config = config || {};
+    var siteUrl = (MODx.config['stercseo.oldurl']) ? MODx.config['stercseo.oldurl'] : MODx.config.site_url;
     this.ident = config.ident || 'stercseo-mecitem'+Ext.id();
     Ext.applyIf(config,{
         title: _('stercseo.item_create')
@@ -139,7 +139,7 @@ StercSEO.window.CreateItem = function(config) {
         ,action: 'mgr/url/return'
         ,fields: [{
             xtype: 'textfield'
-            ,fieldLabel: MODx.config.site_url
+            ,fieldLabel: siteUrl
             ,labelAlign: 'left'
             ,labelStyle: 'padding: 7px 0px; width: auto;'
             ,name: 'url'

@@ -53,5 +53,13 @@ $settings['stercseo.changefreq']->fromArray(array(
     'namespace' => 'stercseo',
      'area' => 'general',
 ),'',true,true);
+$settings['stercseo.oldurl']= $modx->newObject('modSystemSetting');
+$settings['stercseo.oldurl']->fromArray(array(
+    'key' => 'stercseo.oldurl',
+     'value' => '',
+     'xtype' => 'textfield',
+    'namespace' => 'stercseo',
+     'area' => 'general',
+),'',true,true);
 
 return $settings;
