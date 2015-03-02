@@ -76,6 +76,8 @@ $_lang['setting_stercseo.priority'] = 'Default-Setting: Priority';
 $_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
 $_lang['setting_stercseo.changefreq'] = 'Default-Setting: Update frequency';
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
+$_lang['setting_stercseo.oldurl'] = 'Old site URL';
+$_lang['setting_stercseo.oldurl_desc'] = 'Set the full old URL for when the old URL differs from the current site URL (ending with a /)';
 
 
 
