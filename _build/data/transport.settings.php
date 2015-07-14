@@ -53,5 +53,14 @@ $settings['stercseo.changefreq']->fromArray(array(
     'namespace' => 'stercseo',
      'area' => 'general',
 ),'',true,true);
+$settings['stercseo.allowed_contexts']= $modx->newObject('modSystemSetting');
+$settings['stercseo.allowed_contexts']->fromArray(array(
+    'key' => 'stercseo.allowed_contexts',
+     'value' => 'weekly',
+     'xtype' => 'textfield',
+    'namespace' => 'stercseo',
+     'area' => 'general',
+     'description' => 'Leave empty to enable on all contexts. Comma delimited context keys for only enable for that contexts.'
+),'',true,true);
 
 return $settings;
