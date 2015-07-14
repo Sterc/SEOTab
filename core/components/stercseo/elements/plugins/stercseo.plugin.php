@@ -41,6 +41,8 @@ switch ($modx->event->name) {
 	case 'OnDocFormPrerender':
 		$resource =& $modx->event->params['resource'];
 		if($resource){
+			//First check if SEOTab is allowed in this context
+			if(!$stercseo->isAllowed($resource->get('context_key'))) return;
 			$properties = $resource->getProperties('stercseo');
 		}
 		if(empty($properties)){
@@ -82,6 +84,7 @@ switch ($modx->event->name) {
 
 	case 'OnBeforeDocFormSave':
 	        $oldResource = ($mode == 'upd') ? $modx->getObject('modResource',$resource->get('id')) : $resource;
+			if(!$stercseo->isAllowed($oldResource->get('context_key'))) return;
 			$properties = $oldResource->getProperties('stercseo');
 			if($_POST['urls'] != 'false' && isset($_POST['urls'])){
 				if($mode == 'upd'){
@@ -133,6 +136,7 @@ switch ($modx->event->name) {
 		break;
 	case 'OnLoadWebDocument':
 		if($modx->resource){
+			if(!$stercseo->isAllowed($modx->resource->get('context_key'))) return;
 			$properties = $modx->resource->getProperties('stercseo');
 			$metaContent = array('noopd', 'noydir');
 			if(!$properties['index']) $metaContent[] = 'noindex';
@@ -162,6 +166,8 @@ switch ($modx->event->name) {
 			$resource 	 = $modx->getObject('modResource',$node['id']);
 			$resource->set('parent', $node['parent']);
 
+			if(!$stercseo->isAllowed($resource->get('context_key'))) return;
+
 			if($oldResource->get('uri') != $resource->getAliasPath($resource->get('alias')) && $oldResource->get('uri') != ''){
 				$newProperties = $oldResource->getProperties('stercseo');
 				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
@@ -171,6 +177,7 @@ switch ($modx->event->name) {
 		}
 		break;
 	case 'OnResourceDuplicate':
+		if(!$stercseo->isAllowed($newResource->get('context_key'))) return;
 		$props = $newResource->getProperties('stercseo');
 		$props['urls'] = array();
 		$newResource->setProperties($props,'stercseo');

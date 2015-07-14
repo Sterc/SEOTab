@@ -1,5 +1,8 @@
 Changelog for StercSEO.
 
+StercSEO 1.1.2-pl
+- Added ability to hide SEOTab for certain contexts (Todo: also add usergroups and templates)
+
 StercSEO 1.1.1-pl
 - Optimized 301 grid for MODX 2.3.x
 

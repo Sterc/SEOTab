@@ -175,4 +175,16 @@ class StercSEO {
         return $this->getChunk($outerTpl, array('wrapper' => $output));
     }
 
+    public function isAllowed($context_key){
+        $allowedContexts = $this->modx->getOption('stercseo.allowed_contexts');
+        if($allowedContexts && !empty($allowedContexts)){
+            if(in_array($context_key, explode(',', $allowedContexts))){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
