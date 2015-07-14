@@ -111,7 +111,7 @@ switch ($modx->event->name) {
 						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
 						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
 						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq']),
-						'urls' => $modx->fromJSON($_POST['urls'])
+						'urls' => $properties['urls']
 					);
 				}else{
 					$newProperties = array(
@@ -120,7 +120,7 @@ switch ($modx->event->name) {
 						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap', null, '1')),
 						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority', null, '0.5')),
 						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly')),
-						'urls' => $modx->fromJSON($_POST['urls'])
+						'urls' => $properties['urls']
 					);
 				}
 			}
