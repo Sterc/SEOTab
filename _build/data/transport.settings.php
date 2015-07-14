@@ -56,7 +56,7 @@ $settings['stercseo.changefreq']->fromArray(array(
 $settings['stercseo.allowed_contexts']= $modx->newObject('modSystemSetting');
 $settings['stercseo.allowed_contexts']->fromArray(array(
     'key' => 'stercseo.allowed_contexts',
-     'value' => 'weekly',
+     'value' => '',
      'xtype' => 'textfield',
     'namespace' => 'stercseo',
      'area' => 'general',
