@@ -16,7 +16,7 @@
 #seo-tab .vertical-tabs-header ul.x-tab-strip-top li.x-tab-strip-active {
 border-bottom: 2px #92AF4C solid !important;
 }
-#seo-tab .vertical-tabs-header{ padding-bottom: 200px !important;}
+#seo-tab .vertical-tabs-header{ /*padding-bottom: 200px !important;*/}
 #seo-tab .x-grid3 {
     border: 1px solid #CCCCCC;
 }
@@ -77,6 +77,7 @@ margin-bottom: 10px;
     background:-webkit-gradient( linear,left bottom,left top,color-stop(0.32,#555),color-stop(0.69,#666),color-stop(0,#555) );
     border:1px solid #1E1E1E;
     border-bottom: none;
+    color: white;
 /*    margin-left: 10px;
 */}
 
