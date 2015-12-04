@@ -147,9 +147,9 @@ switch ($modx->event->name) {
 		$url = urldecode($_SERVER['REQUEST_URI']);
         
 		$convertedUrl = str_replace('/', '_/', ltrim($url, '/'));
-        	$convertedUrl = json_encode($convertedUrl);
-        	$convertedUrl = str_replace("\u", "\\\\u", $convertedUrl);
-        	$convertedUrl = str_replace('"', '', $convertedUrl);
+        $convertedUrl = json_encode($convertedUrl);
+        $convertedUrl = str_replace("\u", "\\\\u", $convertedUrl);
+        $convertedUrl = str_replace('"', '', $convertedUrl);
         
 		$w = array(
 			'properties:LIKE' => '%'.$convertedUrl.'%'
