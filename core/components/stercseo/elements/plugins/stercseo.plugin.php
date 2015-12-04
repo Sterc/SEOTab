@@ -144,14 +144,21 @@ switch ($modx->event->name) {
 		break;
 
 	case 'OnPageNotFound':
-		$url = $_REQUEST[$modx->getOption('request_param_alias', null, 'q')];
+		$url = urldecode($_SERVER['REQUEST_URI']);
+        
 		$convertedUrl = str_replace('/', '_/', ltrim($url, '/'));
+        	$convertedUrl = json_encode($convertedUrl);
+        	$convertedUrl = str_replace("\u", "\\\\u", $convertedUrl);
+        	$convertedUrl = str_replace('"', '', $convertedUrl);
+        
 		$w = array(
-			'properties:LIKE' => '%"'.$convertedUrl.'"%'
+			'properties:LIKE' => '%'.$convertedUrl.'%'
 		);
+		
 		if($modx->getOption('stercseo.context-aware-alias', null, '0')){
 			$w['context_key'] = $modx->context->key;
 		}
+
 		$alreadyExists = $modx->getObject('modResource', $w);
 		if($alreadyExists){
 			$id = $modx->makeUrl($alreadyExists->get('id'));
