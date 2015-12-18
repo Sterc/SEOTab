@@ -3,7 +3,8 @@ Changelog for StercSEO.
 StercSEO 1.2.2-pl
 - Changed author
 - Removed development files
-
+- Added automatically adding 301 redirects if alias of page is changed #42
+- Added option to set params outerTpl and rowTpl for StercSeoSiteMap snippet #52
 
 StercSEO 1.2.1-pl
 - Fixed 301 redirect do not match URLS containing & and %  #32
