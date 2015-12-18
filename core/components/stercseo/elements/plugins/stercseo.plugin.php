@@ -39,6 +39,15 @@ if (!($stercseo instanceof StercSEO)) return;
 
 switch ($modx->event->name) {
 	case 'OnDocFormPrerender':
+		$exclUsergroups = explode(',', $modx->getOption('stercseo.hide_from_usergroups'));
+	    if(!empty($exclUsergroups)){
+	        foreach($exclUsergroups as $exclUserGroup){
+	            if($modx->getUser()->isMember($exclUserGroup)){
+	                return;
+	            }
+	        }
+	    }
+
 		$resource =& $modx->event->params['resource'];
 		if($resource){
 			//First check if SEOTab is allowed in this context

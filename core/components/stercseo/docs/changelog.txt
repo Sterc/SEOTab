@@ -1,5 +1,9 @@
 Changelog for StercSEO.
 
+StercSEO 1.2.3-pl
+- Added systemsetting for excluding usergroups from SEO Tab #39
+- Changed StercSEO Plugin to check for excluded usergroups. #39
+
 StercSEO 1.2.2-pl
 - Changed author
 - Removed development files

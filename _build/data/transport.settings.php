@@ -62,5 +62,14 @@ $settings['stercseo.allowed_contexts']->fromArray(array(
      'area' => 'general',
      'description' => 'Leave empty to enable on all contexts. Comma delimited context keys for only enable for that contexts.'
 ),'',true,true);
+$settings['stercseo.hide_from_usergroups']->fromArray(array(
+    'key' => 'stercseo.hide_from_usergroups',
+     'value' => '',
+     'xtype' => 'textfield',
+    'namespace' => 'stercseo',
+     'area' => 'general',
+     'description' => 'A comma delimited list of usergroups to exclude'
+),'',true,true);
+
 
 return $settings;
