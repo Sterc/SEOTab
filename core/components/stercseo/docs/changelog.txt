@@ -1,5 +1,9 @@
 Changelog for StercSEO.
 
+StercSEO 1.2.2-pl
+- Changed author
+- Removed development files
+
 
 StercSEO 1.2.1-pl
 - Fixed 301 redirect do not match URLS containing & and %  #32
