@@ -125,8 +125,11 @@ switch ($modx->event->name) {
 					);
 				}
 			}
+			
+			if($oldResource->get('alias') != $resource->get('alias') && $oldResource->get('alias') != ''){
+				$newProperties['urls'][] = array('url' => $oldResource->get('alias'));
+			}
 			if($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != ''){
-//$modx->log(modX::LOG_LEVEL_ERROR, 'OLD: '.$oldResource->get('uri').' - NEW: '. $resource->get('uri'));
 				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
 			}
 
