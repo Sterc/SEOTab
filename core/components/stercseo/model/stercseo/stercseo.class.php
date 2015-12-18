@@ -2,7 +2,7 @@
 /**
  * StercSEO
  *
- * Copyright 2013 by Wieger Sloot at Sterc <wieger@sterc.nl>
+ * Copyright 2013 by Sterc <modx@sterc.nl>
  *
  * This file is part of StercSEO.
  *
@@ -25,7 +25,7 @@
  * This file is the main class file for StercSEO.
  *
  *
- * @author Wieger Sloot at Sterc <wieger@sterc.nl>
+ * @author Sterc <modx@sterc.nl>
  *
  * @package stercseo
  */

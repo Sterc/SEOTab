@@ -1,7 +1,7 @@
 SEOTab
 ========
 
-Author: Wieger Sloot at Sterc.nl <modx@sterc.nl>
+Author: Sterc.nl <modx@sterc.nl>
 
 Description:
 --------------------

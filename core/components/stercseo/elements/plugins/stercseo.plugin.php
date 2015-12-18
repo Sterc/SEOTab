@@ -2,7 +2,7 @@
 /**
  * StercSEO
  *
- * Copyright 2013 by Wieger Sloot, Sterc internet & marketing <modx@sterc.nl>
+ * Copyright 2013 by Sterc internet & marketing <modx@sterc.nl>
  *
  * This file is part of StercSEO.
  *
@@ -28,7 +28,7 @@
  * Events:
  * OnDocFormPrerender,OnDocFormSave,OnHandleRequest,OnPageNotFound
  *
- * @author Wieger Sloot, Sterc internet & marketing <modx@sterc.nl>
+ * @author Sterc internet & marketing <modx@sterc.nl>
  *
  * @package stercseo
  *

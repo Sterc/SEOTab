@@ -4,7 +4,7 @@
  *
  * @package stercSEO
  * @subpackage build
- * @author Wieger Sloot at Sterc <modx@sterc.nl>
+ * @author Sterc <modx@sterc.nl>
  */
 
 define('PKG_NAME', 'StercSEO');
