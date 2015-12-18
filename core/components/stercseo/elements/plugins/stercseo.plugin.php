@@ -127,7 +127,7 @@ switch ($modx->event->name) {
 			}
 			
 			if($oldResource->get('alias') != $resource->get('alias') && $oldResource->get('alias') != ''){
-				$newProperties['urls'][] = array('url' => $oldResource->get('alias'));
+				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
 			}
 			if($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != ''){
 				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
