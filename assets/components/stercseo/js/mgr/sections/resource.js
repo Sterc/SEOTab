@@ -12,21 +12,21 @@ Ext.onReady(function() {
     // });
 
     //Add new tab
-	MODx.addTab("modx-resource-tabs",{
-		title:"SEO"
-		,id:"seo-tab"
-		,bodyStyle: 'padding:0;'
-		,items: [{
-			xtype: 'stercseo-vtabs-options'
+    MODx.addTab("modx-resource-tabs",{
+        title:"SEO"
+        ,id:"seo-tab"
+        ,bodyStyle: 'padding:0;'
+        ,items: [{
+            xtype: 'stercseo-vtabs-options'
             ,bodyStyle: 'min-height:300px;'
-			,headerCfg: {
-				tag: 'div'
-				,cls: 'x-tab-panel-header vertical-tabs-header'
-				,html:'<h4 id="modx-resource-vtabs-header-title">'+_('stercseo.seo')+'</h4>'
-			}
-			,items:[{
-				title: _('stercseo.findability')
-				,items: [{
+            ,headerCfg: {
+                tag: 'div'
+                ,cls: 'x-tab-panel-header vertical-tabs-header'
+                ,html:'<h4 id="modx-resource-vtabs-header-title">'+_('stercseo.seo')+'</h4>'
+            }
+            ,items:[{
+                title: _('stercseo.findability')
+                ,items: [{
                     xtype: 'container'
                     ,layout: 'form'
                     ,labelAlign: 'top'
@@ -94,7 +94,7 @@ Ext.onReady(function() {
                         ,valueField: "value"
                         ,displayField: "text"
                         ,mode: "local"
-                        ,value: Ext.getCmp('modx-resource-searchable').getValue()
+                        ,value: Ext.getCmp('modx-panel-resource').record.searchable
                         ,listeners: {change: function(){MODx.fireResourceFormChange();}}
                         ,width: 400
                     },{
@@ -104,7 +104,7 @@ Ext.onReady(function() {
                         ,cls: 'desc-under'
                     }]
                 }]
-			},{
+            },{
                 title: _('stercseo.sitemap')
                 ,items: [{
                     xtype: 'container'
@@ -224,7 +224,7 @@ Ext.onReady(function() {
                         ,hideLabel: true
                         ,name: 'uri_override'
                         ,value: 1
-                        ,checked: Ext.getCmp('modx-resource-uri-override').getValue()
+                        ,checked: Ext.getCmp('modx-panel-resource').record.uri_override
                         ,listeners: {
                             check: function(){
                                 if(this.getValue()){
@@ -232,7 +232,7 @@ Ext.onReady(function() {
                                     Ext.getCmp('stercseo-uri').setValue(Ext.getCmp('modx-panel-resource').record.uri);
                                 }else{
                                     Ext.getCmp('stercseo-uri').hide();
-                                    Ext.getCmp('stercseo-uri').setValue();
+                                    Ext.getCmp('stercseo-uri').setValue(Ext.getCmp('modx-panel-resource').record.uri);
                                 }
                                 MODx.fireResourceFormChange();
                             }
@@ -244,6 +244,7 @@ Ext.onReady(function() {
                         ,id: 'stercseo-uri'
                         ,maxLength: 255
                         ,anchor: '50%'
+                        ,value: Ext.getCmp('modx-panel-resource').record.uri
                         ,hidden: false
                         ,listeners: {change: function(){MODx.fireResourceFormChange();}}
                     },{
@@ -258,12 +259,11 @@ Ext.onReady(function() {
                     }]
                 }]
             }]
-		}]
-	});
-
-
+        }]
+    });
+    
     //Check uri
-    if(Ext.getCmp('modx-resource-uri-override').getValue()){
+    if(Ext.getCmp('modx-panel-resource').record.uri_override){
         Ext.getCmp('stercseo-uri').show();
         Ext.getCmp('stercseo-uri').setValue(Ext.getCmp('modx-panel-resource').record.uri);
     }else{

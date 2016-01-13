@@ -2,7 +2,7 @@
 /**
  * StercSEO
  *
- * Copyright 2013 by Wieger Sloot at Sterc <wieger@sterc.nl>
+ * Copyright 2013 by Sterc <modx@sterc.nl>
  *
  * This file is part of StercSEO.
  *
@@ -25,7 +25,7 @@
  * This file is the main class file for StercSEO.
  *
  *
- * @author Wieger Sloot at Sterc <wieger@sterc.nl>
+ * @author Sterc <modx@sterc.nl>
  *
  * @package stercseo
  */
@@ -53,6 +53,8 @@ class StercSEO {
      * 		Example: web:1;de:4;es:7;fr:10
      */
     public $stercseoTv = null;
+
+	public $defaults = array();
 
     /**
      * The StercSEO Constructor.
@@ -92,6 +94,15 @@ class StercSEO {
         if ($this->modx->lexicon) {
             $this->modx->lexicon->load('stercseo:default');
         }
+
+		$this->defaults = array(
+			'index' => $this->modx->getOption('stercseo.index', null, '1'),
+			'follow' => $this->modx->getOption('stercseo.follow', null, '1'),
+			'search' => $this->modx->getOption('stercseo.search', null, '1'),
+			'sitemap' => $this->modx->getOption('stercseo.sitemap', null, '1'),
+			'changefreq' => $this->modx->getOption('stercseo.changefreq', null, 'weekly'),
+			'priority' => $this->modx->getOption('stercseo.priority', null, '0.5'),
+		);
 	}
 
     /**
@@ -142,20 +153,38 @@ class StercSEO {
         }
         return $chunk;
     }
-    public function sitemap($rowTpl, $outerTpl){
-        $resources = $this->modx->getCollection('modResource', array('properties:LIKE' => '%"sitemap":"1"%'));
+    public function sitemap($contextKey = array('web'), $rowTpl, $outerTpl, $allowSymlinks){
+        $c = $this->modx->newQuery('modResource');
+        $c->where(array(
+            array('context_key:IN' => $contextKey, 'published' => 1, 'deleted' => 0),
+            array('properties:LIKE' => '%"sitemap":"1"%', 'OR:properties:LIKE' => '%"sitemap":null%', 'OR:properties:IS' => NULL)
+        ));
+        if(!$allowSymlinks) $c->where(array('class_key:!=' => 'modSymLink'));
+        $resources = $this->modx->getCollection('modResource', $c);
         foreach($resources AS $resource){
             $properties = $resource->getProperties('stercseo');
             $editedon = $resource->get('editedon');
             $createdon = $resource->get('createdon');
             $output .= $this->getChunk($rowTpl,array(
                 'url' => $this->modx->makeUrl($resource->get('id'), '', '', 'full'),
-                'lastmod' => (($editedon > 0) ? $editedon : $createdon),
-                'changefreq' => $properties['changefreq'],
-                'priority' => $properties['priority'],
+                'lastmod' => date('c', strtotime((($editedon > 0) ? $editedon : $createdon))),
+                'changefreq' => (!empty($properties['changefreq']) ? $properties['changefreq'] : $this->defaults['changefreq']),
+                'priority' => (!empty($properties['priority']) ? $properties['priority'] : $this->defaults['priority']),
             ));
         }
         return $this->getChunk($outerTpl, array('wrapper' => $output));
+    }
+
+    public function isAllowed($context_key){
+        $allowedContexts = $this->modx->getOption('stercseo.allowed_contexts');
+        if($allowedContexts && !empty($allowedContexts)){
+            if(in_array($context_key, explode(',', $allowedContexts))){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return true;
     }
 
 }
