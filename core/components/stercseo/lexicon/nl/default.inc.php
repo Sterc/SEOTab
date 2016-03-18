@@ -2,7 +2,7 @@
 /**
  * StercSEO Dutch language file
  *
- * @author Sterc <modx@sterc.nl> - Sterc Internet & Marketing
+ * @author Wieger Sloot <wieger+stercseo@sterc.nl> - Sterc Internet & Marketing
  *
  * @package stercseo
  * @subpackage lexicon

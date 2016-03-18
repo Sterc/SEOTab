@@ -24,7 +24,7 @@ StercSEO.grid.Items = function(config) {
             ,dataIndex: 'url'
             ,width: 700
             ,renderer: function(value){
-                return MODx.config.site_url+value;
+                return value;
             }
         }]
         ,tbar: [{
@@ -101,16 +101,26 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
 
         var selected = Ext.getCmp(id).getSelectionModel().getSelections();
 
-            if(selected.length>0) {
-                for(var i=0;i<selected.length;i++) {
-                    Ext.getCmp(id).getStore().remove(selected[i]);
-                }
+        if(selected.length>0) {
+            for(var i=0;i<selected.length;i++) {
+                console.log(selected[i].data.url)
+                MODx.Ajax.request({
+                    url: StercSEO.config.connectorUrl,
+                    params: {
+                        action: 'mgr/url/remove'
+                        ,url:  selected[i].data.url
+                        ,id: MODx.request.id
+                    }
+                });
+                Ext.getCmp(id).getStore().remove(selected[i]);
+                //console.log(selected[i])
             }
+        }
 
-            var JsonData = Ext.encode(Ext.pluck(Ext.getCmp(id).getStore().data.items, 'data'));
-            Ext.getCmp('sterceseo-urls').setValue(JsonData);
+        var JsonData = Ext.encode(Ext.pluck(Ext.getCmp(id).getStore().data.items, 'data'));
+        Ext.getCmp('sterceseo-urls').setValue(JsonData);
 
-                MODx.fireResourceFormChange();
+        MODx.fireResourceFormChange();
 
         return;
     }
@@ -127,7 +137,7 @@ StercSEO.window.CreateItem = function(config) {
         title: _('stercseo.item_create')
         ,id: this.ident
         ,modal:true
-        ,height: 150
+        ,height: 200
         ,width: 475
         ,url: StercSEO.config.connector_url
         ,baseParams: {
@@ -139,13 +149,13 @@ StercSEO.window.CreateItem = function(config) {
         ,action: 'mgr/url/return'
         ,fields: [{
             xtype: 'textfield'
-            ,fieldLabel: MODx.config.site_url
+            ,fieldLabel: 'Redirect url (Volledige url, bij: https://www.vvvschiermonnikoog.nl/autoparse.asp?steID=1&item=953)'
             ,labelAlign: 'left'
-            ,labelStyle: 'padding: 7px 0px; width: auto;'
+            ,labelStyle: 'padding: 7px 0px; width: 100%;'
             ,name: 'url'
             ,id: this.ident+'-url'
             ,anchor: '100%'
-            ,style: 'margin-left:2px;'
+            ,style: 'width: 98%;'
             ,stripCharsRe: /\s+/g
             ,allowBlank: false
         }]

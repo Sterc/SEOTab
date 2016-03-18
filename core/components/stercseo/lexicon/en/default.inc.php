@@ -2,7 +2,7 @@
 /**
  * StercSEO Dutch language file
  *
- * @author Sterc <modx@sterc.nl> - Sterc Internet & Marketing
+ * @author Wieger Sloot <wieger+stercseo@sterc.nl> - Sterc Internet & Marketing
  *
  * @package stercseo
  * @subpackage lexicon
@@ -76,7 +76,6 @@ $_lang['setting_stercseo.priority'] = 'Default-Setting: Priority';
 $_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
 $_lang['setting_stercseo.changefreq'] = 'Default-Setting: Update frequency';
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
-$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Hide SEO Tab for defined usergroups';
 
 
 

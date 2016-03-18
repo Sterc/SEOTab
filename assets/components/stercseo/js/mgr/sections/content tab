@@ -1,0 +1,54 @@
+/*,{
+				title: _('content')
+				,items: [{
+					html: '<h4 class="stercseo-header-title">'+_('stercseo.seo')+' - '+_('stercseo.content')+'</h4><p>'+_('stercseo.content_desc')+'</p>'
+					,border: false
+					,bodyCssClass: 'stercseo-panel-desc'
+				},{
+                    xtype: 'container'
+                    ,layout: 'form'
+                    ,labelAlign: 'top'
+                    ,labelSeparator: ''
+                    ,items: [{
+                        xtype: 'panel'
+                        ,border: false
+                        ,anchor: '100%'
+                        ,name: 'test'
+                        ,hidden: StercSEO.isHidden('modx-resource-pagetitle')
+                        ,fieldLabel: _('pagetitle')
+                        ,html: '<p>'+StercSEO.highlightWords(Ext.getCmp('modx-resource-pagetitle').getValue(), ['Lorem'])+'</p>'
+                    },{
+                        xtype: 'panel'
+                        ,border: false
+                        ,anchor: '100%'
+                        ,name: 'test'
+                        ,hidden: StercSEO.isHidden('modx-resource-longtitle')
+                        ,fieldLabel: _('longtitle')
+                        ,html: '<p>'+StercSEO.highlightWords(Ext.getCmp('modx-resource-longtitle').getValue(), ['Lorem'])+'</p>'
+                    },{
+                        xtype: 'panel'
+                        ,border: false
+                        ,anchor: '100%'
+                        ,name: 'test'
+                        ,hidden: StercSEO.isHidden('modx-resource-introtext')
+                        ,fieldLabel: _('introtext')
+                        ,html: '<p>'+StercSEO.highlightWords(Ext.getCmp('modx-resource-introtext').getValue(), ['Lorem'])+'</p>'
+                    },{
+                        xtype: 'panel'
+                        ,border: false
+                        ,anchor: '100%'
+                        ,name: 'test'
+                        ,hidden: StercSEO.isHidden('modx-resource-description')
+                        ,fieldLabel: _('description')
+                        ,html: '<p>'+StercSEO.highlightWords(Ext.getCmp('modx-resource-description').getValue(), ['Lorem'])+'</p>'
+                    },{
+                        xtype: 'panel'
+                        ,border: false
+                        ,anchor: '100%'
+                        ,name: 'test'
+                        ,hidden: StercSEO.isHidden('ta')
+                        ,fieldLabel: _('content')
+                        ,html: StercSEO.highlightWords(Ext.getCmp('ta').getValue(), ['Lorem'])
+                    }]
+                }]
+			}*/

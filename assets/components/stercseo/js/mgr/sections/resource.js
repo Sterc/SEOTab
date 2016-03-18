@@ -232,7 +232,7 @@ Ext.onReady(function() {
                                     Ext.getCmp('stercseo-uri').setValue(Ext.getCmp('modx-panel-resource').record.uri);
                                 }else{
                                     Ext.getCmp('stercseo-uri').hide();
-                                    Ext.getCmp('stercseo-uri').setValue(Ext.getCmp('modx-panel-resource').record.uri);
+                                    Ext.getCmp('stercseo-uri').setValue();
                                 }
                                 MODx.fireResourceFormChange();
                             }
@@ -244,7 +244,6 @@ Ext.onReady(function() {
                         ,id: 'stercseo-uri'
                         ,maxLength: 255
                         ,anchor: '50%'
-                        ,value: Ext.getCmp('modx-panel-resource').record.uri
                         ,hidden: false
                         ,listeners: {change: function(){MODx.fireResourceFormChange();}}
                     },{
@@ -261,7 +260,8 @@ Ext.onReady(function() {
             }]
         }]
     });
-    
+
+
     //Check uri
     if(Ext.getCmp('modx-panel-resource').record.uri_override){
         Ext.getCmp('stercseo-uri').show();

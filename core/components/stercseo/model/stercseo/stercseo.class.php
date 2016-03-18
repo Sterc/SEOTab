@@ -2,7 +2,7 @@
 /**
  * StercSEO
  *
- * Copyright 2013 by Sterc <modx@sterc.nl>
+ * Copyright 2013 by Wieger Sloot at Sterc <wieger@sterc.nl>
  *
  * This file is part of StercSEO.
  *
@@ -25,7 +25,7 @@
  * This file is the main class file for StercSEO.
  *
  *
- * @author Sterc <modx@sterc.nl>
+ * @author Wieger Sloot at Sterc <wieger@sterc.nl>
  *
  * @package stercseo
  */
@@ -89,7 +89,7 @@ class StercSEO {
             'processorsPath' => $corePath.'processors/',
             'templatesPath' => $corePath.'templates/',
         ),$config);
-
+        $this->modx->addPackage('stercseo',$this->config['modelPath']);
         /* load stercseo lexicon */
         if ($this->modx->lexicon) {
             $this->modx->lexicon->load('stercseo:default');
