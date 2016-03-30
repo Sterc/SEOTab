@@ -90,59 +90,85 @@ switch ($modx->event->name) {
 		break;
 
 	case 'OnBeforeDocFormSave':
-	        $oldResource = ($mode == 'upd') ? $modx->getObject('modResource',$resource->get('id')) : $resource;
-			if(!$stercseo->isAllowed($oldResource->get('context_key'))) return;
-			$properties = $oldResource->getProperties('stercseo');
-			if($_POST['urls'] != 'false' && isset($_POST['urls'])){
-				if($mode == 'upd'){
-					$newProperties = array(
-						'index' => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
-						'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
-						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
-						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
-						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq']),
-						'urls' => $modx->fromJSON($_POST['urls'])
-					);
-				}else{
-					$newProperties = array(
-						'index' => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index', null, '1')),
-						'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow', null, '1')),
-						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap', null, '1')),
-						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority', null, '0.5')),
-						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly')),
-						'urls' => $modx->fromJSON($_POST['urls'])
-					);
-				}
-			}else{
-			   	if($mode == 'upd'){
-					$newProperties = array(
-						'index' => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
-						'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
-						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
-						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
-						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq']),
-						'urls' => $properties['urls']
-					);
-				}else{
-					$newProperties = array(
-						'index' => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index', null, '1')),
-						'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow', null, '1')),
-						'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap', null, '1')),
-						'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority', null, '0.5')),
-						'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly')),
-						'urls' => $properties['urls']
-					);
-				}
+		$oldResource = ($mode == 'upd') ? $modx->getObject('modResource',$resource->get('id')) : $resource;
+		if(!$stercseo->isAllowed($oldResource->get('context_key'))) return;
+		$properties = $oldResource->getProperties('stercseo');
+		if($_POST['urls'] != 'false' && isset($_POST['urls'])) {
+			if($mode == 'upd') {
+				$newProperties = array(
+					'index'      => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
+					'follow'     => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
+					'sitemap'    => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
+					'priority'   => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
+					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq']),
+					'urls'       => $modx->fromJSON($_POST['urls'])
+				);
+			} else {
+				$newProperties = array(
+					'index'      => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index',null,'1')),
+					'follow'     => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow',null,'1')),
+					'sitemap'    => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap',null,'1')),
+					'priority'   => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority',null,'0.5')),
+					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq',null,'weekly')),
+					'urls'       => $modx->fromJSON($_POST['urls'])
+				);
 			}
-			
-			if($oldResource->get('alias') != $resource->get('alias') && $oldResource->get('alias') != ''){
-				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
+		} else {
+			if($mode == 'upd') {
+				$newProperties = array(
+					'index'      => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
+					'follow'     => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
+					'sitemap'    => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
+					'priority'   => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
+					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq']),
+					'urls'       => $properties['urls']
+				);
+			} else {
+				$newProperties = array(
+					'index'      => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index',null,'1')),
+					'follow'     => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow',null,'1')),
+					'sitemap'    => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap',null,'1')),
+					'priority'   => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority',null,'0.5')),
+					'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq',null,'weekly')),
+					'urls'       => $properties['urls']
+				);
 			}
-			if($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != ''){
-				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
-			}
+		}
+		$uriChanged = false;
+		if($oldResource->get('alias') != $resource->get('alias') && $oldResource->get('alias') != '') {
+			$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
+			$uriChanged              = true;
+		}
+		if($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
+			$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
+			$uriChanged              = true;
+		}
+		$resource->setProperties($newProperties,'stercseo');
 
-        	$resource->setProperties($newProperties,'stercseo');
+		// Recursive Set all Children
+		if($uriChanged && $modx->getOption('use_alias_path')) {
+			$resourceOldBasePath = $oldResource->getAliasPath(
+				$oldResource->get('alias'),
+				$oldResource->toArray() + array('isfolder' => 1)
+			);
+			$resourceNewBasePath = $resource->getAliasPath(
+				$resource->get('alias'),
+				$resource->toArray() + array('isfolder' => 1)
+			);
+			/** @var modResource[] $childResources */
+			$childResources = $modx->getIterator('modResource',array(
+				'uri:LIKE'     => $resourceOldBasePath . '%',
+				'uri_override' => '0',
+				'context_key'  => $resource->get('context_key')
+			));
+			# echo $resourceOldBasePath.' => ' . $resourceNewBasePath;
+			foreach ($childResources as $childResource) {
+				$newProperties           = $oldResource->getProperties('stercseo');
+				$newProperties['urls'][] = array('url' => $childResource->get('uri'));
+				$childResource->setProperties($newProperties,'stercseo');
+				$childResource->save();
+			}
+		}
 		break;
 	case 'OnLoadWebDocument':
 		if($modx->resource){
@@ -156,40 +182,92 @@ switch ($modx->event->name) {
 		break;
 
 	case 'OnPageNotFound':
-		$url = urldecode($_SERVER['REQUEST_URI']);
-        
-		$convertedUrl = str_replace('/', '_/', ltrim($url, '/'));
-        $convertedUrl = json_encode($convertedUrl);
-        $convertedUrl = str_replace("\u", "\\\\u", $convertedUrl);
-        $convertedUrl = str_replace('"', '', $convertedUrl);
-        
-		$w = array(
-			'properties:LIKE' => '%'.$convertedUrl.'%'
-		);
-		
-		if($modx->getOption('stercseo.context-aware-alias', null, '0')){
+		$url          = trim(urldecode($modx->resourceIdentifier),'/');
+		$convertedUrl = str_replace('/','_/',$url);
+		$convertedUrl = json_encode($convertedUrl);
+		$convertedUrl = str_replace("\\u","\\\\u",$convertedUrl);
+		$convertedUrl = str_replace('"','',$convertedUrl);
+		$convertedUrl = str_replace("'",'',$convertedUrl);
+		$version      = $modx->getVersionData();
+		if($version['version'] == '2' && $version['major_version'] == '4' && $version['minor_version'] >= '2') {
+			$w = array(
+				'properties LIKE ' . str_replace('_\\\\','_\\',$modx->quote('%' . ltrim($convertedUrl,'/') . '%'))
+			);
+		} else {
+			$w = array(
+				'properties:LIKE' => '%"' . ltrim($convertedUrl,'/') . '%'
+			);
+		}
+
+		if($modx->getOption('stercseo.context-aware-alias',null,'0')) {
 			$w['context_key'] = $modx->context->key;
 		}
 
-		$alreadyExists = $modx->getObject('modResource', $w);
-		if($alreadyExists){
-			$id = $modx->makeUrl($alreadyExists->get('id'));
-			$modx->sendRedirect($id, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+		$docs = $modx->getIterator('modResource',$w);
+		foreach ($docs as $alreadyExists) {
+			$seo = $alreadyExists->getProperties('stercseo');
+			if($seo['urls']) {
+				foreach ($seo['urls'] as $oldurl) {
+
+					if(trim(strtolower($oldurl['url']),'/') == $url) {
+						$id = $modx->makeUrl($alreadyExists->get('id'));
+						$modx->sendRedirect($id,0,'REDIRECT_HEADER','HTTP/1.1 301 Moved Permanently');
+					}
+				}
+
+			}
 		}
 		break;
 	case 'OnResourceBeforeSort':
-		foreach($nodes as $node) {
-			$oldResource = $modx->getObject('modResource',$node['id']);
-			$resource 	 = $modx->getObject('modResource',$node['id']);
-			$resource->set('parent', $node['parent']);
+		list(,$resource) = explode('_',$modx->getOption('source',$_POST));
+		list(,$target) = explode('_',$modx->getOption('target',$_POST));
 
-			if(!$stercseo->isAllowed($resource->get('context_key'))) return;
+		switch ($modx->getOption('point',$_POST)) {
+			case 'above':
+			case 'below':
+				$tmpRes = $modx->getObject('modResource',$target);
+				$target = $tmpRes->get('parent');
+				unset($tmpRes);
+				break;
+		}
+		/** @var modResource $oldResource */
+		$oldResource = $modx->getObject('modResource',$resource);
+		/** @var modResource $resource */
+		$resource = $modx->getObject('modResource',$resource);
 
-			if($oldResource->get('uri') != $resource->getAliasPath($resource->get('alias')) && $oldResource->get('uri') != ''){
-				$newProperties = $oldResource->getProperties('stercseo');
-				$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
-				$oldResource->setProperties($newProperties,'stercseo');
-				$oldResource->save();
+		$resource->set('parent',$target);
+		$resource->set('uri','');
+		$newProperties = $oldResource->getProperties('stercseo');
+
+		$uriChanged = false;
+		if($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
+			$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
+			$uriChanged              = true;
+		}
+		// Recursive Set all Children
+		if($uriChanged && $modx->getOption('use_alias_path')) {
+			$oldResource->setProperties($newProperties,'stercseo');
+			$oldResource->save();
+
+			$resourceOldBasePath = $oldResource->getAliasPath(
+				$oldResource->get('alias'),
+				$oldResource->toArray() + array('isfolder' => 1)
+			);
+			$resourceNewBasePath = $resource->getAliasPath(
+				$resource->get('alias'),
+				$resource->toArray() + array('isfolder' => 1)
+			);
+			/** @var modResource[] $childResources */
+			$childResources = $modx->getIterator('modResource',array(
+				'uri:LIKE'     => $resourceOldBasePath . '%',
+				'uri_override' => '0',
+				'context_key'  => $resource->get('context_key')
+			));
+			foreach ($childResources as $childResource) {
+				$newProperties           = $oldResource->getProperties('stercseo');
+				$newProperties['urls'][] = array('url' => $childResource->get('uri'));
+				$childResource->setProperties($newProperties,'stercseo');
+				$childResource->save();
 			}
 		}
 		break;
