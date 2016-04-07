@@ -163,7 +163,7 @@ switch ($modx->event->name) {
 			));
 			# echo $resourceOldBasePath.' => ' . $resourceNewBasePath;
 			foreach ($childResources as $childResource) {
-				$newProperties           = $oldResource->getProperties('stercseo');
+				$newProperties           = $childResource->getProperties('stercseo');
 				$newProperties['urls'][] = array('url' => $childResource->get('uri'));
 				$childResource->setProperties($newProperties,'stercseo');
 				$childResource->save();
@@ -237,38 +237,44 @@ switch ($modx->event->name) {
 
 		$resource->set('parent',$target);
 		$resource->set('uri','');
-		$newProperties = $oldResource->getProperties('stercseo');
 
 		$uriChanged = false;
 		if($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
-			$newProperties['urls'][] = array('url' => $oldResource->get('uri'));
 			$uriChanged              = true;
 		}
+		
 		// Recursive Set all Children
 		if($uriChanged && $modx->getOption('use_alias_path')) {
-			$oldResource->setProperties($newProperties,'stercseo');
-			$oldResource->save();
-
+			$oldResource->set('isfolder', true);
 			$resourceOldBasePath = $oldResource->getAliasPath(
 				$oldResource->get('alias'),
-				$oldResource->toArray() + array('isfolder' => 1)
+				$oldResource->toArray()
 			);
 			$resourceNewBasePath = $resource->getAliasPath(
 				$resource->get('alias'),
 				$resource->toArray() + array('isfolder' => 1)
 			);
-			/** @var modResource[] $childResources */
-			$childResources = $modx->getIterator('modResource',array(
-				'uri:LIKE'     => $resourceOldBasePath . '%',
+			$cond = $modx->newQuery('modResource');
+			$cond->where(array(
+				array(
+					'uri:LIKE'     => $resourceOldBasePath . '%',
+					'OR:id:=' => $oldResource->id
+				),
 				'uri_override' => '0',
 				'context_key'  => $resource->get('context_key')
 			));
+			/** @var modResource[] $childResources */
+			$childResources = $modx->getIterator('modResource', $cond);
 			foreach ($childResources as $childResource) {
-				$newProperties           = $oldResource->getProperties('stercseo');
+				$newProperties           = $childResource->getProperties('stercseo');
 				$newProperties['urls'][] = array('url' => $childResource->get('uri'));
+				echo $childResource->get('pagetitle').' ' . $childResource->get('uri')."\n"; 
+			#	print_r($newProperties);
+
 				$childResource->setProperties($newProperties,'stercseo');
 				$childResource->save();
 			}
+			#die();			
 		}
 		break;
 	case 'OnResourceDuplicate':
