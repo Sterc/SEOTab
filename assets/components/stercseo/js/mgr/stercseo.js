@@ -1,7 +1,7 @@
 /**
  * StercSEO
  *
- * Copyright 2013 by Wieger Sloot at Sterc <wieger@sterc.nl>
+ * Copyright 2013 by Sterc <modx@sterc.nl>
  *
  * This file is part of StercSEO.
  *
@@ -23,7 +23,7 @@
 /**
  * StercSEO JavaScript file for the stercseo-box in the manager.
  *
- * @author Wieger Sloot at Sterc <wieger@sterc.nl>
+ * @author Sterc <modx@sterc.nl>
  *
  * @package stercseo
  */

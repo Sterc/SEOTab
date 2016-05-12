@@ -1,8 +1,8 @@
 --------------------
 SEOTab
 --------------------
-Version: 1.1.0-pl
-Author: Wieger Sloot at Sterc <wieger@sterc.nl>
+Version: 1.2.2-pl
+Author: Sterc <modx@sterc.nl>
 
 License: GNU GPLv2
 --------------------
