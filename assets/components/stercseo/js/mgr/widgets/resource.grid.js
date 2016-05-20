@@ -77,23 +77,6 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
         this.windows.createItem.fp.getForm().reset();
         this.windows.createItem.show(e.target);
     }
-    // ,updateItem: function(btn,e) {
-    //     if (!this.menu.record || !this.menu.record.id) return false;
-    //     var r = this.menu.record;
-
-    //     if (!this.windows.updateItem) {
-    //         this.windows.updateItem = MODx.load({
-    //             xtype: 'stercseo-window-item-update'
-    //             ,record: r
-    //             ,listeners: {
-    //                 'success': {fn:function() { this.refresh(); },scope:this}
-    //             }
-    //         });
-    //     }
-    //     this.windows.updateItem.fp.getForm().reset();
-    //     this.windows.updateItem.fp.getForm().setValues(r);
-    //     this.windows.updateItem.show(e.target);
-    // }
 
     ,removeItem: function(btn,e) {
         var id = this.id;
@@ -127,9 +110,6 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
 });
 Ext.reg('stercseo-grid-items',StercSEO.grid.Items);
 
-
-
-
 StercSEO.window.CreateItem = function(config) {
     config = config || {};
     this.ident = config.ident || 'stercseo-mecitem'+Ext.id();
@@ -143,13 +123,13 @@ StercSEO.window.CreateItem = function(config) {
         ,baseParams: {
             action: 'mgr/url/return'
             ,id: MODx.request.id
-        }		
+        }       
         ,labelAlign: 'left'
         ,labelWidth: 'auto'
         ,action: 'mgr/url/return'
         ,fields: [{
             xtype: 'textfield'
-            ,fieldLabel: 'Redirect url (Volledige url, bij: https://www.vvvschiermonnikoog.nl/autoparse.asp?steID=1&item=953)'
+            ,fieldLabel: _('stercseo.uri_label')
             ,labelAlign: 'left'
             ,labelStyle: 'padding: 7px 0px; width: 100%;'
             ,name: 'url'

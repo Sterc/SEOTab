@@ -57,6 +57,8 @@ $_lang['stercseo.uri_header'] = 'Ниже список старых URL этой
 $_lang['stercseo.grid_noresults'] = '<h4>Нет редиректов</h4><p>Для этой страницы редиректы не указаны.</p>';
 $_lang['stercseo.redirects_desc'] = 'Любые изменения вашей страницы влияют на выдачу в поисковых системах. Изменение URL адреса страницы приведёт к утрате всех наработанных факторов ранжирования. С помощью 301 редиректа Вы не потеряете то, что уже успели заработать. StercSEO автоматически добавляет 301 редиректы (переадресацию), после того, как адрес страницы (URL) изменился.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> был добавлен для страницы: <strong>[[+pagetitle]] ([[+id]])</strong>';
+$_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
+
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Заморозить URL';
 $_lang['stercseo.uri_override'] = 'Заморозить URL псевдоним для этой страницы';

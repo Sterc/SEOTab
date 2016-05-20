@@ -57,6 +57,7 @@ $_lang['stercseo.uri_header'] = 'Hieronder staat een overzicht van oude URL\'s v
 $_lang['stercseo.grid_noresults'] = '<h4>Geen redirects</h4><p>Er zijn geen redirects voor deze pagina ingesteld.</p>';
 $_lang['stercseo.redirects_desc'] = 'Elke wijziging op je pagina heeft invloed op zoekmachines. Bij het wijzigen van de URL van een pagina betekent dit dat je álle opgebouwde zoekmachine-waarde (juice) kwijtraakt. Met 301 redirects raak je deze waarde niet kwijt. StercSEO voegt automatisch 301 redirects toe na het wijzigen van de URI van je pagina.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> is al toegevoegd aan de pagina: <strong>[[+pagetitle]] ([[+id]])</strong>';
+$_lang['stercseo.uri_label'] = 'Vul de volledige url (bv. http://www.google.com) die als redirect wilt toevoegen';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';
