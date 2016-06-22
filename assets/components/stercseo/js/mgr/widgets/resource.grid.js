@@ -123,7 +123,7 @@ StercSEO.window.CreateItem = function(config) {
         ,baseParams: {
             action: 'mgr/url/return'
             ,id: MODx.request.id
-        }       
+        }		
         ,labelAlign: 'left'
         ,labelWidth: 'auto'
         ,action: 'mgr/url/return'
