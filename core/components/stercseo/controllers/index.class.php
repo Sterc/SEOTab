@@ -26,6 +26,6 @@ class StercSeoIndexManagerController extends StercSeoBaseManagerController
 
     public function getTemplateFile()
     {
-        return $this->stercseo->getOption('templatesPath').'index.tpl';
+        return $this->stercseo->config['templatesPath'].'index.tpl';
     }
 }
