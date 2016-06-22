@@ -70,10 +70,12 @@ class StercSEO {
         $this->modx =& $modx;
 
         $corePath = $this->modx->getOption('stercseo.core_path',null,$modx->getOption('core_path').'components/stercseo/');
+        $assetsPath = $this->modx->getOption('stercseo.assets_path', null, $this->modx->getOption('assets_path') . 'components/stercseo/');
         $assetsUrl = $this->modx->getOption('stercseo.assets_url',null,$modx->getOption('assets_url').'components/stercseo/');
         $connectorUrl = $assetsUrl.'connector.php';
 
         $this->config = array_merge(array(
+            'assetsPath' => $assetsPath,
             'assetsUrl' => $assetsUrl,
             'cssUrl' => $assetsUrl.'css/',
             'jsUrl' => $assetsUrl.'js/',
