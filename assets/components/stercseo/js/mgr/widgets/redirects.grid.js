@@ -4,11 +4,11 @@ StercSEO.grid.Redirects = function(config) {
         id: 'stercseo-grid-redirects'
         ,url: StercSEO.config.connectorUrl
         ,baseParams: {
-            action: 'mgr/url/getlist'
+            action: 'mgr/redirect/getlist'
         }
-        ,save_action: 'mgr/url/updatefromgrid'
+        ,save_action: 'mgr/redirect/updatefromgrid'
         ,autosave: true
-        ,fields: ['id','resource','url']
+        ,fields: ['id','resource','target','url','context_key']
         ,autoHeight: true
         ,paging: true
         ,remoteSort: true
@@ -18,11 +18,15 @@ StercSEO.grid.Redirects = function(config) {
             ,width: 40
         },{
             header: _('stercseo.url')
-            ,dataIndex: 'resource'
+            ,dataIndex: 'url'
+            ,width: 180
+        },{
+            header: _('stercseo.target_url')
+            ,dataIndex: 'target'
             ,width: 240
         },{
-            header: _('url')
-            ,dataIndex: 'url'
+            header: _('context')
+            ,dataIndex: 'context_key'
             ,width: 180
         }]
         ,tbar: [{
@@ -70,7 +74,7 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
         var updateRedirect = MODx.load({
             xtype: 'stercseo-window-redirects'
             ,title: _('stercseo.global.update')+' '+_('stercseo.url')
-            ,action: 'mgr/url/update'
+            ,action: 'mgr/redirect/update'
             ,record: this.menu.record
             ,isUpdate: true
             ,listeners: {
@@ -91,7 +95,7 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
             ,text: _('stercseo.global.remove_confirm')+' '+_('stercseo.url')
             ,url: this.config.url
             ,params: {
-                action: 'mgr/url/remove'
+                action: 'mgr/redirect/remove'
                 ,id: this.menu.record.id
             }
             ,listeners: {
@@ -117,7 +121,7 @@ StercSEO.window.Redirect = function(config) {
         ,closeAction: 'close'
         ,width: 600
         ,url: StercSEO.config.connectorUrl
-        ,action: 'mgr/url/create'
+        ,action: 'mgr/redirect/create'
         ,fields: [{
             xtype: 'textfield'
             ,name: 'id'
