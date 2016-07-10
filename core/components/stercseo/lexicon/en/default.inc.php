@@ -87,3 +87,5 @@ $_lang['stercseo.target'] = 'Target resource / url';
 $_lang['stercseo.uri_update'] = 'Update redirect';
 $_lang['stercseo.uri_remove'] = 'Remove redirect';
 $_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
+$_lang['stercseo.migrate'] = 'Migrate redirects';
+$_lang['stercseo.migrate_desc'] = 'Here you can migrate your redirects (SEOTab version 1.2.2 and below) from resource properties to seoUrl objects. This page will automatically migrate all the redirects for you, so no action is required.';

@@ -14,7 +14,7 @@ class StercSeoHomeManagerController extends StercSeoBaseManagerController
     }
     public function getPageTitle()
     {
-        return $this->modx->lexicon('stercseo.seo');
+        return $this->modx->lexicon('stercseo.seotab');
     }
     public function loadCustomCssJs()
     {
