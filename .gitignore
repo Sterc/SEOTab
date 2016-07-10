@@ -1,4 +1,4 @@
-# ignore mac files
 .DS_Store
 .idea
-_build/build.config.php
+
+config.core.php
