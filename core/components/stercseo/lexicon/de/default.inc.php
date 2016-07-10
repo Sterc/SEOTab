@@ -1,6 +1,6 @@
 <?php
 /**
- * StercSEO German language file
+ * SEOTab German language file
  *
  * @author Christian Seel <cs@chsmedien.de>
  *
@@ -9,6 +9,7 @@
  */
 
 $_lang['stercseo.seo'] = 'StercSEO';
+$_lang['stercseo.seotab'] = 'SEOTab';
 
 //Tab Findability
 
@@ -77,9 +78,5 @@ $_lang['setting_stercseo.priority'] = 'Voreinstellung: Priorität';
 $_lang['setting_stercseo.priority_desc'] = 'Wichtigkeit von neuen Seiten (0.25, 0.5 oder 1)';
 $_lang['setting_stercseo.changefreq'] = 'Voreinstellung: Update Frequenz';
 $_lang['setting_stercseo.changefreq_desc'] = 'Update Frequenz für neue Seiten (daily, weekly, monthly)';
-
-
-
-
-
-
+$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';

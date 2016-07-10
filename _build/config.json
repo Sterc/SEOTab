@@ -1,0 +1,77 @@
+{
+    "name": "StercSEO",
+    "lowCaseName": "stercseo",
+    "description": "SEOTab is a MODX package that helps you manage your pages in Google.",
+    "author": "Sterc",
+    "version": "1.2.3",
+    "package":{  
+        "menus": [{
+            "text": "stercseo.seotab",
+            "action": "home"
+        }],
+        "elements": {
+            "plugins": [{
+                "name": "StercSEO",
+                "description": "Plugin to render SEOTab and save all the data.",
+                "file": "stercseo.plugin.php",
+                "events": [
+                    "OnDocFormPrerender",
+                    "OnBeforeDocFormSave",
+                    "OnLoadWebDocument",
+                    "OnPageNotFound",
+                    "OnResourceDuplicate"
+                ]
+            }],
+            "snippets": [{
+                "name": "StercSeoSiteMap",
+                "description": "Outputs the sitemap based on the resource settings made in SEOTab",
+                "file": "stercseositemap.snippet.php",
+            }],
+            "chunks": [],
+            "templates": [],
+            "tvs": []
+        },
+        "systemSettings": [{
+            "key": "context-aware-alias",
+            "type": "combo-boolean",
+            "value": "0",
+            "area": "general"
+        },{
+            "key": "index",
+            "type": "combo-boolean",
+            "value": "1",
+            "area": "general"
+        },{
+            "key": "follow",
+            "type": "combo-boolean",
+            "value": "1",
+            "area": "general"
+        },{
+            "key": "sitemap",
+            "type": "combo-boolean",
+            "value": "1",
+            "area": "general"
+        },{
+            "key": "priority",
+            "value": "0.5",
+            "area": "general"
+        },{
+            "key": "changefreq",
+            "value": "weekly",
+            "area": "general"
+        },{
+            "key": "allowed_contexts",
+            "value": "",
+            "area": "general"
+        },{
+            "key": "hide_from_usergroups",
+            "value": "",
+            "area": "general"
+        }]
+    }
+    
+    ,"database": {
+        "tables": ["seoUrl"]
+    }
+    
+}

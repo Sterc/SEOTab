@@ -1,6 +1,6 @@
 <?php
 /**
- * StercSEO Dutch language file
+ * SEOTab English language file
  *
  * @author Sterc <modx@sterc.nl> - Sterc Internet & Marketing
  *
@@ -9,6 +9,7 @@
  */
 
 $_lang['stercseo.seo'] = 'StercSEO';
+$_lang['stercseo.seotab'] = 'SEOTab';
 
 //Tab Findability
 
@@ -55,7 +56,7 @@ $_lang['stercseo.redirects'] = '301 Redirects';
 $_lang['stercseo.uri_add'] = 'Add Old URL';
 $_lang['stercseo.uri_header'] = 'Below is a list of old URLs for this page';
 $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redirects set for this page.</p>';
-$_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. StercSEO automatically adds 301 redirects after changing the URL of a page ..';
+$_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. SEOTab automatically adds 301 redirects after changing the URL of a page ..';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> has already been added to the page: <strong>[[+pagetitle]] ([[+id]])</strong>';
 $_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
 
@@ -66,19 +67,16 @@ $_lang['stercseo.uri_after'] = 'URL after ';
 
 //Settings
 $_lang['setting_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
-$_lang['setting_stercseo.context-aware-alias_desc'] = 'make old urls unique to context';
-$_lang['setting_stercseo.index'] = 'Default-Setting: Include in search engines';
+$_lang['setting_stercseo.context-aware-alias_desc'] = 'Make old urls unique to context';
+$_lang['setting_stercseo.index'] = 'Default resource setting: Include in search engines';
 $_lang['setting_stercseo.index_desc'] = 'Include new pages in search engines per default';
-$_lang['setting_stercseo.follow'] = 'Default-Setting: Following links';
+$_lang['setting_stercseo.follow'] = 'Default resource setting: Following links';
 $_lang['setting_stercseo.follow_desc'] = 'Follow links on new pages per default';
-$_lang['setting_stercseo.sitemap'] = 'Default-Setting: Include pages in the Google Sitemap';
+$_lang['setting_stercseo.sitemap'] = 'Default resource setting: Include pages in the Google Sitemap';
 $_lang['setting_stercseo.sitemap_desc'] = 'Include new pages in sitemap.xml per default';
-$_lang['setting_stercseo.priority'] = 'Default-Setting: Priority';
+$_lang['setting_stercseo.priority'] = 'Default resource setting: Priority';
 $_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
-$_lang['setting_stercseo.changefreq'] = 'Default-Setting: Update frequency';
+$_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update frequency';
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
-
-
-
-
-
+$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';

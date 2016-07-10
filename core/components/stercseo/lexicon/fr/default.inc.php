@@ -1,12 +1,15 @@
 <?php
 /**
- * StercSEO French language file
+ * SEOTab French language file
+ *
+ * @author Sterc <modx@sterc.nl> - Sterc Internet & Marketing
  *
  * @package stercseo
  * @subpackage lexicon
  */
 
 $_lang['stercseo.seo'] = 'StercSEO';
+$_lang['stercseo.seotab'] = 'SEOTab';
 
 //Tab Findability
 
@@ -62,10 +65,18 @@ $_lang['stercseo.freeze_uri'] = 'URL fixe';
 $_lang['stercseo.uri_override'] = 'Indiquez une URL fixe pour cette page';
 $_lang['stercseo.uri_after'] = 'URL après ';
 
-
-
-
-
-
-
-
+//Settings
+$_lang['setting_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
+$_lang['setting_stercseo.context-aware-alias_desc'] = 'Make old urls unique to context';
+$_lang['setting_stercseo.index'] = 'Default resource setting: Include in search engines';
+$_lang['setting_stercseo.index_desc'] = 'Include new pages in search engines per default';
+$_lang['setting_stercseo.follow'] = 'Default resource setting: Following links';
+$_lang['setting_stercseo.follow_desc'] = 'Follow links on new pages per default';
+$_lang['setting_stercseo.sitemap'] = 'Default resource setting: Include pages in the Google Sitemap';
+$_lang['setting_stercseo.sitemap_desc'] = 'Include new pages in sitemap.xml per default';
+$_lang['setting_stercseo.priority'] = 'Default resource setting: Priority';
+$_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
+$_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update frequency';
+$_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
+$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';
