@@ -25,7 +25,7 @@
             "snippets": [{
                 "name": "StercSeoSiteMap",
                 "description": "Outputs the sitemap based on the resource settings made in SEOTab",
-                "file": "stercseositemap.snippet.php",
+                "file": "stercseositemap.snippet.php"
             }],
             "chunks": [],
             "templates": [],
@@ -68,10 +68,8 @@
             "value": "",
             "area": "general"
         }]
-    }
-    
-    ,"database": {
+    },
+    "database": {
         "tables": ["seoUrl"]
     }
-    
 }
