@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package stercseo
+ */
 $xpdo_meta_map['seoUrl']= array (
   'package' => 'stercseo',
   'version' => NULL,
