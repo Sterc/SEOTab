@@ -34,7 +34,7 @@ class StercSeoGetListProcessor extends modObjectGetListProcessor
                 $object->set('target', $pagetitle.' ('.$resourceId.')<br><i><small>'.$this->modx->makeUrl($resourceId,'','','full').'</small></i>');
             }
         }
-
+        $object->set('url', urldecode($object->get('url')));
         return parent::prepareRow($object);
     }
 }

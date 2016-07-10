@@ -17,11 +17,11 @@ StercSEO.grid.Redirects = function(config) {
             ,dataIndex: 'id'
             ,width: 40
         },{
-            header: _('stercseo.url')
+            header: _('stercseo.uri')
             ,dataIndex: 'url'
             ,width: 180
         },{
-            header: _('stercseo.target_url')
+            header: _('stercseo.target')
             ,dataIndex: 'target'
             ,width: 240
         },{
@@ -30,11 +30,11 @@ StercSEO.grid.Redirects = function(config) {
             ,width: 180
         }]
         ,tbar: [{
-            text: _('stercseo.global.add')+' '+_('stercseo.url')
+            text: _('stercseo.uri_add')
             ,handler: this.createRedirect
             ,scope: this
             ,cls:'primary-button'
-            ,id: 'btn-add-file'
+            ,id: 'btn-add-uri'
         }]
     });
     StercSEO.grid.Redirects.superclass.constructor.call(this,config);
@@ -45,12 +45,12 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
     ,getMenu: function() {
         var m = [];
         m.push({
-            text: _('stercseo.global.update')+' '+_('stercseo.url')
+            text: _('stercseo.uri_update')
             ,handler: this.updateRedirect
         });
         m.push('-');
         m.push({
-            text: _('stercseo.global.remove')+' '+_('stercseo.url')
+            text: _('stercseo.uri_remove')
             ,handler: this.removeRedirect
         });
         this.addContextMenuItem(m);
@@ -73,7 +73,7 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
 
         var updateRedirect = MODx.load({
             xtype: 'stercseo-window-redirects'
-            ,title: _('stercseo.global.update')+' '+_('stercseo.url')
+            ,title: _('stercseo.uri_update')
             ,action: 'mgr/redirect/update'
             ,record: this.menu.record
             ,isUpdate: true
@@ -91,8 +91,8 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
         if (!this.menu.record) return false;
         
         MODx.msg.confirm({
-            title: _('stercseo.global.remove')+' '+_('stercseo.url')
-            ,text: _('stercseo.global.remove_confirm')+' '+_('stercseo.url')
+            title: _('stercseo.uri_remove')
+            ,text: _('stercseo.uri_remove_confirm')
             ,url: this.config.url
             ,params: {
                 action: 'mgr/redirect/remove'
@@ -117,7 +117,7 @@ Ext.reg('stercseo-grid-redirects',StercSEO.grid.Redirects);
 StercSEO.window.Redirect = function(config) {
     config = config || {};
     Ext.applyIf(config,{
-        title: _('stercseo.global.add')+' '+_('stercseo.url')
+        title: _('stercseo.uri_add')
         ,closeAction: 'close'
         ,width: 600
         ,url: StercSEO.config.connectorUrl
@@ -127,15 +127,15 @@ StercSEO.window.Redirect = function(config) {
             ,name: 'id'
             ,hidden: true
         },{
-            xtype: 'label'
-            ,text: _('stercseo.uri_add')
-            ,cls: 'desc-under'
-        },{
             xtype: 'textfield'
-            ,fieldLabel: _('stercseo.uri_add')
-            ,name: 'filename'
+            ,fieldLabel: _('stercseo.uri')
+            ,name: 'url'
             ,anchor: '100%'
             ,height: 'auto'
+        },{
+            xtype: 'label'
+            ,text: _('stercseo.uri_label')
+            ,cls: 'desc-under'
         }]
     });
     StercSEO.window.Redirect.superclass.constructor.call(this,config);

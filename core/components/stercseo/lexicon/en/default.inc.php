@@ -53,7 +53,7 @@ $_lang['stercseo.changefreq_desc'] = 'Specify how often (you expect) the content
 
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 Redirects';
-$_lang['stercseo.uri_add'] = 'Add Old URL';
+$_lang['stercseo.uri_add'] = 'Add redirect url';
 $_lang['stercseo.uri_header'] = 'Below is a list of old URLs for this page';
 $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redirects set for this page.</p>';
 $_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. SEOTab automatically adds 301 redirects after changing the URL of a page ..';
@@ -80,3 +80,10 @@ $_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update freque
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';
+
+// CMP
+$_lang['stercseo.uri'] = 'Old url (url to redirect)';
+$_lang['stercseo.target'] = 'Target resource / url';
+$_lang['stercseo.uri_update'] = 'Update redirect';
+$_lang['stercseo.uri_remove'] = 'Remove redirect';
+$_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
