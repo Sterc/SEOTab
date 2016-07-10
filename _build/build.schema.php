@@ -4,9 +4,7 @@
  *
  * @package stercSEO
  * @subpackage build
- * @author Sterc <modx@sterc.nl>
  */
-
 $mtime = microtime();
 $mtime = explode(" ", $mtime);
 $mtime = $mtime[1] + $mtime[0];
