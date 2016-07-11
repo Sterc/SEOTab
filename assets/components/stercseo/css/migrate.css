@@ -1,0 +1,22 @@
+#modx-container {
+	margin-top: 35px;
+}
+#modx-leftbar {
+	top: 90px;
+}
+#modx-content {
+	top: 90px;
+}
+.stercseo-migrate-alert {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    background: #c0272b;
+    color: white;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}

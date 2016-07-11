@@ -224,13 +224,14 @@ switch ($modx->event->name) {
 		// check if version <= 1.2.2
 		// count if there are old redirects in the properties of resource
 		// if count, show alert bar in manager urging the user to migrate (link to migrate cmp)
-        $exclUsergroups = explode(',', $modx->getOption('stercseo.hide_from_usergroups'));
-	    if (!empty($exclUsergroups)) {
-	        foreach ($exclUsergroups as $exclUserGroup){
-	            if($modx->getUser()->isMember($exclUserGroup)){
-	                return;
-	            }
-	        }
+		$migrationAlert = false;
+        if (!$stercseo->checkUserAccess()) {
+        	return;
+        }
+	    if($migrationAlert) {
+	    	$modx->regClientStartupHTMLBlock($stercseo->getChunk('migrate/alert'));
+	    	$modx->regClientCSS($stercseo->config['cssUrl'].'migrate.css');
 	    }
+	    
 }
 return;
