@@ -19,7 +19,8 @@
                     "OnBeforeDocFormSave",
                     "OnLoadWebDocument",
                     "OnPageNotFound",
-                    "OnResourceDuplicate"
+                    "OnResourceDuplicate",
+                    "OnManagerPageAfterRender"
                 ]
             }],
             "snippets": [{

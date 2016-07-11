@@ -186,6 +186,7 @@ switch ($modx->event->name) {
             $modx->sendRedirect($id, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
         }
         break;
+
 	case 'OnResourceBeforeSort':
         foreach ($nodes as $node) {
             $oldResource = $modx->getObject('modResource', $node['id']);
@@ -208,6 +209,7 @@ switch ($modx->event->name) {
             }
         }
         break;
+
     case 'OnResourceDuplicate':
         if (!$stercseo->isAllowed($newResource->get('context_key'))) {
         	return;
@@ -217,5 +219,18 @@ switch ($modx->event->name) {
         $newResource->save();
         break;
 
+	case 'OnManagerPageAfterRender':
+		// check if user has access to seotab
+		// check if version <= 1.2.2
+		// count if there are old redirects in the properties of resource
+		// if count, show alert bar in manager urging the user to migrate (link to migrate cmp)
+        $exclUsergroups = explode(',', $modx->getOption('stercseo.hide_from_usergroups'));
+	    if (!empty($exclUsergroups)) {
+	        foreach ($exclUsergroups as $exclUserGroup){
+	            if($modx->getUser()->isMember($exclUserGroup)){
+	                return;
+	            }
+	        }
+	    }
 }
 return;
