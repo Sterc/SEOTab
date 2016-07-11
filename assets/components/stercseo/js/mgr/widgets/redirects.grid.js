@@ -201,6 +201,20 @@ StercSEO.window.Redirect = function(config) {
             xtype: 'label'
             ,text: _('stercseo.uri_label')
             ,cls: 'desc-under'
+        },{
+            xtype: 'modx-combo'
+            ,fieldLabel: _('stercseo.target')
+            ,name: "resource"
+            ,hiddenName: "resource"
+            ,url: StercSEO.config.connectorUrl
+            ,fields: ['id', 'pagetitle']
+            ,displayField: 'pagetitle'
+            ,baseParams: {
+                action: 'mgr/resource/getlist'
+                ,limit: 0
+            }
+            ,emptyText: _('resource')
+            ,anchor: '100%'
         }]
     });
     StercSEO.window.Redirect.superclass.constructor.call(this,config);
