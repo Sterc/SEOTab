@@ -2,12 +2,12 @@
 	margin-top: 35px;
 }
 #modx-leftbar {
-	top: 90px;
+	top: 90px !important;
 }
 #modx-content {
-	top: 90px;
+	top: 90px !important;
 }
-.stercseo-migrate-alert {
+.stercseo-alert-migrate {
 	position: absolute;
     top: 0;
     left: 0;
@@ -15,8 +15,8 @@
     z-index: 20;
     background: #c0272b;
     color: white;
-    height: 35px;
-    line-height: 35px;
+    height: 34px;
+    line-height: 34px;
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.3);
 }

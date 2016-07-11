@@ -212,7 +212,7 @@ class StercSEO {
         return true;
     }
 
-    public function checkUserAccess($user){
+    public function checkUserAccess($user = false){
         if (!$user) {
             $user = $this->modx->getUser();
         }

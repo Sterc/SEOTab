@@ -219,15 +219,18 @@ switch ($modx->event->name) {
         $newResource->save();
         break;
 
-	case 'OnManagerPageAfterRender':
+	case 'OnManagerPageBeforeRender':
 		// check if user has access to seotab
 		// check if version <= 1.2.2
 		// count if there are old redirects in the properties of resource
 		// if count, show alert bar in manager urging the user to migrate (link to migrate cmp)
-		$migrationAlert = false;
-        if (!$stercseo->checkUserAccess()) {
+		if (!$stercseo->checkUserAccess()) {
         	return;
         }
+        $migrationAlert = false;
+        
+        // todo: count redirect urls in properties
+	    
 	    if($migrationAlert) {
 	    	$modx->regClientStartupHTMLBlock($stercseo->getChunk('migrate/alert'));
 	    	$modx->regClientCSS($stercseo->config['cssUrl'].'migrate.css');
