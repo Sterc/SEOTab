@@ -1,7 +1,10 @@
 StercSEO.grid.Redirects = function(config) {
     config = config || {};
+    if (!config.id) {
+        config.id = 'stercseo-grid-redirects';
+    }
     Ext.applyIf(config,{
-        id: 'stercseo-grid-redirects'
+        id: config.id
         ,url: StercSEO.config.connectorUrl
         ,baseParams: {
             action: 'mgr/redirect/getlist'
@@ -35,6 +38,55 @@ StercSEO.grid.Redirects = function(config) {
             ,scope: this
             ,cls:'primary-button'
             ,id: 'btn-add-uri'
+        },'->',{
+            xtype: 'modx-combo-context'
+            ,fieldLabel: _('context')
+            ,name: 'context_key'
+            ,hiddenName: 'context_key'
+            ,id: config.id + '-context-filter'
+            ,editable: false
+            ,anchor: '100%'
+            ,baseParams: {
+                action: 'context/getlist'
+                ,exclude: 'mgr'
+            }
+            ,listeners: {
+                'select': {
+                    fn:this.filter,scope: this
+                }
+            }
+            ,emptyText: _('context')
+        },{
+            xtype: 'textfield'
+            ,width: 180
+            ,name: "query"
+            ,id: config.id + '-search-field'
+            ,emptyText: _('search') + '...'
+            ,listeners: {
+                'change': {
+                    fn:this.filter, scope: this
+                }
+                ,'render': {fn: function(cmp) {
+                    new Ext.KeyMap(cmp.getEl(), {
+                        key: Ext.EventObject.ENTER
+                        ,fn: function() {
+                            this.fireEvent('change',this);
+                            this.blur();
+                            return true;
+                        }
+                        ,scope: cmp
+                    });
+                }, scope: this }
+            }
+        },{
+            xtype: 'button',
+            id: config.id + '-search-clear',
+            text: '<i class="icon icon-times"></i>',
+            listeners: {
+                click: {
+                    fn: this.clearFilter, scope: this
+                }
+            }  
         }]
     });
     StercSEO.grid.Redirects.superclass.constructor.call(this,config);
@@ -104,9 +156,22 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
         });
     }
 
-    ,search: function(tf,nv,ov) {
-        var s = this.getStore();
-        s.baseParams.query = tf.getValue();
+    ,filter: function (tf, nv, ov) {
+        var store = this.getStore();
+        var key = tf.getName();
+        var value = tf.getValue();
+        store.baseParams[key] = value;
+        this.getBottomToolbar().changePage(1);
+        this.refresh();
+    }
+
+    ,clearFilter: function (btn, e) {
+        var baseParams = this.getStore().baseParams;
+        delete baseParams.query;
+        delete baseParams.context_key;
+        this.getStore().baseParams = baseParams;
+        Ext.getCmp(this.config.id + '-search-field').setValue('');
+        Ext.getCmp(this.config.id + '-context-filter').setValue('');
         this.getBottomToolbar().changePage(1);
         this.refresh();
     }
