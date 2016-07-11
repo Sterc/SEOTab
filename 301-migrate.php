@@ -1,6 +1,7 @@
 <?php
+(@include_once 'config.core.php') or die("Config file not found. Are you sure this file is in your root folder?");
 
-(@include_once 'config.core.php') or die ("Config file not found. Are you sure this file is in your root folder?");
+
 
 require_once MODX_CORE_PATH.'model/modx/modx.class.php';
 $modx = new modX();
