@@ -232,9 +232,14 @@ switch ($modx->event->name) {
             return;
         }
         $migrationAlert = false;
-        
-        // todo: count redirect urls in properties
-        
+        $resources = $modx->getIterator('modResource', array('context_key:!=' => 'mgr'));
+        foreach ($resources as $resource) {
+            $properties = $resource->getProperties('stercseo');
+            if ($properties['urls'] && count($properties['urls']) > 0) {
+                $migrationAlert = true;
+                break;
+            }
+        }
         if ($migrationAlert) {
             $modx->regClientStartupHTMLBlock($stercseo->getChunk('migrate/alert'));
             $modx->regClientCSS($stercseo->config['cssUrl'].'migrate.css');

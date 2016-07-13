@@ -1,8 +1,6 @@
 <?php
 (@include_once 'config.core.php') or die("Config file not found. Are you sure this file is in your root folder?");
 
-
-
 require_once MODX_CORE_PATH.'model/modx/modx.class.php';
 $modx = new modX();
 $modx->initialize('web');
@@ -51,15 +49,9 @@ foreach ($resources as $resource) {
             }
         }
     }
-
-    $newProperties = array(
-        'follow' => $properties['follow'],
-        'sitemap' => $properties['sitemap'],
-        'priority' => $properties['priority'],
-        'changefreq' => $properties['changefreq'],
-        'urls' => ''
-    );
-    $resource->setProperties($newProperties, 'stercseo');
+    // reset the urls in properties
+    unset($properties['urls']);
+    $resource->setProperties($properties, 'stercseo');
     $resource->save();
 }
 
