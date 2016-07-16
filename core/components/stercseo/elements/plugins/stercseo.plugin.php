@@ -224,9 +224,7 @@ switch ($modx->event->name) {
         break;
 
     case 'OnManagerPageBeforeRender':
-        
         // @todo: save the count in a non-visible system-setting (using fake namespace)
-        
         if (!$stercseo->checkUserAccess()) {
             return;
         }
@@ -240,7 +238,7 @@ switch ($modx->event->name) {
             }
         }
         if ($migrationAlert) {
-            $modx->regClientStartupHTMLBlock($stercseo->getChunk('migrate/alert'));
+            $modx->regClientStartupHTMLBlock($stercseo->getChunk('migrate/alert', array('message' => $modx->lexicon('stercseo.migrate_alert'))));
             $modx->regClientCSS($stercseo->config['cssUrl'].'migrate.css');
         }
 }
