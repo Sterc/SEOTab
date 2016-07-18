@@ -224,20 +224,11 @@ switch ($modx->event->name) {
         break;
 
     case 'OnManagerPageBeforeRender':
-        // @todo: save the count in a non-visible system-setting (using fake namespace)
         if (!$stercseo->checkUserAccess()) {
             return;
         }
-        $migrationAlert = false;
-        $resources = $modx->getIterator('modResource', array('context_key:!=' => 'mgr'));
-        foreach ($resources as $resource) {
-            $properties = $resource->getProperties('stercseo');
-            if ($properties['urls'] && count($properties['urls']) > 0) {
-                $migrationAlert = true;
-                break;
-            }
-        }
-        if ($migrationAlert) {
+        // If migration status is false, show migrate alert message bar in manager
+        if (!$stercseo->redirectMigrationStatus()) {
             $modx->regClientStartupHTMLBlock($stercseo->getChunk('migrate/alert', array('message' => $modx->lexicon('stercseo.migrate_alert'))));
             $modx->regClientCSS($stercseo->config['cssUrl'].'migrate.css');
         }

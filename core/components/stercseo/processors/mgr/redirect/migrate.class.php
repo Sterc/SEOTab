@@ -10,9 +10,13 @@ class StercSeoMigrateProcessor extends modProcessor
     public function process()
     {
         $count = 0;
+        $limit = 100;
         $site_url = $this->modx->getOption('site_url');
         $resources = $this->modx->getIterator('modResource', array('context_key:!=' => 'mgr'));
         foreach ($resources as $resource) {
+            if ($count > $limit) {
+                break;
+            }
             $context_key = $resource->get('context_key');
             $site_url_setting = $this->modx->getObject('modContextSetting', array('context_key' => $context_key, 'key' => 'site_url'));
             if ($site_url_setting) {
@@ -40,26 +44,30 @@ class StercSeoMigrateProcessor extends modProcessor
                             );
                             $redirect->fromArray($data);
                             $redirect->save();
-                            $logMessage = 'New redirect URL: '.($site_url.$url).' >>>> '.$resource->get('uri').' - Added to resource '.$resource->get('id').'<br>';
-                            $this->log($logMessage);
                             $count++;
-                        } else {
-                            $logMessage = 'Existing redirect URL '.$site_url.$url.' - Already exists for resource '.$resource->get('id').'<br>';
-                            $this->log($logMessage);
                         }
                     }
                 }
                 // reset the urls in properties
-                unset($properties['urls']);
+                $properties['urls'] = '';
                 $resource->setProperties($properties, 'stercseo');
                 $resource->save();
             }
         }
 
         if ($count == 0) {
+            $migrationStatus = $this->modx->getObject('modSystemSetting', array('key' => 'stercseo.migration_status', 'namespace' => 'stercseo_custom'));
+            if (!$migrationStatus) {
+                $migrationStatus = $this->modx->newObject('modSystemSetting');
+                $migrationStatus->set('key', 'stercseo.migration_status');
+                $migrationStatus->set('namespace', 'stercseo_custom');
+            }
+            $migrationStatus->set('value', '1');
+            $migrationStatus->save();
             $this->log('No 301 redirect urls found in resource properties.');
         } else {
-            $this->log($count.' Redirect urls migrated from resource properties to seoUrl object.');
+            $this->log('-------------------------------------------------------------');
+            $this->log($count.' Redirect urls migrated from resource properties to seoUrl objects.');
         }
 
         return $this->outputArray(array(), $count);
@@ -67,6 +75,10 @@ class StercSeoMigrateProcessor extends modProcessor
 
     private function log($message)
     {
+        // Decrease log level to enable INFO level logging
+        // First get the current log level
+        $logLevel = $this->modx->getOption('log_level');
+        $this->modx->setLogLevel(MODx::LOG_LEVEL_INFO);
         $logTarget = array(
             'target' => 'FILE',
             'options' => array(
@@ -74,7 +86,9 @@ class StercSeoMigrateProcessor extends modProcessor
                 'filename' => 'migration.log'
             )
         );
-        $this->modx->log(MODx::LOG_LEVEL_ERROR, $message, $logTarget);
+        $this->modx->log(MODx::LOG_LEVEL_INFO, $message, $logTarget);
+        // Set log level back to original
+        $this->modx->setLogLevel($logLevel);
         return;
     }
 }
