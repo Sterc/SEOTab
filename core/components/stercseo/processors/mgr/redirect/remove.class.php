@@ -5,6 +5,7 @@
  * @package stercseo
  * @subpackage processors
  */
+
 class StercSeoRemoveProcessor extends modObjectRemoveProcessor
 {
     public $classKey = 'seoUrl';

@@ -197,6 +197,7 @@ StercSEO.window.Redirect = function(config) {
             ,name: 'url'
             ,anchor: '100%'
             ,height: 'auto'
+            ,allowBlank: false
         },{
             xtype: 'label'
             ,text: _('stercseo.uri_label')
@@ -215,6 +216,7 @@ StercSEO.window.Redirect = function(config) {
             }
             ,emptyText: _('resource')
             ,anchor: '100%'
+            ,allowBlank: false
         }]
     });
     StercSEO.window.Redirect.superclass.constructor.call(this,config);

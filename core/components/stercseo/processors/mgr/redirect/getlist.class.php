@@ -5,6 +5,7 @@
  * @package stercseo
  * @subpackage processors
  */
+
 class StercSeoGetListProcessor extends modObjectGetListProcessor
 {
     public $classKey = 'seoUrl';
@@ -37,7 +38,7 @@ class StercSeoGetListProcessor extends modObjectGetListProcessor
             $resourceObject = $this->modx->getObject('modResource', $resourceId);
             if ($resourceObject) {
                 $pagetitle = $resourceObject->get('pagetitle');
-                $object->set('target', $pagetitle.' ('.$resourceId.')<br><i><small>'.$this->modx->makeUrl($resourceId,'','','full').'</small></i>');
+                $object->set('target', $pagetitle.' ('.$resourceId.')<br><i><small>'.$this->modx->makeUrl($resourceId, '', '', 'full').'</small></i>');
             }
         }
         $object->set('url', urldecode($object->get('url')));

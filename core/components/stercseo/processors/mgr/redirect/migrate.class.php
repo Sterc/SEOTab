@@ -5,6 +5,7 @@
  * @package stercseo
  * @subpackage processors
  */
+
 class StercSeoMigrateProcessor extends modProcessor
 {
     public function process()
