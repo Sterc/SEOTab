@@ -5,11 +5,12 @@ StercSEO.grid.Items = function(config) {
         ,cls: 'stercseo-grid'
         ,url: StercSEO.config.connector_url
         ,baseParams: {
-            action: 'mgr/url/getlist'
-            ,id: MODx.request.id
+            action: 'mgr/redirect/getlist'
+            ,resource_id: MODx.request.id
+            ,sort: 'id'
         }
         ,loaded: 0
-        ,fields: ['url']
+        ,fields: ['id', 'url']
         ,emptyText : '<div class="empty-msg">'+_('stercseo.grid_noresults')+'</div>'
         ,autoHeight: true
         ,paging: true
@@ -53,25 +54,27 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
         this.windows.createItem = MODx.load({
             xtype: 'stercseo-window-item-create'
             ,listeners: {
-            'success': {fn:function(r) {
-                var myRecord = Ext.data.Record.create([{
-                    name: 'url',
-                    type: 'string'
-                }]);
+                'success': {fn:function(r) {
+                    var myRecord = Ext.data.Record.create([{
+                        name: 'url',
+                        type: 'string'
+                    }]);
 
-                var newRecord = new myRecord({
-                    url: r.a.result.object.url
-                });
+                    var newRecord = new myRecord({
+                        url: r.a.result.object.url
+                    });
 
-                Ext.getCmp(id).getStore().insert(0, newRecord);
+                    var store = Ext.getCmp(id).getStore();
 
-                var JsonData = Ext.encode(Ext.pluck(Ext.getCmp(id).getStore().data.items, 'data'));
-                Ext.getCmp('sterceseo-urls').setValue(JsonData);
+                    store.insert(store.getCount(), newRecord);
 
-                MODx.fireResourceFormChange();
+                    var JsonData = Ext.encode(Ext.pluck(store.data.items, 'data'));
+                    Ext.getCmp('sterceseo-urls').setValue(JsonData);
 
-            },scope:this}
-        }
+                    MODx.fireResourceFormChange();
+
+                },scope:this}
+            }
         });
 
         this.windows.createItem.fp.getForm().reset();
@@ -86,17 +89,14 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
 
         if(selected.length>0) {
             for(var i=0;i<selected.length;i++) {
-                console.log(selected[i].data.url)
                 MODx.Ajax.request({
                     url: StercSEO.config.connectorUrl,
                     params: {
-                        action: 'mgr/url/remove'
-                        ,url:  selected[i].data.url
-                        ,id: MODx.request.id
+                        action: 'mgr/redirect/remove'
+                        ,id: selected[i].data.id
                     }
                 });
                 Ext.getCmp(id).getStore().remove(selected[i]);
-                //console.log(selected[i])
             }
         }
 

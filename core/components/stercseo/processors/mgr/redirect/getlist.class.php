@@ -18,14 +18,20 @@ class StercSeoGetListProcessor extends modObjectGetListProcessor
         $query = $this->getProperty('query');
         if (!empty($query)) {
             $c->where(array(
-                    'url:LIKE' => '%'.$query.'%',
-                    'OR:resource:LIKE' => '%'.$query.'%',
-                ));
+                'url:LIKE' => '%'.$query.'%',
+                'OR:resource:LIKE' => '%'.$query.'%',
+            ));
         }
         $context_key = $this->getProperty('context_key');
         if (!empty($context_key)) {
             $c->where(array(
                     'context_key' => $context_key,
+                ));
+        }
+        $resource_id = $this->getProperty('resource_id');
+        if (!empty($resource_id)) {
+            $c->where(array(
+                    'resource' => $resource_id,
                 ));
         }
         return $c;

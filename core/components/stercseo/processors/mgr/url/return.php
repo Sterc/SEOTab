@@ -1,15 +1,21 @@
 <?php
-
-$page = $modx->getObject('modResource', $scriptProperties['id']);
 $convertedUrl = urlencode($scriptProperties['url']);
 $w = array(
-	'url' => $convertedUrl
+    'url' => $convertedUrl
 );
-if($modx->getOption('stercseo.context-aware-alias', null, '0')){
-	$w['context_key'] = $page->get('context_key');
+$resource = $modx->getObject('modResource', $scriptProperties['id']);
+if ($modx->getOption('stercseo.context-aware-alias', null, '0') && $resource) {
+    $w['context_key'] = $resource->get('context_key');
 }
 $alreadyExists = $modx->getObject('seoUrl', $w);
-if($alreadyExists){
-	return $modx->error->failure($modx->lexicon('stercseo.alreadyexists', array('URI' => $scriptProperties['url'], 'id' => $alreadyExists->get('resource'))));
+if ($alreadyExists) {
+    $target = $modx->getObject('modResource', $alreadyExists->get('resource'));
+    return $modx->error->failure(
+        $modx->lexicon('stercseo.alreadyexists', array(
+            'url' => $scriptProperties['url'],
+            'id' => $alreadyExists->get('resource'),
+            'pagetitle' => ($target ? $target->get('pagetitle') : '')
+        ))
+    );
 }
-return $modx->error->success('',$scriptProperties);
+return $modx->error->success('', $scriptProperties);

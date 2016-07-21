@@ -57,7 +57,7 @@ $_lang['stercseo.uri_add'] = 'Add redirect url';
 $_lang['stercseo.uri_header'] = 'Below is a list of old URLs for this page';
 $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redirects set for this page.</p>';
 $_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. SEOTab automatically adds 301 redirects after changing the URL of a page ..';
-$_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> has already been added to the page: <strong>[[+pagetitle]] ([[+id]])</strong>';
+$_lang['stercseo.alreadyexists'] = '<b>[[+url]]</b> has already been added to resource: <b>[[+pagetitle]] ([[+id]])</b>';
 $_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
 
 //Tab Freeze URL

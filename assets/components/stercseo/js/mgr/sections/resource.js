@@ -195,7 +195,7 @@ Ext.onReady(function() {
                     ,labelSeparator: ''
                     ,items: [{
                         xtype: 'stercseo-grid-items'
-                        ,bodyStyle: 'margin-bottom: 15px;'
+                        ,bodyStyle: 'margin-bottom: 10px;'
                         ,bbar: false
                         ,store: StercSEO.record.test
                     },{
