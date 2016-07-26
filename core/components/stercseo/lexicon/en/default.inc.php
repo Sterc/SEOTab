@@ -53,6 +53,7 @@ $_lang['stercseo.changefreq_desc'] = 'Specify how often (you expect) the content
 
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 Redirects';
+$_lang['stercseo.redirects.description'] = 'Here you can view and manage your 301 redirects. Redirects can also be added from the resource create and update pages.';
 $_lang['stercseo.uri_add'] = 'Add redirect url';
 $_lang['stercseo.uri_header'] = 'Below is a list of old URLs for this page';
 $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redirects set for this page.</p>';

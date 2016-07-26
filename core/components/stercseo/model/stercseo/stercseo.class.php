@@ -253,6 +253,14 @@ class StercSEO
                     break;
                 }
             }
+            $migrationStatusSetting = $this->modx->getObject('modSystemSetting', array('key' => 'stercseo.migration_status', 'namespace' => 'stercseo_custom'));
+            if (!$migrationStatusSetting) {
+                $migrationStatusSetting = $this->modx->newObject('modSystemSetting');
+                $migrationStatusSetting->set('key', 'stercseo.migration_status');
+                $migrationStatusSetting->set('namespace', 'stercseo_custom');
+            }
+            $migrationStatusSetting->set('value', '1');
+            $migrationStatusSetting->save();
         }
         return $migrationStatus;
     }

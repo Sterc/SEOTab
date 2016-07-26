@@ -5,7 +5,7 @@ StercSEO.panel.Home = function(config) {
         ,baseCls: 'modx-formpanel'
         ,cls: 'container'
         ,items: [{
-            html: '<h2>'+_('stercseo.seo')+'</h2>'
+            html: '<h2>'+_('stercseo.seotab')+'</h2>'
             ,border: false
             ,cls: 'modx-page-header'
         },{
