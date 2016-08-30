@@ -259,7 +259,7 @@ class StercSEO
                 $migrationStatusSetting->set('key', 'stercseo.migration_status');
                 $migrationStatusSetting->set('namespace', 'stercseo_custom');
             }
-            $migrationStatusSetting->set('value', '1');
+            $migrationStatusSetting->set('value', (int)$migrationStatus);
             $migrationStatusSetting->save();
         }
         return $migrationStatus;

@@ -56,7 +56,9 @@ Ext.extend(StercSEO.panel.Migrate,MODx.Panel,{
                         if(r.total == 0) {
                             // No redirects found in resource properties, success!
                             message = '<p>'+_('stercseo.migrate_success_msg')+'</p>';
-                            MODx.msg.alert(_('stercseo.migrate_success'), _('stercseo.migrate_success_msg'));
+                            MODx.msg.alert(_('stercseo.migrate_success'), _('stercseo.migrate_success_msg'), function() {
+                                location.href = MODx.config.manager_url + '?a=home&namespace=' + MODx.request.namespace;
+                            });
                         } else {
                             // Processing redirects
                             message = '<p>'+_('stercseo.migrate_running')+'</p>';
