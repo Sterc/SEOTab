@@ -11,14 +11,13 @@ class StercSeoMigrateProcessor extends modProcessor
     public function process()
     {
         $count = 0;
-        $limit = 100;
+        $limit = 5000;
         $site_url = $this->modx->getOption('site_url');
-        $resources = $this->modx->getIterator('modResource', array('context_key:!=' => 'mgr'));
-        foreach ($resources as $resource) {
-            if ($count > $limit) {
-                break;
-            }
-            $context_key = $resource->get('context_key');
+
+        $site_urls = [];
+        $contexts = $this->modx->getCollection('modContext', array('key:!=' => 'mgr'));
+        foreach ($contexts as $ctx) {
+            $context_key = $ctx->get('key');
             $site_url_setting = $this->modx->getObject('modContextSetting', array('context_key' => $context_key, 'key' => 'site_url'));
             if ($site_url_setting) {
                 $site_url = $site_url_setting->get('value');
@@ -27,12 +26,34 @@ class StercSeoMigrateProcessor extends modProcessor
             if ($base_url_setting) {
                 $base_url = $base_url_setting->get('value');
             }
+
             if (isset($base_url) && !empty($base_url)) {
                 $site_url = str_replace($base_url, '/', $site_url);
             }
-            $properties = $resource->getProperties('stercseo');
-            if ($properties['urls']) {
-                foreach ($properties['urls'] as $urls) {
+            $site_urls[$context_key] = $site_url;
+        }
+
+        $c = $this->modx->newQuery('modResource');
+        $c->where(array(
+            'context_key:!=' => 'mgr'
+        ));
+        
+        $c->prepare();
+        $results = $this->modx->query($c->toSql());
+
+        while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
+            if ($count > $limit) {
+                break;
+            }
+            $context_key = $row['modResource_context_key'];
+            
+            $site_url = $site_urls[$context_key];
+
+            $properties = json_decode($row['modResource_properties'], true);
+
+            // $properties = $properties['stercseo'];
+            if ($properties['stercseo']['urls']) {
+                foreach ($properties['stercseo']['urls'] as $urls) {
                     foreach ($urls as $url) {
                         $encoded_url = urlencode($site_url.ltrim($url, '/'));
                         $redirect = $this->modx->getObject('seoUrl', array('url' => $encoded_url));
@@ -40,7 +61,7 @@ class StercSeoMigrateProcessor extends modProcessor
                             $redirect = $this->modx->newObject('seoUrl');
                             $data = array(
                                'url' => $encoded_url,
-                               'resource' => $resource->get('id'),
+                               'resource' => $row['modResource_id'],
                                'context_key' => $context_key,
                             );
                             $redirect->fromArray($data);
@@ -50,9 +71,8 @@ class StercSeoMigrateProcessor extends modProcessor
                     }
                 }
                 // reset the urls in properties
-                $properties['urls'] = '';
-                $resource->setProperties($properties, 'stercseo');
-                $resource->save();
+                $properties['stercseo']['urls'] = '';
+                $this->modx->query("UPDATE ".$this->modx->getOption('table_prefix')."site_content SET properties = '".json_encode($properties)."' WHERE id = ".$row['modResource_id']);
             }
         }
 
