@@ -72,7 +72,9 @@ class StercSeoMigrateProcessor extends modProcessor
                 }
                 // reset the urls in properties
                 $properties['stercseo']['urls'] = '';
-                $this->modx->query("UPDATE ".$this->modx->getOption('table_prefix')."site_content SET properties = '".json_encode($properties)."' WHERE id = ".$row['modResource_id']);
+                $this->modx->exec("UPDATE {$this->modx->getTableName('modResource')} 
+                    SET {$this->modx->escape('properties')} = {$this->modx->quote(json_encode($properties))} 
+                    WHERE {$this->modx->escape('id')} = {$this->modx->quote($row['modResource_id'])} ");
             }
         }
 
