@@ -212,11 +212,15 @@ StercSEO.window.Redirect = function(config) {
             ,displayField: 'pagetitle'
             ,baseParams: {
                 action: 'mgr/resource/getlist'
-                ,limit: 0
+                ,limit: 20
+                ,sort: 'pagetitle'
+                ,dir: 'asc'
             }
             ,emptyText: _('resource')
             ,anchor: '100%'
             ,allowBlank: false
+            ,paging: true
+            ,pageSize: 20
         }]
     });
     StercSEO.window.Redirect.superclass.constructor.call(this,config);
