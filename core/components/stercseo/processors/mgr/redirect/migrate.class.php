@@ -11,7 +11,7 @@ class StercSeoMigrateProcessor extends modProcessor
     public function process()
     {
         $count = 0;
-        $limit = 5000;
+        $limit = 2000;
         $site_url = $this->modx->getOption('site_url');
 
         $site_urls = [];
@@ -51,21 +51,21 @@ class StercSeoMigrateProcessor extends modProcessor
 
             $properties = json_decode($row['modResource_properties'], true);
 
-            // $properties = $properties['stercseo'];
             if ($properties['stercseo']['urls']) {
                 foreach ($properties['stercseo']['urls'] as $urls) {
                     foreach ($urls as $url) {
                         $encoded_url = urlencode($site_url.ltrim($url, '/'));
-                        $redirect = $this->modx->getObject('seoUrl', array('url' => $encoded_url));
-                        if (!$redirect) {
-                            $redirect = $this->modx->newObject('seoUrl');
-                            $data = array(
-                               'url' => $encoded_url,
-                               'resource' => $row['modResource_id'],
-                               'context_key' => $context_key,
-                            );
-                            $redirect->fromArray($data);
-                            $redirect->save();
+                        $q = $this->modx->newQuery('seoUrl');
+                        $q->where(array(
+                            'url' => $encoded_url
+                        ));
+                        $redirect = $this->modx->query($q->toSql());
+                        if (!is_object($redirect)) {
+                            $this->modx->exec("INSERT INTO {$this->modx->getTableName('seoUrl')} 
+                                SET {$this->modx->escape('url')} = {$this->modx->quote($encoded_url)}, 
+                                    {$this->modx->escape('resource')} = {$this->modx->quote($row['modResource_id'])}, 
+                                    {$this->modx->escape('context_key')} = {$this->modx->quote($context_key)}");
+
                             $count++;
                         }
                     }
