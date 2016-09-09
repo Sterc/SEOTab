@@ -80,3 +80,18 @@ $_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update freque
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';
+
+// CMP
+$_lang['stercseo.redirects.description'] = 'Here you can view and manage your 301 redirects. Redirects can also be added from the resource create and update pages.';
+$_lang['stercseo.uri'] = 'Old url (url to redirect)';
+$_lang['stercseo.target'] = 'Target resource / url';
+$_lang['stercseo.uri_update'] = 'Update redirect';
+$_lang['stercseo.uri_remove'] = 'Remove redirect';
+$_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
+$_lang['stercseo.migrate'] = 'Migrate redirects';
+$_lang['stercseo.migrate_desc'] = 'Here you can migrate your redirects (SEOTab version 1.2.2 and below) from resource properties to seoUrl objects. This page will automatically migrate all the redirects for you, so no action is required, but please keep this page open for SEOTab to correctly handle the migration process.';
+$_lang['stercseo.migrate_alert'] = 'Your SEOTab redirects need to be migrated. Click here to visit the migration page.';
+$_lang['stercseo.migrate_status'] = 'Status';
+$_lang['stercseo.migrate_running'] = 'Currently running migration process. Please keep this page open in your browser.';
+$_lang['stercseo.migrate_success'] = 'Migration completed';
+$_lang['stercseo.migrate_success_msg'] = 'All your redirects have been successfully migrated.';

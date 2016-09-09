@@ -1,7 +1,7 @@
 --------------------
 SEOTab
 --------------------
-Version: 1.2.2-pl
+Version: 2.0.0-pl
 Author: Sterc <modx@sterc.nl>
 
 License: GNU GPLv2

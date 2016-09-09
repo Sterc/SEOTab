@@ -2,8 +2,8 @@ Changelog for SEOTab.
 
 SEOTab 2.0.0-pl
 ==============
-- Added systemsetting for excluding usergroups from SEOTab #39
-- Changed SEOTab Plugin to check for excluded usergroups. #39
+- 301 redirects are now stored in a separate table.
+- New custom manager page for viewing and managing 301 redirects.
 
 SEOTab 1.2.2-pl
 ==============
@@ -11,6 +11,8 @@ SEOTab 1.2.2-pl
 - Removed development files
 - Added automatically adding 301 redirects if alias of page is changed #42
 - Added option to set params outerTpl and rowTpl for StercSeoSiteMap snippet #52
+- Added systemsetting for excluding usergroups from SEOTab #39
+- Changed SEOTab Plugin to check for excluded usergroups. #39
 
 SEOTab 1.2.1-pl
 ==============
