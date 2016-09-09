@@ -3,7 +3,7 @@
     "lowCaseName": "stercseo",
     "description": "SEOTab is a MODX package that helps you manage your pages in Google.",
     "author": "Sterc",
-    "version": "2.0.0",
+    "version": "2.0.0-beta1",
     "package":{  
         "menus": [{
             "text": "stercseo.seotab",
