@@ -82,9 +82,9 @@ $_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergr
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';
 
 // CMP
-$_lang['stercseo.redirects.description'] = 'Gérez ici vos redirections 301. LEs redirections peuvent également être ajoutées depuis les pages de création et d\'édition de resources.';
+$_lang['stercseo.redirects.description'] = 'Gérez ici vos redirections 301. Les redirections peuvent également être ajoutées depuis les pages de création et d\'édition de ressources.';
 $_lang['stercseo.uri'] = 'Ancienne URL (URL à rediriger)';
-$_lang['stercseo.target'] = 'Resource/URL de destination';
+$_lang['stercseo.target'] = 'Ressource/URL de destination';
 $_lang['stercseo.uri_update'] = 'Mettre à jour';
 $_lang['stercseo.uri_remove'] = 'Supprimer';
 $_lang['stercseo.uri_remove_confirm'] = 'Êtes-vous sûr de vouloir supprimer cette redirection ?';
