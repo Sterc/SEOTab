@@ -58,7 +58,7 @@ $_lang['stercseo.uri_header'] = 'Dies ist eine Liste von alten URLs für diese S
 $_lang['stercseo.grid_noresults'] = '<h4>Keine Weiterleitungen</h4><p>Es gibt keine Weiterleitungen für diese Seite</p>';
 $_lang['stercseo.redirects_desc'] = 'Jede Änderung an einer Seite beeinflusst Suchmaschinen. Wenn die URL einer Seite geändert wird verliert Sie Ihren gesamten Wert für Suchmaschinen. Mit 301 Weiterleitungen verliert Sie Ihren Wert nicht. 301 Weiterleitungen werden automatisch hinzufügt wenn Sie die URL ändern.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> existiert bereits für folgende Seite: <strong>[[+pagetitle]] ([[+id]])</strong>';
-$_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
+$_lang['stercseo.uri_label'] = 'Geben Sie die komplette URL (z.B. http://www.google.com) an, auf die Sie weiterleiten wollen';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Feste URL';
@@ -67,7 +67,7 @@ $_lang['stercseo.uri_after'] = 'URL nach ';
 
 //Settings
 $_lang['setting_stercseo.context-aware-alias'] = '301 Weiterleitungen sind eindeutig pro Kontext';
-$_lang['setting_stercseo.context-aware-alias_desc'] = 'Alte URLs sind eindeutig pro Kontext, Redirects funtkionieren also nur innerhalb eines Kontextes';
+$_lang['setting_stercseo.context-aware-alias_desc'] = 'Alte URLs sind eindeutig pro Kontext, Weiterleitungen funtkionieren also nur innerhalb eines Kontextes';
 $_lang['setting_stercseo.index'] = 'Voreinstellung: In Suchmaschinen anzeigen';
 $_lang['setting_stercseo.index_desc'] = 'Neue Seiten in Suchmaschine anzeigen? (0, 1)';
 $_lang['setting_stercseo.follow'] = 'Voreinstellung: Links folgen';
@@ -78,20 +78,20 @@ $_lang['setting_stercseo.priority'] = 'Voreinstellung: Priorität';
 $_lang['setting_stercseo.priority_desc'] = 'Wichtigkeit von neuen Seiten (0.25, 0.5 oder 1)';
 $_lang['setting_stercseo.changefreq'] = 'Voreinstellung: Update Frequenz';
 $_lang['setting_stercseo.changefreq_desc'] = 'Update Frequenz für neue Seiten (daily, weekly, monthly)';
-$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
-$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';
+$_lang['setting_stercseo.hide_from_usergroups'] = 'SEOTab für diese Benutzergruppen verbergen';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Kommaseparierte Liste von Benutzergruppen, denen nicht erlaubt ist, auf SEOTab zuzugreifen';
 
 // CMP
-$_lang['stercseo.redirects.description'] = 'Here you can view and manage your 301 redirects. Redirects can also be added from the resource create and update pages.';
-$_lang['stercseo.uri'] = 'Old url (url to redirect)';
-$_lang['stercseo.target'] = 'Target resource / url';
-$_lang['stercseo.uri_update'] = 'Update redirect';
-$_lang['stercseo.uri_remove'] = 'Remove redirect';
-$_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
-$_lang['stercseo.migrate'] = 'Migrate redirects';
-$_lang['stercseo.migrate_desc'] = 'Here you can migrate your redirects (SEOTab version 1.2.2 and below) from resource properties to seoUrl objects. This page will automatically migrate all the redirects for you, so no action is required, but please keep this page open for SEOTab to correctly handle the migration process.';
-$_lang['stercseo.migrate_alert'] = 'Your SEOTab redirects need to be migrated. Click here to visit the migration page.';
+$_lang['stercseo.redirects.description'] = 'Hier können Sie Ihre 301 Weiterleitungen anschauen und bearbeiten. Weiterleitungen können ebenso auf den Ressourcen Seiten beim Anlegen und Bearbeiten hinzugefügt werden.';
+$_lang['stercseo.uri'] = 'Alte URL (weitergeleitete URL)';
+$_lang['stercseo.target'] = 'Ziel Ressource / URL';
+$_lang['stercseo.uri_update'] = 'Weiterleitung bearbeiten';
+$_lang['stercseo.uri_remove'] = 'Weiterleitung löschen';
+$_lang['stercseo.uri_remove_confirm'] = 'Sind Sie sicher, dass Sie diese Weiterleitung löschen wollen?';
+$_lang['stercseo.migrate'] = 'Weiterleitung migrieren';
+$_lang['stercseo.migrate_desc'] = 'Sie können Ihre Weiterleitung (SEOTab version 1.2.2 und niedriger) von Ressourcen Eigenschaften zu eigenständigen seoURL Objekten migireren. Dies wird automatisch die Daten aller Weiterleitungen für Sie migrieren. Es ist keine weitere Aktion notwendig. Bitte lassen Sie diese Seite geöffnet, damit SEOTab die Migrierung korrekt beenden kann.';
+$_lang['stercseo.migrate_alert'] = 'Ihre SEOTab Weiterleitungen müssen migriert werden, bitte klicken Sie hier um die Migrierungs Seite anzuzeigen.';
 $_lang['stercseo.migrate_status'] = 'Status';
-$_lang['stercseo.migrate_running'] = 'Currently running migration process. Please keep this page open in your browser.';
-$_lang['stercseo.migrate_success'] = 'Migration completed';
-$_lang['stercseo.migrate_success_msg'] = 'All your redirects have been successfully migrated.';
+$_lang['stercseo.migrate_running'] = 'Der Migrierungs-Prozess läuft momentan. Bitte lassen Sie diese Seite geöffnet, damit der Migrierungs-Prozess abgeschlossen werden kann.';
+$_lang['stercseo.migrate_success'] = 'Migrierung erfolgreich abgeschlossen';
+$_lang['stercseo.migrate_success_msg'] = 'Alle Ihre Weiterleitungen wurden erfolgreich migriert.';
