@@ -3,6 +3,7 @@
  * SEOTab German language file
  *
  * @author Christian Seel <cs@chsmedien.de>
+ * @author Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package stercseo
  * @subpackage lexicon
