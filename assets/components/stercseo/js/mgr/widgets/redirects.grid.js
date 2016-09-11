@@ -22,7 +22,7 @@ StercSEO.grid.Redirects = function(config) {
         },{
             header: _('stercseo.uri')
             ,dataIndex: 'url'
-            ,width: 180
+            ,width: 280
         },{
             header: _('stercseo.target')
             ,dataIndex: 'target'
@@ -30,7 +30,7 @@ StercSEO.grid.Redirects = function(config) {
         },{
             header: _('context')
             ,dataIndex: 'context_key'
-            ,width: 180
+            ,width: 80
         }]
         ,tbar: [{
             text: _('stercseo.uri_add')

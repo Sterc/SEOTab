@@ -41,13 +41,8 @@ if (!($stercseo instanceof StercSEO)) {
 
 switch ($modx->event->name) {
     case 'OnDocFormPrerender':
-        $exclUsergroups = explode(',', $modx->getOption('stercseo.hide_from_usergroups'));
-        if (!empty($exclUsergroups)) {
-            foreach ($exclUsergroups as $exclUserGroup) {
-                if ($modx->getUser()->isMember($exclUserGroup)) {
-                    return;
-                }
-            }
+        if (!$stercseo->checkUserAccess()) {
+            return;
         }
 
         $resource =& $modx->event->params['resource'];
@@ -141,8 +136,11 @@ switch ($modx->event->name) {
                 'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly'))
             );
         }
-            
-        if ($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
+        
+        // If uri is changed or alias (with freeze uri off) has changed, add a new redirect
+        if (($oldResource->get('uri') != $resource->get('uri') ||
+            ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
+            $oldResource->get('uri') != '') {
             $redirect = $modx->newObject('seoUrl');
             $data = array(
                 'url' => urlencode($modx->getOption('site_url').$oldResource->get('uri')),

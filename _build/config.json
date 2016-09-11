@@ -20,7 +20,8 @@
                     "OnLoadWebDocument",
                     "OnPageNotFound",
                     "OnResourceDuplicate",
-                    "OnManagerPageBeforeRender"
+                    "OnManagerPageBeforeRender",
+                    "OnResourceBeforeSort"
                 ]
             }],
             "snippets": [{
