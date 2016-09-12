@@ -2,9 +2,10 @@ Changelog for SEOTab.
 
 SEOTab 2.0.0-pl
 ==============
-- 301 redirects are now stored in a separate table (.
+- 301 redirects are now stored in a separate table (migration page included)
 - New custom manager page for viewing and managing 301 redirects.
 - Added systemsetting for excluding usergroups from accessing SEOTab #39
+- Automatically add redirect for resource and children when moving or changing alias/uri (thanks to Michael Engel). PR#63
 
 SEOTab 1.2.2-pl
 ==============

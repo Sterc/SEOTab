@@ -7,4 +7,4 @@ Author: Sterc <modx@sterc.nl>
 License: GNU GPLv2
 --------------------
 
-More info : http://www.stercx.com/modx-extras/
+More info : https://github.com/Sterc/SEOTab
