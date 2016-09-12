@@ -157,9 +157,11 @@ switch ($modx->event->name) {
                 $resourceOldBasePath = $oldResource->getAliasPath($oldResource->get('alias'), $oldResource->toArray() + array('isfolder' => 1));
                 $resourceNewBasePath = $resource->getAliasPath($resource->get('alias'), $resource->toArray() + array('isfolder' => 1));
                 $childResources = $modx->getIterator('modResource', array(
-                    'uri:LIKE'     => $resourceOldBasePath . '%',
+                    'uri:LIKE' => $resourceOldBasePath . '%',
                     'uri_override' => '0',
-                    'context_key'  => $resource->get('context_key')
+                    'published' => '1',
+                    'deleted' => '0',
+                    'context_key' => $resource->get('context_key')
                 ));
                 foreach ($childResources as $childResource) {
                     $url = urlencode($modx->getOption('site_url').$childResource->get('uri'));
