@@ -141,19 +141,40 @@ switch ($modx->event->name) {
         if (($oldResource->get('uri') != $resource->get('uri') ||
             ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
             $oldResource->get('uri') != '') {
-            $data = array(
-                'url' => $modx->getOption('site_url').$oldResource->get('uri'),
-                'resource' => $resource->get('id'),
-                'context_key' => $resource->get('context_key'),
-            );
-            $modx->runProcessor(
-                'mgr/redirect/create',
-                $data,
-                array(
-                    'processors_path' => $stercseo->config['processorsPath'],
-                    'location' => '',
-                )
-            );
+            $url = urlencode($modx->getOption('site_url').$oldResource->get('uri'));
+            if (!$modx->getCount('seoUrl', array('url' => $url))) {
+                $data = array(
+                    'url' => $url,
+                    'resource' => $resource->get('id'),
+                    'context_key' => $resource->get('context_key'),
+                );
+                $redirect = $modx->newObject('seoUrl');
+                $redirect->fromArray($data);
+                $redirect->save();
+            }
+            // Recursive set all children resources as redirects
+            if ($modx->getOption('use_alias_path')) {
+                $resourceOldBasePath = $oldResource->getAliasPath($oldResource->get('alias'), $oldResource->toArray() + array('isfolder' => 1));
+                $resourceNewBasePath = $resource->getAliasPath($resource->get('alias'), $resource->toArray() + array('isfolder' => 1));
+                $childResources = $modx->getIterator('modResource', array(
+                    'uri:LIKE'     => $resourceOldBasePath . '%',
+                    'uri_override' => '0',
+                    'context_key'  => $resource->get('context_key')
+                ));
+                foreach ($childResources as $childResource) {
+                    $url = urlencode($modx->getOption('site_url').$childResource->get('uri'));
+                    if (!$modx->getCount('seoUrl', array('url' => $url))) {
+                        $data = array(
+                            'url' => $url,
+                            'resource' => $childResource->get('id'),
+                            'context_key' => $resource->get('context_key'),
+                        );
+                        $redirect = $modx->newObject('seoUrl');
+                        $redirect->fromArray($data);
+                        $redirect->save();
+                    }
+                }
+            }
         }
         $resource->setProperties($newProperties, 'stercseo');
         break;
@@ -239,19 +260,17 @@ switch ($modx->event->name) {
 
             $childResources = $modx->getIterator('modResource', $cond);
             foreach ($childResources as $childResource) {
-                $data = array(
-                    'url' => $modx->getOption('site_url').$childResource->get('uri'),
-                    'resource' => $childResource->get('id'),
-                    'context_key' => $targetCtx
-                );
-                $modx->runProcessor(
-                    'mgr/redirect/create',
-                    $data,
-                    array(
-                        'processors_path' => $stercseo->config['processorsPath'],
-                        'location' => '',
-                    )
-                );
+                $url = urlencode($modx->getOption('site_url').$childResource->get('uri'));
+                if (!$modx->getCount('seoUrl', array('url' => $url))) {
+                    $data = array(
+                        'url' => $url,
+                        'resource' => $childResource->get('id'),
+                        'context_key' => $targetCtx
+                    );
+                    $redirect = $modx->newObject('seoUrl');
+                    $redirect->fromArray($data);
+                    $redirect->save();
+                }
             }
         }
         break;
