@@ -13,7 +13,17 @@ class StercSeoCreateProcessor extends modObjectCreateProcessor
 
     public function beforeSave()
     {
-        $this->object->set('url', urlencode($this->object->get('url')));
+        $url = urlencode($this->object->get('url'));
+        if ($existing = $this->modx->getObject($this->classKey, array('url' => $url))) {
+            $this->addFieldError(
+                'url',
+                $this->modx->lexicon(
+                    'stercseo.alreadyexists',
+                    array('url' => $this->object->get('url'), 'id' => $existing->get('resource'), 'pagetitle' => '')
+                )
+            );
+        }
+        $this->object->set('url', $url);
         $resource = $this->modx->getObject('modResource', $this->object->get('resource'));
         if ($resource) {
             $this->object->set('context_key', $resource->get('context_key'));

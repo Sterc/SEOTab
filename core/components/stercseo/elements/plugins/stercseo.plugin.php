@@ -141,14 +141,19 @@ switch ($modx->event->name) {
         if (($oldResource->get('uri') != $resource->get('uri') ||
             ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
             $oldResource->get('uri') != '') {
-            $redirect = $modx->newObject('seoUrl');
             $data = array(
-                'url' => urlencode($modx->getOption('site_url').$oldResource->get('uri')),
+                'url' => $modx->getOption('site_url').$oldResource->get('uri'),
                 'resource' => $resource->get('id'),
                 'context_key' => $resource->get('context_key'),
             );
-            $redirect->fromArray($data);
-            $redirect->save();
+            $modx->runProcessor(
+                'mgr/redirect/create',
+                $data,
+                array(
+                    'processors_path' => $stercseo->config['processorsPath'],
+                    'location' => '',
+                )
+            );
         }
         $resource->setProperties($newProperties, 'stercseo');
         break;
@@ -190,24 +195,63 @@ switch ($modx->event->name) {
         break;
 
     case 'OnResourceBeforeSort':
-        foreach ($nodes as $node) {
-            $oldResource = $modx->getObject('modResource', $node['id']);
-            $resource    = $modx->getObject('modResource', $node['id']);
-            $resource->set('parent', $node['parent']);
+        list($sourceCtx, $resource) = explode('_', $modx->getOption('source', $_POST));
+        list($targetCtx, $target) = explode('_', $modx->getOption('target', $_POST));
+        switch ($modx->getOption('point', $_POST)) {
+            case 'above':
+            case 'below':
+                $tmpRes = $modx->getObject('modResource', $target);
+                $target = $tmpRes->get('parent');
+                unset($tmpRes);
+                break;
+        }
+        $oldResource = $modx->getObject('modResource', $resource);
+        $resource = $modx->getObject('modResource', $resource);
+        $resource->set('parent', $target);
+        $resource->set('uri', '');
+        $uriChanged = false;
+        if ($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
+            $uriChanged              = true;
+        }
+        
+        // Recursive set redirects for drag/dropped resource, and its children (where uri_override is not set)
+        if ($uriChanged && $modx->getOption('use_alias_path')) {
+            $oldResource->set('isfolder', true);
+            $resourceOldBasePath = $oldResource->getAliasPath(
+                $oldResource->get('alias'),
+                $oldResource->toArray()
+            );
+            $resourceNewBasePath = $resource->getAliasPath(
+                $resource->get('alias'),
+                $resource->toArray() + array('isfolder' => 1)
+            );
+            $cond = $modx->newQuery('modResource');
+            $cond->where(array(
+                array(
+                    'uri:LIKE'     => $resourceOldBasePath . '%',
+                    'OR:id:=' => $oldResource->id
+                ),
+                'uri_override' => '0',
+                'published' => '1',
+                'deleted' => '0',
+                'context_key' => $resource->get('context_key')
+            ));
 
-            if (!$stercseo->isAllowed($resource->get('context_key'))) {
-                return;
-            }
-
-            if ($oldResource->get('uri') != $resource->getAliasPath($resource->get('alias')) && $oldResource->get('uri') != '') {
-                $redirect = $modx->newObject('seoUrl');
+            $childResources = $modx->getIterator('modResource', $cond);
+            foreach ($childResources as $childResource) {
                 $data = array(
-                    'url' => urlencode($modx->getOption('site_url').$oldResource->get('uri')),
-                    'resource' => $oldResource->get('id'),
-                    'context_key' => $oldResource->get('context_key'),
+                    'url' => $modx->getOption('site_url').$childResource->get('uri'),
+                    'resource' => $childResource->get('id'),
+                    'context_key' => $targetCtx
                 );
-                $redirect->fromArray($data);
-                $redirect->save();
+                $modx->runProcessor(
+                    'mgr/redirect/create',
+                    $data,
+                    array(
+                        'processors_path' => $stercseo->config['processorsPath'],
+                        'location' => '',
+                    )
+                );
             }
         }
         break;
