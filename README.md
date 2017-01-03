@@ -1,9 +1,15 @@
-# SEO Tab - The best MODX performance in Search Engines
+# MODX SEO Tab - The best way to perform in search engines
 ![SEO Tab version](https://img.shields.io/badge/version-2.0-blue.svg) ![MODX Extra by Sterc](https://img.shields.io/badge/checked%20by-sterc-ff69b4.svg) ![MODX version requirements](https://img.shields.io/badge/modx%20version%20requirement-2.5%2B-brightgreen.svg)
 
-SEO Tab is a MODX Extra that helps you optimize your pages for search engines. It allows you to manage your **301 redirects**, manage the availability of a page in the automatically generated **Google XML Sitemaps**, manage your **robots-tag**. Also we think the Freeze URL functionality needs to be within the SEO-tab, so we've moved it there.
+SEO Tab is a MODX Extra that helps you optimize your pages for the best possible performance in search engines, like Google.
 
-There is also some AI in SEO Tab: it **automatically generates 301 redirects** when changing a resource URL.
+### Key features of SEO Tab:
+- Manage search engine visibility (noindex, nofollow)
+- Manage internal search engine behavior
+- Manage your Google XML Sitemap(s)
+- Manage 301 redirects
+- Automatically generate 301 redirects when changing a resource URL
+- Freeze URL functionality is moved into the SEO-tab
 
 ## Installation
 Simply install it through the top menu ```Extras > Installer``` and search for ```SEO Tab```. Install it from there. After installing it, it is recommended to clear your MODX cache, through the top menu ```Manage > Clear Cache```.
