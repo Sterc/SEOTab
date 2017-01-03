@@ -187,7 +187,7 @@ switch ($modx->event->name) {
                 return;
             }
             $properties = $modx->resource->getProperties('stercseo');
-            $metaContent = array('noopd', 'noydir');
+            $metaContent = array('noodp', 'noydir');
             if (!$properties['index']) {
                 $metaContent[] = 'noindex';
             }
