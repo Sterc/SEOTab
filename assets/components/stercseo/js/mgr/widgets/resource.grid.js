@@ -63,14 +63,10 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
                     var newRecord = new myRecord({
                         url: r.a.result.object.url
                     });
-
                     var store = Ext.getCmp(id).getStore();
-
                     store.insert(store.getCount(), newRecord);
-
                     var JsonData = Ext.encode(Ext.pluck(store.data.items, 'data'));
                     Ext.getCmp('sterceseo-urls').setValue(JsonData);
-
                     MODx.fireResourceFormChange();
 
                 },scope:this}
@@ -85,37 +81,28 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
         var id = this.id;
         if (!this.menu.record) return false;
 
-        // MODx.msg.confirm({
-        //     title: _('stercseo.uri_remove')
-        //     ,text: _('stercseo.uri_remove_confirm')
-        //     ,url: this.config.url
-        //     ,params: {
-        //         action: 'mgr/redirect/remove'
-        //         ,id: this.menu.record.id
-        //     }
-        //     ,listeners: {
-        //         'success': {fn:function(r) { this.refresh(); },scope:this}
-        //     }
-        // });
-
-        var selected = this.menu.record.id;
+        var selectedId = this.menu.record.id;
+        var selectedRow = this.getSelectionModel().getSelected();
 
         Ext.Msg.show({
             title: _('stercseo.uri_remove'),
             msg: _('stercseo.uri_remove_confirm'),
             buttons: Ext.Msg.YESNO,
             fn: function(btn){
-                if(btn == 'yes'){
-                    MODx.Ajax.request({
-                        url: StercSEO.config.connectorUrl,
-                        params: {
-                            action: 'mgr/redirect/remove'
-                            ,id: selected
-                        }
-                    });
-                    // Ext.getCmp(id).getStore().remove(selected[i]);
-                } else {
-                    return;
+                if (btn == 'yes') {
+                    if (selectedId) {
+                        Ext.Ajax.request({
+                            url: StercSEO.config.connectorUrl,
+                            params: {
+                                action: 'mgr/redirect/remove'
+                                , id: selectedId
+                            }
+                        });
+                    }
+                    var store = Ext.getCmp(id).getStore();
+                    store.remove(selectedRow);
+                    var JsonData = Ext.encode(Ext.pluck(store.data.items, 'data'));
+                    Ext.getCmp('sterceseo-urls').setValue(JsonData);
                 }
             },
             animEl: 'elId',
@@ -123,70 +110,7 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
         });
 
         MODx.fireResourceFormChange();
-
-        // var selected = Ext.getCmp(id).getSelectionModel().getSelections();
-        //
-        // if(selected.length>0) {
-        //     for(var i=0;i<selected.length;i++) {
-        //         // MODx.Ajax.request({
-        //         //     url: StercSEO.config.connectorUrl,
-        //         //     params: {
-        //         //         action: 'mgr/redirect/remove'
-        //         //         ,id: selected[i].data.id
-        //         //     }
-        //         // });
-        //         // MODx.msg.confirm({
-        //         //     title: _('stercseo.uri_remove')
-        //         //     ,text: _('stercseo.uri_remove_confirm')
-        //         //     ,url: StercSEO.config.connectorUrl
-        //         //     ,params: {
-        //         //         action: 'mgr/redirect/remove'
-        //         //         ,id: selected[i].data.id
-        //         //     }
-        //         //     ,listeners: {
-        //         //         'success': {fn:function(r) {
-        //         //             // this.refresh();
-        //         //             // console.log(Ext.getCmp(id).getStore().data.items);
-        //         //             // Ext.getCmp(id).getStore().remove(selected[i]);
-        //         //             Ext.getCmp(id).getStore().refresh();
-        //         //         },scope:this}
-        //         //     }
-        //         // });
-        //         function remove(){
-        //             MODx.Ajax.request({
-        //                 url: StercSEO.config.connectorUrl,
-        //                 params: {
-        //                     action: 'mgr/redirect/remove'
-        //                     ,id: selected[i].data.id
-        //                 }
-        //             });
-        //             Ext.getCmp(id).getStore().remove(selected[i]);
-        //         }
-        //         Ext.Msg.show({
-        //             title: _('stercseo.uri_remove'),
-        //             msg: _('stercseo.uri_remove_confirm'),
-        //             buttons: Ext.Msg.YESNO,
-        //             fn: function(btn){
-        //                 if(btn == 'yes'){
-        //                     // remove();
-        //                     console.log(selected);
-        //                     // console.log(selected[i]);
-        //                 } else {
-        //                     return;
-        //                 }
-        //             },
-        //             animEl: 'elId',
-        //             icon: Ext.MessageBox.QUESTION
-        //         });
-        //     }
-        // }
-        //
-        // var JsonData = Ext.encode(Ext.pluck(Ext.getCmp(id).getStore().data.items, 'data'));
-        // Ext.getCmp('sterceseo-urls').setValue(JsonData);
-        //
-        // MODx.fireResourceFormChange();
-        //
-        // return;
+        return;
     }
 });
 Ext.reg('stercseo-grid-items',StercSEO.grid.Items);
@@ -204,7 +128,7 @@ StercSEO.window.CreateItem = function(config) {
         ,baseParams: {
             action: 'mgr/url/return'
             ,id: MODx.request.id
-        }		
+        }
         ,labelAlign: 'left'
         ,labelWidth: 'auto'
         ,action: 'mgr/url/return'
