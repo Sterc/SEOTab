@@ -19,18 +19,22 @@ StercSEO.grid.Redirects = function(config) {
             header: _('id')
             ,dataIndex: 'id'
             ,width: 40
+            ,menuDisabled:true
         },{
             header: _('stercseo.uri')
             ,dataIndex: 'url'
             ,width: 280
+            ,menuDisabled:true
         },{
             header: _('stercseo.target')
             ,dataIndex: 'target'
             ,width: 240
+            ,menuDisabled:true
         },{
             header: _('context')
             ,dataIndex: 'context_key'
             ,width: 80
+            ,menuDisabled:true
         }]
         ,tbar: [{
             text: _('stercseo.uri_add')
@@ -45,6 +49,7 @@ StercSEO.grid.Redirects = function(config) {
             ,hiddenName: 'context_key'
             ,id: config.id + '-context-filter'
             ,editable: false
+            ,width: 230
             ,anchor: '100%'
             ,baseParams: {
                 action: 'context/getlist'
@@ -221,6 +226,9 @@ StercSEO.window.Redirect = function(config) {
             ,allowBlank: false
             ,paging: true
             ,pageSize: 20
+            ,typeAhead: true
+            ,editable: true
+            ,forceSelection: true
         }]
     });
     StercSEO.window.Redirect.superclass.constructor.call(this,config);

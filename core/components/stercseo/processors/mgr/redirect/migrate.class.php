@@ -18,15 +18,11 @@ class StercSeoMigrateProcessor extends modProcessor
         $contexts = $this->modx->getCollection('modContext', array('key:!=' => 'mgr'));
         foreach ($contexts as $ctx) {
             $context_key = $ctx->get('key');
-            $site_url_setting = $this->modx->getObject('modContextSetting', array('context_key' => $context_key, 'key' => 'site_url'));
-            if ($site_url_setting) {
-                $site_url = $site_url_setting->get('value');
+            $context = $this->modx->getContext($context_key);
+            if ($context) {
+                $site_url = $context->getOption('site_url', null, '');
+                $base_url = $context->getOption('base_url', null, '');
             }
-            $base_url_setting = $this->modx->getObject('modContextSetting', array('context_key' => $context_key, 'key' => 'base_url'));
-            if ($base_url_setting) {
-                $base_url = $base_url_setting->get('value');
-            }
-
             if (isset($base_url) && !empty($base_url)) {
                 $site_url = str_replace($base_url, '/', $site_url);
             }
@@ -72,8 +68,8 @@ class StercSeoMigrateProcessor extends modProcessor
                 }
                 // reset the urls in properties
                 $properties['stercseo']['urls'] = '';
-                $this->modx->exec("UPDATE {$this->modx->getTableName('modResource')} 
-                    SET {$this->modx->escape('properties')} = {$this->modx->quote(json_encode($properties))} 
+                $this->modx->exec("UPDATE {$this->modx->getTableName('modResource')}
+                    SET {$this->modx->escape('properties')} = {$this->modx->quote(json_encode($properties))}
                     WHERE {$this->modx->escape('id')} = {$this->modx->quote($row['modResource_id'])} ");
             }
         }

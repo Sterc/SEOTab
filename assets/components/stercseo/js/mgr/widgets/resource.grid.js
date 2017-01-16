@@ -85,27 +85,108 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
         var id = this.id;
         if (!this.menu.record) return false;
 
-        var selected = Ext.getCmp(id).getSelectionModel().getSelections();
+        // MODx.msg.confirm({
+        //     title: _('stercseo.uri_remove')
+        //     ,text: _('stercseo.uri_remove_confirm')
+        //     ,url: this.config.url
+        //     ,params: {
+        //         action: 'mgr/redirect/remove'
+        //         ,id: this.menu.record.id
+        //     }
+        //     ,listeners: {
+        //         'success': {fn:function(r) { this.refresh(); },scope:this}
+        //     }
+        // });
 
-        if(selected.length>0) {
-            for(var i=0;i<selected.length;i++) {
-                MODx.Ajax.request({
-                    url: StercSEO.config.connectorUrl,
-                    params: {
-                        action: 'mgr/redirect/remove'
-                        ,id: selected[i].data.id
-                    }
-                });
-                Ext.getCmp(id).getStore().remove(selected[i]);
-            }
-        }
+        var selected = this.menu.record.id;
 
-        var JsonData = Ext.encode(Ext.pluck(Ext.getCmp(id).getStore().data.items, 'data'));
-        Ext.getCmp('sterceseo-urls').setValue(JsonData);
+        Ext.Msg.show({
+            title: _('stercseo.uri_remove'),
+            msg: _('stercseo.uri_remove_confirm'),
+            buttons: Ext.Msg.YESNO,
+            fn: function(btn){
+                if(btn == 'yes'){
+                    MODx.Ajax.request({
+                        url: StercSEO.config.connectorUrl,
+                        params: {
+                            action: 'mgr/redirect/remove'
+                            ,id: selected
+                        }
+                    });
+                    // Ext.getCmp(id).getStore().remove(selected[i]);
+                } else {
+                    return;
+                }
+            },
+            animEl: 'elId',
+            icon: Ext.MessageBox.QUESTION
+        });
 
         MODx.fireResourceFormChange();
 
-        return;
+        // var selected = Ext.getCmp(id).getSelectionModel().getSelections();
+        //
+        // if(selected.length>0) {
+        //     for(var i=0;i<selected.length;i++) {
+        //         // MODx.Ajax.request({
+        //         //     url: StercSEO.config.connectorUrl,
+        //         //     params: {
+        //         //         action: 'mgr/redirect/remove'
+        //         //         ,id: selected[i].data.id
+        //         //     }
+        //         // });
+        //         // MODx.msg.confirm({
+        //         //     title: _('stercseo.uri_remove')
+        //         //     ,text: _('stercseo.uri_remove_confirm')
+        //         //     ,url: StercSEO.config.connectorUrl
+        //         //     ,params: {
+        //         //         action: 'mgr/redirect/remove'
+        //         //         ,id: selected[i].data.id
+        //         //     }
+        //         //     ,listeners: {
+        //         //         'success': {fn:function(r) {
+        //         //             // this.refresh();
+        //         //             // console.log(Ext.getCmp(id).getStore().data.items);
+        //         //             // Ext.getCmp(id).getStore().remove(selected[i]);
+        //         //             Ext.getCmp(id).getStore().refresh();
+        //         //         },scope:this}
+        //         //     }
+        //         // });
+        //         function remove(){
+        //             MODx.Ajax.request({
+        //                 url: StercSEO.config.connectorUrl,
+        //                 params: {
+        //                     action: 'mgr/redirect/remove'
+        //                     ,id: selected[i].data.id
+        //                 }
+        //             });
+        //             Ext.getCmp(id).getStore().remove(selected[i]);
+        //         }
+        //         Ext.Msg.show({
+        //             title: _('stercseo.uri_remove'),
+        //             msg: _('stercseo.uri_remove_confirm'),
+        //             buttons: Ext.Msg.YESNO,
+        //             fn: function(btn){
+        //                 if(btn == 'yes'){
+        //                     // remove();
+        //                     console.log(selected);
+        //                     // console.log(selected[i]);
+        //                 } else {
+        //                     return;
+        //                 }
+        //             },
+        //             animEl: 'elId',
+        //             icon: Ext.MessageBox.QUESTION
+        //         });
+        //     }
+        // }
+        //
+        // var JsonData = Ext.encode(Ext.pluck(Ext.getCmp(id).getStore().data.items, 'data'));
+        // Ext.getCmp('sterceseo-urls').setValue(JsonData);
+        //
+        // MODx.fireResourceFormChange();
+        //
+        // return;
     }
 });
 Ext.reg('stercseo-grid-items',StercSEO.grid.Items);
