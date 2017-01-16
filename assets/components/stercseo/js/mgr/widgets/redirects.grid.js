@@ -112,7 +112,6 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
         });
         this.addContextMenuItem(m);
     }
-    
     ,createRedirect: function(btn,e) {
 
         var createRedirect = MODx.load({
@@ -124,7 +123,6 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
 
         createRedirect.show(e.target);
     }
-
     ,updateRedirect: function(btn,e,isUpdate) {
         if (!this.menu.record || !this.menu.record.id) return false;
 
