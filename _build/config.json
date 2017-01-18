@@ -69,9 +69,27 @@
             "key": "hide_from_usergroups",
             "value": "",
             "area": "general"
+        },{
+            "key": "user_name",
+            "type": "textfield",
+            "area": "general",
+            "value": ""
+        }, {
+            "key": "user_email",
+            "type": "textfield",
+            "area": "general",
+            "value": ""
         }]
     },
     "database": {
         "tables": ["seoUrl"]
+    },
+    "build":{
+        "resolver": {
+            "after": ["setupoptions.resolver.php", "stercextra.resolver.php"]
+        },
+        "setupOptions":{
+            "source": "setup.options.php"
+        }
     }
 }
