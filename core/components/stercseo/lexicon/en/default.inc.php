@@ -42,13 +42,13 @@ $_lang['stercseo.priority'] = 'Priority';
 $_lang['stercseo.priority_important'] = '1.0 - High';
 $_lang['stercseo.priority_normal'] = '0.5 - Normal';
 $_lang['stercseo.priority_nopriority'] = '0.25 - Low';
-$_lang['stercseo.priority_desc'] = 'By giving the priority level, you give search engines an indication of the importance of the page. Please note: search engines will not blindly accept your priority level.';
+$_lang['stercseo.priority_desc'] = 'Set the priority level to indicate to search engines how important a page is. Higher is more important. Please note: search engines will not blindly accept your priority level.';
 
 $_lang['stercseo.changefreq'] = 'Update frequency';
 $_lang['stercseo.changefreq_daily'] = 'Daily';
 $_lang['stercseo.changefreq_weekly'] = 'Weekly';
 $_lang['stercseo.changefreq_monthly'] = 'Monthly';
-$_lang['stercseo.changefreq_desc'] = 'Specify how often (you expect) the content of this page will be changed.';
+$_lang['stercseo.changefreq_desc'] = 'Specify how often you expect the content of this page to change.';
 
 
 //Tab Redirects
