@@ -49,7 +49,7 @@ StercSEO.grid.Redirects = function(config) {
             ,hiddenName: 'context_key'
             ,id: config.id + '-context-filter'
             ,editable: false
-            ,width: 230
+            ,width: 250
             ,anchor: '100%'
             ,baseParams: {
                 action: 'context/getlist'
