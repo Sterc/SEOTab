@@ -14,9 +14,7 @@ if ($object->xpdo) {
         case xPDOTransport::ACTION_INSTALL:
         case xPDOTransport::ACTION_UPGRADE:
             $modelPath = $modx->getOption('stercseo.core_path', null, $modx->getOption('core_path') . 'components/stercseo/') . 'model/';
-            
-            $modx->addPackage('stercseo', $modelPath, null);
-
+            $modx->addPackage('stercseo', $modelPath, 'modx_');
 
             $manager = $modx->getManager();
 

@@ -133,7 +133,6 @@ Ext.onReady(function() {
                     },{
                         xtype: 'label'
                         ,forId: 'pagetitle'
-                        ,text: _('stercseo.sitemap_include_desc')
                         ,cls: 'desc-under'
                     },{
                         xtype: 'modx-combo'
