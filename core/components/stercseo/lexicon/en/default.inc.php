@@ -15,20 +15,22 @@ $_lang['stercseo.seotab'] = 'SEOTab';
 
 $_lang['stercseo.findability'] = 'Findability';
 
-$_lang['stercseo.index'] = 'Include in search engines';
-$_lang['stercseo.index_yes'] = 'Yes, this page may be indexed';
-$_lang['stercseo.index_no'] = 'No, this page should not be indexed (noindex)';
-$_lang['stercseo.index_desc'] = 'Note: irrelevant pages of your site should be excluded from the search engines and sitemap. Examples of irrelevant pages are: disclaimer, terms and conditions , privacy policy.';
+$_lang['stercseo.index'] = 'Include in search engines (index/noindex)';
+$_lang['stercseo.index_yes'] = 'Yes, include in search engines (index)';
+$_lang['stercseo.index_no'] = 'No, do not include in search engines (noindex)';
+$_lang['stercseo.index_desc'] = 'Irrelevant pages shouldn\'t be indexed in search engines. 
+Irrelevant page examples: disclaimer, terms and conditions, privacy policy.';
 
-$_lang['stercseo.follow'] = 'Following links';
-$_lang['stercseo.follow_yes'] = 'Yes, follow links on this page';
-$_lang['stercseo.follow_no'] = 'No, don’t follow links on this page (nofollow)';
-$_lang['stercseo.follow_desc'] = 'Set whether the search engines may or may not follow links on this page';
+$_lang['stercseo.follow'] = 'Follow links (follow/nofollow)';
+$_lang['stercseo.follow_yes'] = 'Yes, follow links on this page (follow)';
+$_lang['stercseo.follow_no'] = 'Yes, do not follow links on this page (nofollow)';
+$_lang['stercseo.follow_desc'] = 'Should search engines follow links on this page.';
 
-$_lang['stercseo.searchable'] = 'Include pages in internal search engine';
-$_lang['stercseo.searchable_yes'] = 'Yes, include this page in the internal search engine';
-$_lang['stercseo.searchable_no'] = 'No, hide this page for the internal search engine';
-$_lang['stercseo.searchable_desc'] = 'Set whether this page may be included in the internal search results of your website. An example of a page which is redundant in your search results, is the ‘thank you’ page of a contact form.';
+$_lang['stercseo.searchable'] = 'Include in internal search results';
+$_lang['stercseo.searchable_yes'] = 'Yes, include in internal search results';
+$_lang['stercseo.searchable_no'] = 'No, exclude from internal search results';
+$_lang['stercseo.searchable_desc'] = 'Should this page be included in the internal
+search results of your website. "Thank you"-pages are good examples of pages which should be excluded.';
 
 //Tab Sitemap
 $_lang['stercseo.sitemap'] = 'Google Sitemap';
