@@ -1,28 +1,28 @@
 <?php
 /**
- * SEOTab
+ * SEO Tab
  *
  * Copyright 2013 by Sterc internet & marketing <modx@sterc.nl>
  *
- * This file is part of SEOTab.
+ * This file is part of SEO Tab.
  *
- * SEOTab is free software; you can redistribute it and/or modify it under the
+ * SEO Tab is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
  *
- * SEOTab is distributed in the hope that it will be useful, but WITHOUT ANY
+ * SEO Tab is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
  * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License along with
- * SEOTab; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * SEO Tab; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
  *
  * @package stercseo
  */
 /**
- * SEOTab Plugin
+ * SEO Tab Plugin
  *
  *
  * Events:
@@ -47,7 +47,7 @@ switch ($modx->event->name) {
 
         $resource =& $modx->event->params['resource'];
         if ($resource) {
-            //First check if SEOTab is allowed in this context
+            //First check if SEO Tab is allowed in this context
             if (!$stercseo->isAllowed($resource->get('context_key'))) {
                 return;
             }

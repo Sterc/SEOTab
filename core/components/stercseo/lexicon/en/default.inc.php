@@ -9,7 +9,8 @@
  */
 
 $_lang['stercseo.seo'] = 'StercSEO';
-$_lang['stercseo.seotab'] = 'SEOTab';
+$_lang['stercseo.seotab'] = 'SEO Tab';
+$_lang['stercseo.menu_desc'] = 'Manage all your SEO Tab 301 redirects.';
 
 //Tab Findability
 
@@ -58,7 +59,7 @@ $_lang['stercseo.redirects'] = '301 Redirects';
 $_lang['stercseo.uri_add'] = 'Add redirect url';
 $_lang['stercseo.uri_header'] = 'Below is a list of old URLs for this page';
 $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redirects set for this page.</p>';
-$_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. SEOTab automatically adds 301 redirects after changing the URL of a page ..';
+$_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. SEO Tab automatically adds 301 redirects after changing the URL of a page ..';
 $_lang['stercseo.alreadyexists'] = '<b>[[+url]]</b> has already been added to resource: <b>[[+pagetitle]] (id: [[+id]]) - <a href="[[+link]]" target="_blank">Edit in new window</a></b>';
 $_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
 
@@ -80,8 +81,8 @@ $_lang['setting_stercseo.priority'] = 'Default resource setting: Priority';
 $_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
 $_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update frequency';
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
-$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
-$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';
+$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEO Tab from these usergroups';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEO Tab';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Here you can view and manage your 301 redirects. Redirects can also be added from the resource create and update pages.';
@@ -91,8 +92,8 @@ $_lang['stercseo.uri_update'] = 'Update redirect';
 $_lang['stercseo.uri_remove'] = 'Remove redirect';
 $_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
 $_lang['stercseo.migrate'] = 'Migrate redirects';
-$_lang['stercseo.migrate_desc'] = 'Here you can migrate your redirects (SEOTab version 1.2.2 and below) from resource properties to seoUrl objects. This page will automatically migrate all the redirects for you, so no action is required, but please keep this page open for SEOTab to correctly handle the migration process.';
-$_lang['stercseo.migrate_alert'] = 'Your SEOTab redirects need to be migrated. Click here to visit the migration page.';
+$_lang['stercseo.migrate_desc'] = 'Here you can migrate your redirects (SEO Tab version 1.2.2 and below) from resource properties to seoUrl objects. This page will automatically migrate all the redirects for you, so no action is required, but please keep this page open for SEO Tab to correctly handle the migration process.';
+$_lang['stercseo.migrate_alert'] = 'Your SEO Tab redirects need to be migrated. Click here to visit the migration page.';
 $_lang['stercseo.migrate_status'] = 'Status';
 $_lang['stercseo.migrate_running'] = 'Currently running migration process. Please keep this page open in your browser.';
 $_lang['stercseo.migrate_success'] = 'Migration completed';

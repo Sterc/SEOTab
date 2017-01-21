@@ -7,12 +7,13 @@
     "package":{  
         "menus": [{
             "text": "stercseo.seotab",
+            "description": "stercseo.menu_desc",
             "action": "home"
         }],
         "elements": {
             "plugins": [{
                 "name": "StercSEO",
-                "description": "Plugin to render SEOTab and save all the data.",
+                "description": "Plugin to render SEO Tab and save all the data.",
                 "file": "stercseo.plugin.php",
                 "events": [
                     "OnDocFormPrerender",
@@ -26,7 +27,7 @@
             }],
             "snippets": [{
                 "name": "StercSeoSiteMap",
-                "description": "Outputs the sitemap based on the resource settings made in SEOTab",
+                "description": "Outputs the sitemap based on the resource settings made in SEO Tab",
                 "file": "stercseositemap.snippet.php"
             }],
             "chunks": [],

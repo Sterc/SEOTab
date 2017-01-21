@@ -1,5 +1,5 @@
 --------------------
-SEOTab
+SEO Tab
 --------------------
 Version: 2.0.0-pl
 Author: Sterc <modx@sterc.nl>

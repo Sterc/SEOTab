@@ -45,7 +45,7 @@ foreach ($settings as $setting) {
     $output[] = $str;
 }
 
-$output[] = '<p>Please enter your name and email address below to receive priority updates about SEOTab. 
-Be the first to know about SEOTab updates and new features. <i>This is not required to use our extras.</i><br></p>';
+$output[] = '<p>Please enter your name and email address below to receive priority updates about SEO Tab. 
+Be the first to know about SEO Tab updates and new features. <i>This is not required to use our extras.</i><br></p>';
 
 return implode('<br /><br />', $output);

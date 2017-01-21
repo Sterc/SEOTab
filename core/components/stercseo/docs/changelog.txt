@@ -1,4 +1,4 @@
-Changelog for SEOTab.
+Changelog for SEO Tab.
 
 SEOTab 2.0.0-pl
 ==============

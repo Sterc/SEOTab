@@ -1,6 +1,6 @@
 <?php
 /**
- * SEOTab French language file
+ * SEO Tab French language file
  *
  * @author Sterc <modx@sterc.nl> - Sterc Internet & Marketing
  *
@@ -9,7 +9,8 @@
  */
 
 $_lang['stercseo.seo'] = 'StercSEO';
-$_lang['stercseo.seotab'] = 'SEOTab';
+$_lang['stercseo.seotab'] = 'SEO Tab';
+$_lang['stercseo.menu_desc'] = 'Gérer tous vos SEO Tab 301 redirects.';
 
 //Tab Findability
 
@@ -78,8 +79,8 @@ $_lang['setting_stercseo.priority'] = 'Default resource setting: Priority';
 $_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
 $_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update frequency';
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
-$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEOTab from these usergroups';
-$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEOTab';
+$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEO Tab from these usergroups';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEO Tab';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Gérez ici vos redirections 301. Les redirections peuvent également être ajoutées depuis les pages de création et d\'édition de ressources.';
@@ -89,7 +90,7 @@ $_lang['stercseo.uri_update'] = 'Mettre à jour';
 $_lang['stercseo.uri_remove'] = 'Supprimer';
 $_lang['stercseo.uri_remove_confirm'] = 'Êtes-vous sûr de vouloir supprimer cette redirection ?';
 $_lang['stercseo.migrate'] = 'Migrer les redirections';
-$_lang['stercseo.migrate_desc'] = 'Vous pouvez migrez vos redirections (des versions 1.2.2 et antérieures) des propriétés de ressources vers les objets seoUrl. Cette page migrera automatiquement les redirections, aucune action de votre part n\'est requise, mais veuillez garder cette page ouverte afin que SEOTab puisse gérer correctement le processus de migration.';
+$_lang['stercseo.migrate_desc'] = 'Vous pouvez migrez vos redirections (des versions 1.2.2 et antérieures) des propriétés de ressources vers les objets seoUrl. Cette page migrera automatiquement les redirections, aucune action de votre part n\'est requise, mais veuillez garder cette page ouverte afin que SEO Tab puisse gérer correctement le processus de migration.';
 $_lang['stercseo.migrate_alert'] = 'Vos redirections ont besoin d\'être migrées. Cliquez ici pour vous rendre à la page de migration.';
 $_lang['stercseo.migrate_status'] = 'Statut';
 $_lang['stercseo.migrate_running'] = 'Processus de migration en cours. Veuillez garder cette page ouverte dans votre navigateur.';

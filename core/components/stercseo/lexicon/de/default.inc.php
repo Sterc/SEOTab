@@ -10,7 +10,8 @@
  */
 
 $_lang['stercseo.seo'] = 'StercSEO';
-$_lang['stercseo.seotab'] = 'SEOTab';
+$_lang['stercseo.seotab'] = 'SEO Tab';
+$_lang['stercseo.menu_desc'] = 'Verwalten Sie alle Ihre SEO Tab 301 redirects.';
 
 //Tab Findability
 
@@ -79,8 +80,8 @@ $_lang['setting_stercseo.priority'] = 'Voreinstellung: Priorität';
 $_lang['setting_stercseo.priority_desc'] = 'Wichtigkeit von neuen Seiten (0.25, 0.5 oder 1)';
 $_lang['setting_stercseo.changefreq'] = 'Voreinstellung: Update Frequenz';
 $_lang['setting_stercseo.changefreq_desc'] = 'Update Frequenz für neue Seiten (daily, weekly, monthly)';
-$_lang['setting_stercseo.hide_from_usergroups'] = 'SEOTab für diese Benutzergruppen verbergen';
-$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Kommaseparierte Liste von Benutzergruppen, denen nicht erlaubt ist, auf SEOTab zuzugreifen';
+$_lang['setting_stercseo.hide_from_usergroups'] = 'SEO Tab für diese Benutzergruppen verbergen';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Kommaseparierte Liste von Benutzergruppen, denen nicht erlaubt ist, auf SEO Tab zuzugreifen';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Hier können Sie Ihre 301 Weiterleitungen anschauen und bearbeiten. Weiterleitungen können ebenso auf den Ressourcen Seiten beim Anlegen und Bearbeiten hinzugefügt werden.';
@@ -90,8 +91,8 @@ $_lang['stercseo.uri_update'] = 'Weiterleitung bearbeiten';
 $_lang['stercseo.uri_remove'] = 'Weiterleitung löschen';
 $_lang['stercseo.uri_remove_confirm'] = 'Sind Sie sicher, dass Sie diese Weiterleitung löschen wollen?';
 $_lang['stercseo.migrate'] = 'Weiterleitung migrieren';
-$_lang['stercseo.migrate_desc'] = 'Sie können Ihre Weiterleitung (SEOTab version 1.2.2 und niedriger) von Ressourcen Eigenschaften zu eigenständigen seoURL Objekten migireren. Dies wird automatisch die Daten aller Weiterleitungen für Sie migrieren. Es ist keine weitere Aktion notwendig. Bitte lassen Sie diese Seite geöffnet, damit SEOTab die Migrierung korrekt beenden kann.';
-$_lang['stercseo.migrate_alert'] = 'Ihre SEOTab Weiterleitungen müssen migriert werden, bitte klicken Sie hier um die Migrierungs Seite anzuzeigen.';
+$_lang['stercseo.migrate_desc'] = 'Sie können Ihre Weiterleitung (SEO Tab version 1.2.2 und niedriger) von Ressourcen Eigenschaften zu eigenständigen seoURL Objekten migireren. Dies wird automatisch die Daten aller Weiterleitungen für Sie migrieren. Es ist keine weitere Aktion notwendig. Bitte lassen Sie diese Seite geöffnet, damit SEO Tab die Migrierung korrekt beenden kann.';
+$_lang['stercseo.migrate_alert'] = 'Ihre SEO Tab Weiterleitungen müssen migriert werden, bitte klicken Sie hier um die Migrierungs Seite anzuzeigen.';
 $_lang['stercseo.migrate_status'] = 'Status';
 $_lang['stercseo.migrate_running'] = 'Der Migrierungs-Prozess läuft momentan. Bitte lassen Sie diese Seite geöffnet, damit der Migrierungs-Prozess abgeschlossen werden kann.';
 $_lang['stercseo.migrate_success'] = 'Migrierung erfolgreich abgeschlossen';
