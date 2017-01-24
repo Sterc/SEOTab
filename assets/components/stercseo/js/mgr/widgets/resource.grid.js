@@ -110,7 +110,6 @@ Ext.extend(StercSEO.grid.Items,MODx.grid.Grid,{
         });
 
         MODx.fireResourceFormChange();
-        return;
     }
 });
 Ext.reg('stercseo-grid-items',StercSEO.grid.Items);
@@ -138,11 +137,16 @@ StercSEO.window.CreateItem = function(config) {
             ,labelAlign: 'left'
             ,labelStyle: 'padding: 7px 0px; width: 100%;'
             ,name: 'url'
-            ,id: this.ident+'-url'
+            ,id: this.ident + '-url'
             ,anchor: '100%'
             ,style: 'width: 98%;'
             ,stripCharsRe: /\s+/g
             ,allowBlank: false
+            ,listeners: {
+                afterrender: function(field) {
+                    field.setValue(MODx.config.site_url);
+                }
+            }
         }]
     });
     StercSEO.window.CreateItem.superclass.constructor.call(this,config);

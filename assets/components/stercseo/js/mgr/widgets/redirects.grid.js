@@ -201,6 +201,12 @@ StercSEO.window.Redirect = function(config) {
             ,anchor: '100%'
             ,height: 'auto'
             ,allowBlank: false
+            ,value: MODx.config.site_url
+            ,listeners: {
+                afterrender: function(field) {
+                    field.focus(false, 500);
+                }
+            }
         },{
             xtype: 'label'
             ,text: _('stercseo.uri_label')
