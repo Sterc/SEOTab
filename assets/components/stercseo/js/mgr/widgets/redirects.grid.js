@@ -188,6 +188,7 @@ StercSEO.window.Redirect = function(config) {
         title: _('stercseo.uri_add')
         ,closeAction: 'close'
         ,width: 600
+        ,autoHeight: true
         ,url: StercSEO.config.connectorUrl
         ,action: 'mgr/redirect/create'
         ,fields: [{
