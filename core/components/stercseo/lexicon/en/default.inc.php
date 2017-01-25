@@ -22,7 +22,7 @@ $_lang['stercseo.index_desc'] = 'Irrelevant pages shouldn\'t be indexed in searc
 
 $_lang['stercseo.follow'] = 'Follow links (follow/nofollow)';
 $_lang['stercseo.follow_yes'] = 'Yes, follow links on this page (follow)';
-$_lang['stercseo.follow_no'] = 'Yes, do not follow links on this page (nofollow)';
+$_lang['stercseo.follow_no'] = 'No, do not follow links on this page (nofollow)';
 $_lang['stercseo.follow_desc'] = 'Should search engines follow links on this page.';
 
 $_lang['stercseo.searchable'] = 'Include in internal search results';
@@ -52,10 +52,10 @@ $_lang['stercseo.changefreq_desc'] = 'Specify how often you expect the content o
 
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 Redirects';
-$_lang['stercseo.uri_add'] = 'Add redirect url';
-$_lang['stercseo.uri_header'] = 'Below is a list of old URLs for this page';
+$_lang['stercseo.uri_add'] = 'Create 301 redirect';
+$_lang['stercseo.uri_header'] = 'Old URLs redirecting to this page.';
 $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redirects set for this page.</p>';
-$_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. SEO Tab automatically adds 301 redirects after changing the URL of a page ..';
+$_lang['stercseo.redirects_desc'] = 'Any change on your page affects search engines, but changing the URL of a page without adding a 301 redirect, will result in losing ALL acquired value. With SEO Tab\'s 301 redirects your search engine value will be retained! To help prevent this, SEO Tab automatically adds 301 redirects when you change the URL of a page.';
 $_lang['stercseo.alreadyexists'] = '<b>[[+url]]</b> has already been added to resource: <b>[[+pagetitle]] (id: [[+id]]) - <a href="[[+link]]" target="_blank">Edit in new window</a></b>';
 $_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
 $_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';

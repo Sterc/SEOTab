@@ -15,13 +15,13 @@ $_lang['stercseo.menu_desc'] = 'Beheer al je SEO Tab 301 redirects.';
 //Tab Findability
 $_lang['stercseo.findability'] = 'Vindbaarheid';
 
-$_lang['stercseo.index'] = 'Opnemen in zoekmachines';
-$_lang['stercseo.index_yes'] = 'Ja, deze pagina mag geïndexeerd worden';
+$_lang['stercseo.index'] = 'Opnemen in zoekmachines (index/noindex)';
+$_lang['stercseo.index_yes'] = 'Ja, deze pagina mag geïndexeerd worden (index)';
 $_lang['stercseo.index_no'] = 'Nee, deze pagina mag niet geïndexeerd worden (noindex)';
 $_lang['stercseo.index_desc'] = 'Let op: irrelevante pagina\'s van je site moeten worden weggelaten uit de zoekmachines én sitemap. Voorbeelden van irrelevante pagina\'s zijn: disclaimer, algemene voorwaarden, privacy policy.';
 
-$_lang['stercseo.follow'] = 'Links volgen';
-$_lang['stercseo.follow_yes'] = 'Ja, volg links op deze pagina';
+$_lang['stercseo.follow'] = 'Links volgen (follow/nofollow)';
+$_lang['stercseo.follow_yes'] = 'Ja, volg links op deze pagina (follow)';
 $_lang['stercseo.follow_no'] = 'Nee, geen links volgen op deze pagina (nofollow)';
 $_lang['stercseo.follow_desc'] = 'Stel in of zoekmachines de links op deze pagina wel of niet mogen volgen';
 
@@ -52,7 +52,7 @@ $_lang['stercseo.changefreq_desc'] = 'Geef aan hoe vaak je verwacht dat deze pag
 
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 Redirects';
-$_lang['stercseo.uri_add'] = 'Oude URL toevoegen';
+$_lang['stercseo.uri_add'] = '301 Redirect toevoegen';
 $_lang['stercseo.uri_header'] = 'Hieronder staat een overzicht van oude URL\'s voor deze pagina';
 $_lang['stercseo.grid_noresults'] = '<h4>Geen redirects</h4><p>Er zijn geen redirects voor deze pagina ingesteld.</p>';
 $_lang['stercseo.redirects_desc'] = 'Elke wijziging op je pagina heeft invloed op zoekmachines. Bij het wijzigen van de URL van een pagina betekent dit dat je álle opgebouwde zoekmachine-waarde (juice) kwijtraakt. Met 301 redirects raak je deze waarde niet kwijt. StercSEO voegt automatisch 301 redirects toe na het wijzigen van de URI van je pagina.';
