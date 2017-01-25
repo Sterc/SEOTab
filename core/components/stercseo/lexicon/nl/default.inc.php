@@ -64,6 +64,8 @@ $_lang['stercseo.url_missing_protocol'] = 'Onjuiste url. Gelieve http:// of http
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';
 $_lang['stercseo.uri_override'] = 'Stel een Freeze URL in voor deze pagina';
 $_lang['stercseo.uri_after'] = 'URL ná ';
+$_lang['stercseo.uri_after_desc'] = 'Freeze URLs kunnen worden gebruikt om korte urls te maken. 
+Om bijvoorbeeld de URL [[+site_url]]short-url" voor deze pagina te gebruiken, voer dan "short-url" in.';
 
 //Settings
 $_lang['setting_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
