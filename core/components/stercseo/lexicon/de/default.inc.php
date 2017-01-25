@@ -87,6 +87,7 @@ $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Kommaseparierte Liste vo
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Hier können Sie Ihre 301 Weiterleitungen anschauen und bearbeiten. Weiterleitungen können ebenso auf den Ressourcen Seiten beim Anlegen und Bearbeiten hinzugefügt werden.';
+$_lang['stercseo.redirects.window_title'] = 'Add redirect url';
 $_lang['stercseo.uri'] = 'Alte URL (weitergeleitete URL)';
 $_lang['stercseo.target'] = 'Ziel Ressource / URL';
 $_lang['stercseo.uri_update'] = 'Weiterleitung bearbeiten';

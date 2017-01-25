@@ -48,6 +48,14 @@ class StercSeoGetListProcessor extends modObjectGetListProcessor
             }
         }
         $object->set('url', urldecode($object->get('url')));
+
+        /* Get context name from context. Defaults to context_key */
+        $contextName = $object->get('context_key');
+        $context = $this->modx->getContext($object->get('context_key'));
+        if ($context && $context->get('name')) {
+            $contextName = $context->get('name');
+        }
+        $object->set('context_name', $contextName);
         return parent::prepareRow($object);
     }
 }

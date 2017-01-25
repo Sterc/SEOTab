@@ -31,8 +31,9 @@ class StercSeoResourceGetListProcessor extends modObjectGetListProcessor
     public function prepareRow(xPDOObject $object)
     {
         $context_key = $object->get('context_key');
-        if ($context_key) {
-            $object->set('pagetitle', $object->get('pagetitle').' ('.$context_key.')');
+        $context = $this->modx->getContext($context_key);
+        if ($context && $context->get('name')) {
+            $object->set('pagetitle', $object->get('pagetitle').' ('.$context->get('name').')');
         }
 
         return parent::prepareRow($object);

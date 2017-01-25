@@ -11,17 +11,12 @@ StercSEO.grid.Redirects = function(config) {
         }
         ,save_action: 'mgr/redirect/updatefromgrid'
         ,autosave: true
-        ,fields: ['id','resource','target','url','context_key']
+        ,fields: ['id','resource','target','url','context_key','context_name']
         ,autoHeight: true
         ,paging: true
         ,remoteSort: true
         ,columns: [{
-            header: _('id')
-            ,dataIndex: 'id'
-            ,width: 40
-            ,menuDisabled:true
-        },{
-            header: _('stercseo.uri')
+            header: _('stercseo.uri_label')
             ,dataIndex: 'url'
             ,width: 280
             ,menuDisabled:true
@@ -32,7 +27,7 @@ StercSEO.grid.Redirects = function(config) {
             ,menuDisabled:true
         },{
             header: _('context')
-            ,dataIndex: 'context_key'
+            ,dataIndex: 'context_name'
             ,width: 80
             ,menuDisabled:true
         }]
@@ -185,7 +180,7 @@ Ext.reg('stercseo-grid-redirects',StercSEO.grid.Redirects);
 StercSEO.window.Redirect = function(config) {
     config = config || {};
     Ext.applyIf(config,{
-        title: _('stercseo.uri_add')
+        title: _('stercseo.redirects.window_title')
         ,closeAction: 'close'
         ,width: 600
         ,autoHeight: true
@@ -197,7 +192,7 @@ StercSEO.window.Redirect = function(config) {
             ,hidden: true
         },{
             xtype: 'textfield'
-            ,fieldLabel: _('stercseo.uri')
+            ,fieldLabel: _('stercseo.uri_label')
             ,name: 'url'
             ,anchor: '100%'
             ,height: 'auto'
@@ -210,7 +205,7 @@ StercSEO.window.Redirect = function(config) {
             }
         },{
             xtype: 'label'
-            ,text: _('stercseo.uri_label')
+            ,text: _('stercseo.uri_label_desc')
             ,cls: 'desc-under'
         },{
             xtype: 'modx-combo'
