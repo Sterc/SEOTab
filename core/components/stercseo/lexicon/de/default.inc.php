@@ -14,7 +14,6 @@ $_lang['stercseo.seotab'] = 'SEO Tab';
 $_lang['stercseo.menu_desc'] = 'Verwalten Sie alle Ihre SEO Tab 301 redirects.';
 
 //Tab Findability
-
 $_lang['stercseo.findability'] = 'Sichtbarkeit';
 
 $_lang['stercseo.index'] = 'In Suchmaschinen anzeigen';
@@ -52,7 +51,6 @@ $_lang['stercseo.changefreq_weekly'] = 'Wöchentlich';
 $_lang['stercseo.changefreq_monthly'] = 'Monatlich';
 $_lang['stercseo.changefreq_desc'] = 'Geben Sie an wie oft der Inhalt dieser Seite sich voraussichtlich ändern wird.';
 
-
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 Weiterleitungen';
 $_lang['stercseo.uri_add'] = 'Alte URL hinzufügen';
@@ -61,6 +59,7 @@ $_lang['stercseo.grid_noresults'] = '<h4>Keine Weiterleitungen</h4><p>Es gibt ke
 $_lang['stercseo.redirects_desc'] = 'Jede Änderung an einer Seite beeinflusst Suchmaschinen. Wenn die URL einer Seite geändert wird verliert Sie Ihren gesamten Wert für Suchmaschinen. Mit 301 Weiterleitungen verliert Sie Ihren Wert nicht. 301 Weiterleitungen werden automatisch hinzufügt wenn Sie die URL ändern.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> existiert bereits für folgende Seite: <strong>[[+pagetitle]] ([[+id]])</strong>';
 $_lang['stercseo.uri_label'] = 'Geben Sie die komplette URL (z.B. http://www.google.com) an, auf die Sie weiterleiten wollen';
+$_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Feste URL';

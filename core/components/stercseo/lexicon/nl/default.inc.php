@@ -13,7 +13,6 @@ $_lang['stercseo.seotab'] = 'SEO Tab';
 $_lang['stercseo.menu_desc'] = 'Beheer al je SEO Tab 301 redirects.';
 
 //Tab Findability
-
 $_lang['stercseo.findability'] = 'Vindbaarheid';
 
 $_lang['stercseo.index'] = 'Opnemen in zoekmachines';
@@ -51,7 +50,6 @@ $_lang['stercseo.changefreq_weekly'] = 'Wekelijks';
 $_lang['stercseo.changefreq_monthly'] = 'Maandelijks';
 $_lang['stercseo.changefreq_desc'] = 'Geef aan hoe vaak je verwacht dat deze pagina verandert van inhoud.';
 
-
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 Redirects';
 $_lang['stercseo.uri_add'] = 'Oude URL toevoegen';
@@ -60,6 +58,7 @@ $_lang['stercseo.grid_noresults'] = '<h4>Geen redirects</h4><p>Er zijn geen redi
 $_lang['stercseo.redirects_desc'] = 'Elke wijziging op je pagina heeft invloed op zoekmachines. Bij het wijzigen van de URL van een pagina betekent dit dat je álle opgebouwde zoekmachine-waarde (juice) kwijtraakt. Met 301 redirects raak je deze waarde niet kwijt. StercSEO voegt automatisch 301 redirects toe na het wijzigen van de URI van je pagina.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> is al toegevoegd aan de pagina: <strong>[[+pagetitle]] ([[+id]])</strong>';
 $_lang['stercseo.uri_label'] = 'Vul de volledige url (bv. http://www.google.com) die je als redirect wilt toevoegen';
+$_lang['stercseo.url_missing_protocol'] = 'Onjuiste url. Gelieve http:// of https:// toevoegen';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';

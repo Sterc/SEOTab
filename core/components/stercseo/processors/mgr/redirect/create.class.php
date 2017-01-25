@@ -13,29 +13,43 @@ class StercSeoCreateProcessor extends modObjectCreateProcessor
 
     public function beforeSave()
     {
-        $url = urlencode($this->object->get('url'));
-        $pagetitle = '';
-        $resource = $this->modx->getObject('modResource', $this->object->get('resource'));
+        $pagetitle  = '';
+        $resource   = $this->modx->getObject('modResource', $this->getProperty('resource'));
+        $encodedUrl = urlencode($this->getProperty('url'));
+        $url        = parse_url($this->getProperty('url'));
+
+        if ($url['scheme'] === null) {
+            $this->addFieldError('url', $this->modx->lexicon('stercseo.url_missing_protocol'));
+
+            // $encodedUrl = urlencode($this->modx->config['server_protocol'] . '://' . $this->getProperty('url'));
+        }
+
         if ($resource) {
             $this->object->set('context_key', $resource->get('context_key'));
             $pagetitle = $resource->get('pagetitle');
         }
-        if ($existing = $this->modx->getObject($this->classKey, array('url' => $url))) {
+
+        $seoUrl = $this->modx->getObject($this->classKey, array('url' => $encodedUrl));
+
+        if ($seoUrl) {
             $this->addFieldError(
                 'url',
                 $this->modx->lexicon(
                     'stercseo.alreadyexists',
                     array(
-                        'url' => $this->object->get('url'),
-                        'id' => $existing->get('resource'),
+                        'url'       => $this->getProperty('url'),
+                        'id'        => $seoUrl->get('resource'),
                         'pagetitle' => $pagetitle,
-                        'link' => $this->modx->getOption('manager_url').'?a=resource/update&id='.$existing->get('resource')
+                        'link'      => $this->modx->getOption('manager_url') . '?a=resource/update&id=' . $seoUrl->get('resource')
                     )
                 )
             );
         }
-        $this->object->set('url', $url);
+
+        $this->object->set('url', $encodedUrl);
+
         return parent::beforeSave();
     }
 }
+
 return 'StercSeoCreateProcessor';

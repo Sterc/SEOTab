@@ -13,7 +13,6 @@ $_lang['stercseo.seotab'] = 'SEO Tab';
 $_lang['stercseo.menu_desc'] = 'Manage all your SEO Tab 301 redirects.';
 
 //Tab Findability
-
 $_lang['stercseo.findability'] = 'Видимость';
 
 $_lang['stercseo.index']        = 'Индексируемость поисковиками';
@@ -51,7 +50,6 @@ $_lang['stercseo.changefreq_weekly'] = 'Еженедельно';
 $_lang['stercseo.changefreq_monthly'] = 'Ежемесячно';
 $_lang['stercseo.changefreq_desc'] = 'Указывает, как часто (вы ожидаете) может меняться конетент (содержимое) этой страницы';
 
-
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 редиректы';
 $_lang['stercseo.uri_add'] = 'Добавить старый URL';
@@ -60,6 +58,7 @@ $_lang['stercseo.grid_noresults'] = '<h4>Нет редиректов</h4><p>Дл
 $_lang['stercseo.redirects_desc'] = 'Любые изменения вашей страницы влияют на выдачу в поисковых системах. Изменение URL адреса страницы приведёт к утрате всех наработанных факторов ранжирования. С помощью 301 редиректа Вы не потеряете то, что уже успели заработать. StercSEO автоматически добавляет 301 редиректы (переадресацию), после того, как адрес страницы (URL) изменился.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> был добавлен для страницы: <strong>[[+pagetitle]] ([[+id]])</strong>';
 $_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
+$_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Заморозить URL';

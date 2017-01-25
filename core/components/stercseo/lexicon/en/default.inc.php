@@ -13,14 +13,12 @@ $_lang['stercseo.seotab'] = 'SEO Tab';
 $_lang['stercseo.menu_desc'] = 'Manage all your SEO Tab 301 redirects.';
 
 //Tab Findability
-
 $_lang['stercseo.findability'] = 'Findability';
 
 $_lang['stercseo.index'] = 'Include in search engines (index/noindex)';
 $_lang['stercseo.index_yes'] = 'Yes, include in search engines (index)';
 $_lang['stercseo.index_no'] = 'No, do not include in search engines (noindex)';
-$_lang['stercseo.index_desc'] = 'Irrelevant pages shouldn\'t be indexed in search engines. 
-Irrelevant page examples: disclaimer, terms and conditions, privacy policy.';
+$_lang['stercseo.index_desc'] = 'Irrelevant pages shouldn\'t be indexed in search engines. Irrelevant page examples: disclaimer, terms and conditions, privacy policy.';
 
 $_lang['stercseo.follow'] = 'Follow links (follow/nofollow)';
 $_lang['stercseo.follow_yes'] = 'Yes, follow links on this page (follow)';
@@ -30,8 +28,7 @@ $_lang['stercseo.follow_desc'] = 'Should search engines follow links on this pag
 $_lang['stercseo.searchable'] = 'Include in internal search results';
 $_lang['stercseo.searchable_yes'] = 'Yes, include in internal search results';
 $_lang['stercseo.searchable_no'] = 'No, exclude from internal search results';
-$_lang['stercseo.searchable_desc'] = 'Should this page be included in the internal
-search results of your website. "Thank you"-pages are good examples of pages which should be excluded.';
+$_lang['stercseo.searchable_desc'] = 'Should this page be included in the internal search results of your website. "Thank you"-pages are good examples of pages which should be excluded.';
 
 //Tab Sitemap
 $_lang['stercseo.sitemap'] = 'Google Sitemap';
@@ -53,7 +50,6 @@ $_lang['stercseo.changefreq_weekly'] = 'Weekly';
 $_lang['stercseo.changefreq_monthly'] = 'Monthly';
 $_lang['stercseo.changefreq_desc'] = 'Specify how often you expect the content of this page to change.';
 
-
 //Tab Redirects
 $_lang['stercseo.redirects'] = '301 Redirects';
 $_lang['stercseo.uri_add'] = 'Add redirect url';
@@ -62,6 +58,7 @@ $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redire
 $_lang['stercseo.redirects_desc'] = 'Any change on your page affect search engines. Changing the URL of a page will lead to losing ALL acquired search engine value. With 301 redirects you don’t lose this value. SEO Tab automatically adds 301 redirects after changing the URL of a page ..';
 $_lang['stercseo.alreadyexists'] = '<b>[[+url]]</b> has already been added to resource: <b>[[+pagetitle]] (id: [[+id]]) - <a href="[[+link]]" target="_blank">Edit in new window</a></b>';
 $_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
+$_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';

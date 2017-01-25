@@ -3,14 +3,6 @@ Ext.onReady(function() {
     MODx.hideField("modx-panel-resource",["uri_override"]);
     MODx.hideField("modx-panel-resource", ["searchable"]);
 
-    // if(Ext.getCmp('modx-panel-resource').record.properties){
-    //     StercSEO.record = Ext.getCmp('modx-panel-resource').record.properties.stercseo;
-    // }
-    // //console.log();
-    // Ext.getCmp('modx-panel-resource').on('success', function(record){
-    //     console.log(record);
-    // });
-
     //Add new tab
     MODx.addTab("modx-resource-tabs",{
         title:"SEO"
