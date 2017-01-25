@@ -64,6 +64,8 @@ $_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or 
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';
 $_lang['stercseo.uri_override'] = 'Set a Freeze URL for this page';
 $_lang['stercseo.uri_after'] = 'URL after ';
+$_lang['stercseo.uri_after_desc'] = 'Freeze URLs can be used to create short URLs. 
+For example, to set this page URL to [[+site_url]]short-url", enter "short-url" in the field below.';
 
 //Settings
 $_lang['setting_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
