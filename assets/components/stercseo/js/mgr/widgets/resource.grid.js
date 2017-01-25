@@ -147,6 +147,10 @@ StercSEO.window.CreateItem = function(config) {
                     field.setValue(MODx.config.site_url);
                 }
             }
+        },{
+            xtype: 'label'
+            ,text: _('stercseo.uri_label_desc')
+            ,cls: 'desc-under'
         }]
     });
     StercSEO.window.CreateItem.superclass.constructor.call(this,config);

@@ -58,7 +58,8 @@ $_lang['stercseo.uri_header'] = 'Dies ist eine Liste von alten URLs für diese S
 $_lang['stercseo.grid_noresults'] = '<h4>Keine Weiterleitungen</h4><p>Es gibt keine Weiterleitungen für diese Seite</p>';
 $_lang['stercseo.redirects_desc'] = 'Jede Änderung an einer Seite beeinflusst Suchmaschinen. Wenn die URL einer Seite geändert wird verliert Sie Ihren gesamten Wert für Suchmaschinen. Mit 301 Weiterleitungen verliert Sie Ihren Wert nicht. 301 Weiterleitungen werden automatisch hinzufügt wenn Sie die URL ändern.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> existiert bereits für folgende Seite: <strong>[[+pagetitle]] ([[+id]])</strong>';
-$_lang['stercseo.uri_label'] = 'Geben Sie die komplette URL (z.B. http://www.google.com) an, auf die Sie weiterleiten wollen';
+$_lang['stercseo.uri_label'] = 'Alte URL';
+$_lang['stercseo.uri_label_desc'] = 'Geben Sie die komplette URL. z.B. "https://www.google.com/old-pages/about-us".';
 $_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';
 
 //Tab Freeze URL

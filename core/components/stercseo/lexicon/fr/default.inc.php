@@ -57,7 +57,8 @@ $_lang['stercseo.uri_header'] = 'Indiquez ci-dessous la liste des anciennes URLs
 $_lang['stercseo.grid_noresults'] = '<h4>Aucune redirection</h4><p>Il n\'y a aucune redirection pour cette page.</p>';
 $_lang['stercseo.redirects_desc'] = 'Un changement sur votre page affecte les moteurs de recherche. Changer l\'URL d\'une page entraînera la perte de la valeur acquise auprès des moteurs de recherche. Avec des redirections 301, vous ne perdez pas cette valeur. StercSEO ajoute automatiquement des redirections 301 lorsque l\'URL d\'une page change.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> a déjà été ajouté à la page : <strong>[[+pagetitle]] ([[+id]])</strong>';
-$_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
+$_lang['stercseo.uri_label'] = 'Old URL';
+$_lang['stercseo.uri_label_desc'] = 'Enter the full URL, including your domain. Example: "https://www.google.com/old-pages/about-us".';
 $_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';
 
 //Tab Freeze URL

@@ -57,7 +57,8 @@ $_lang['stercseo.uri_header'] = 'Old URLs redirecting to this page.';
 $_lang['stercseo.grid_noresults'] = '<h4>No redirects</h4><p>There are no redirects set for this page.</p>';
 $_lang['stercseo.redirects_desc'] = 'Any change on your page affects search engines, but changing the URL of a page without adding a 301 redirect, will result in losing ALL acquired value. With SEO Tab\'s 301 redirects your search engine value will be retained! To help prevent this, SEO Tab automatically adds 301 redirects when you change the URL of a page.';
 $_lang['stercseo.alreadyexists'] = '<b>[[+url]]</b> has already been added to resource: <b>[[+pagetitle]] (id: [[+id]]) - <a href="[[+link]]" target="_blank">Edit in new window</a></b>';
-$_lang['stercseo.uri_label'] = 'Enter the full url (ex. http://www.google.com) you want to redirect';
+$_lang['stercseo.uri_label'] = 'Old URL';
+$_lang['stercseo.uri_label_desc'] = 'Enter the full URL, including your domain. Example: "https://www.google.com/old-pages/about-us".';
 $_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';
 
 //Tab Freeze URL
