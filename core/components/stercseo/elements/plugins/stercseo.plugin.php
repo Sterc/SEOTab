@@ -218,7 +218,8 @@ switch ($modx->event->name) {
         break;
 
     case 'OnPageNotFound':
-        $url = $modx->getOption('server_protocol').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $options      = [];
+        $url          = $modx->getOption('server_protocol').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $convertedUrl = urlencode($url);
         
         $w = array(
@@ -230,9 +231,25 @@ switch ($modx->event->name) {
         }
         
         $alreadyExists = $modx->getObject('seoUrl', $w);
+
+        if ($modx->context->key !== $alreadyExists->get('context_key')) {
+            $q = $modx->newQuery('modContextSetting');
+            $q->where([
+                'context_key' => $alreadyExists->get('context_key'),
+                'key'         => 'site_url'
+            ]);
+            $q->prepare();
+
+            $siteUrl = $modx->getObject('modContextSetting', $q);
+            if ($siteUrl) {
+                $options['site_url'] = $siteUrl->get('value');
+            }
+        }
+
         if ($alreadyExists) {
-            $id = $modx->makeUrl($alreadyExists->get('resource'), $alreadyExists->get('context_key'), '', 'full');
-            $modx->sendRedirect($id, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+            $url = $modx->makeUrl($alreadyExists->get('resource'), $alreadyExists->get('context_key'), '', 'full', $options);
+
+            $modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
         }
         break;
 
