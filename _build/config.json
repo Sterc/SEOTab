@@ -22,7 +22,8 @@
                     "OnPageNotFound",
                     "OnResourceDuplicate",
                     "OnManagerPageBeforeRender",
-                    "OnResourceBeforeSort"
+                    "OnResourceBeforeSort",
+                    "OnDocFormSave"
                 ]
             }],
             "snippets": [{

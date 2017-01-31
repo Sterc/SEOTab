@@ -181,6 +181,25 @@ switch ($modx->event->name) {
         $resource->setProperties($newProperties, 'stercseo');
         break;
 
+    case 'OnDocFormSave':
+        if (!$stercseo->isAllowed($resource->context_key)) {
+            return;
+        }
+
+        $url       = urlencode($modx->makeUrl($resource->id, $resource->context_key, '', 'full'));
+        $urlExists = $modx->getObject('seoUrl', [
+            'url'         => $url,
+            'context_key' => $resource->context_key
+        ]);
+
+        if ($urlExists) {
+            $modx->removeObject('seoUrl', [
+                'url'         => $url,
+                'context_key' => $resource->context_key
+            ]);
+        }
+        break;
+
     case 'OnLoadWebDocument':
         if ($modx->resource) {
             if (!$stercseo->isAllowed($modx->resource->get('context_key'))) {
