@@ -19,7 +19,12 @@ class StercSeoUpdateProcessor extends modObjectUpdateProcessor
                 'url',
                 $this->modx->lexicon(
                     'stercseo.alreadyexists',
-                    array('url' => $this->object->get('url'), 'id' => $existing->get('resource'), 'pagetitle' => '')
+                    array(
+                        'url'       => $this->object->get('url'),
+                        'id'        => $existing->get('resource'),
+                        'pagetitle' => '',
+                        'link'      => $this->modx->getOption('manager_url') . '?a=resource/update&id=' . $existing->get('resource')
+                    )
                 )
             );
         }
