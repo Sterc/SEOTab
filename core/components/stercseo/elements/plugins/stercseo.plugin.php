@@ -189,12 +189,7 @@ switch ($modx->event->name) {
             $properties = $modx->resource->getProperties('stercseo');
             $metaContent = array('noodp', 'noydir');
 
-            if(is_array($properties) && count($properties) > 2) {
-                // Properties are set by SEO Tab
-                // Set the meta robots-tag with the properties-values
-                $metaContent[] = ($properties['index'] == 1) ? 'index' : 'noindex';
-                $metaContent[] = ($properties['follow'] == 1) ? 'follow' : 'nofollow';
-            } else {
+            if(empty($properties)) {
                 // Properties not available
                 // This means an this resource has nog SEO Tab properties, which means it is a pre-SEO Tab resource
                 // Fallback to system defaults
@@ -203,6 +198,11 @@ switch ($modx->event->name) {
 
                 $metaContent[] = ($defaultIndex == 1) ? 'index' : 'noindex';
                 $metaContent[] = ($defaultFollow == 1) ? 'follow' : 'nofollow';
+            } else {
+                // Properties are set by SEO Tab
+                // Set the meta robots-tag with the properties-values
+                $metaContent[] = ($properties['index'] == 1) ? 'index' : 'noindex';
+                $metaContent[] = ($properties['follow'] == 1) ? 'follow' : 'nofollow';
             }
 
             $modx->setPlaceholder('seoTab.robotsTag', implode(',', $metaContent));
