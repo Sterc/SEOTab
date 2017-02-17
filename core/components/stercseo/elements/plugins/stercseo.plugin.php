@@ -218,7 +218,7 @@ switch ($modx->event->name) {
         break;
 
     case 'OnPageNotFound':
-        $options      = [];
+        $options      = array();
         $url          = $modx->getOption('server_protocol').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $convertedUrl = urlencode($url);
         

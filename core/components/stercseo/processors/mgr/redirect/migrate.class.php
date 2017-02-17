@@ -14,7 +14,7 @@ class StercSeoMigrateProcessor extends modProcessor
         $limit = 2000;
         $site_url = $this->modx->getOption('site_url');
 
-        $site_urls = [];
+        $site_urls = array();
         $contexts = $this->modx->getCollection('modContext', array('key:!=' => 'mgr'));
         foreach ($contexts as $ctx) {
             $context_key = $ctx->get('key');
