@@ -33,16 +33,7 @@
  * @package stercseo
  *
  */
-$stercseo = $modx->getService(
-    'stercseo',
-    'StercSEO',
-    $modx->getOption(
-        'stercseo.core_path',
-        null,
-        $modx->getOption('core_path').'components/stercseo/'
-    ).'model/stercseo/',
-    []
-);
+$stercseo = $modx->getService('stercseo', 'StercSEO', $modx->getOption('stercseo.core_path', null, $modx->getOption('core_path').'components/stercseo/').'model/stercseo/', array());
 
 if (!($stercseo instanceof StercSEO)) {
     return;
@@ -61,17 +52,17 @@ switch ($modx->event->name) {
                 return;
             }
             $properties = $resource->getProperties('stercseo');
-            $urls = $modx->getCollection('seoUrl', ['resource' => $resource->get('id')]);
+            $urls = $modx->getCollection('seoUrl', array('resource' => $resource->get('id')));
         }
 
         if (empty($properties)) {
-            $properties = [
-                'index'         => $modx->getOption('stercseo.index', null, '1'),
-                'follow'        => $modx->getOption('stercseo.follow', null, '1'),
-                'sitemap'       => $modx->getOption('stercseo.sitemap', null, '1'),
-                'priority'      => $modx->getOption('stercseo.priority', null, '0.5'),
-                'changefreq'    => $modx->getOption('stercseo.changefreq', null, 'weekly')
-            ];
+            $properties = array(
+                'index' => $modx->getOption('stercseo.index', null, '1'),
+                'follow' => $modx->getOption('stercseo.follow', null, '1'),
+                'sitemap' => $modx->getOption('stercseo.sitemap', null, '1'),
+                'priority' => $modx->getOption('stercseo.priority', null, '0.5'),
+                'changefreq' => $modx->getOption('stercseo.changefreq', null, 'weekly')
+            );
         }
         $properties['urls'] = '';
         // Fetch urls from seoUrl collection
@@ -114,18 +105,14 @@ switch ($modx->event->name) {
         if (isset($_POST['urls'])) {
             $urls = $modx->fromJSON($_POST['urls']);
             foreach ($urls as $url) {
-                $check = $modx->getObject('seoUrl', [
-                    'url' => urlencode($url['url']),
-                    'resource' => $oldResource->get('id'),
-                    'context_key' => $oldResource->get('context_key')
-                ]);
+                $check = $modx->getObject('seoUrl', array( 'url' => urlencode($url['url']), 'resource' => $oldResource->get('id'), 'context_key' => $oldResource->get('context_key')));
                 if (!$check) {
                     $redirect = $modx->newObject('seoUrl');
-                    $data = [
+                    $data = array(
                         'url' => urlencode($url['url']),
                         'resource' => $oldResource->get('id'),
                         'context_key' => $oldResource->get('context_key'),
-                    ];
+                    );
                     $redirect->fromArray($data);
                     $redirect->save();
                 }
@@ -133,57 +120,57 @@ switch ($modx->event->name) {
         }
 
         if ($mode == 'upd') {
-            $newProperties = [
+            $newProperties = array(
                 'index' => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),
                 'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $properties['follow']),
                 'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $properties['sitemap']),
                 'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $properties['priority']),
                 'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $properties['changefreq'])
-            ];
+            );
         } else {
-            $newProperties = [
+            $newProperties = array(
                 'index' => (isset($_POST['index']) ? $_POST['index'] : $modx->getOption('stercseo.index', null, '1')),
                 'follow' => (isset($_POST['follow']) ? $_POST['follow'] : $modx->getOption('stercseo.follow', null, '1')),
                 'sitemap' => (isset($_POST['sitemap']) ? $_POST['sitemap'] : $modx->getOption('stercseo.sitemap', null, '1')),
                 'priority' => (isset($_POST['priority']) ? $_POST['priority'] : $modx->getOption('stercseo.priority', null, '0.5')),
                 'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly'))
-            ];
+            );
         }
-        
+
         // If uri is changed or alias (with freeze uri off) has changed, add a new redirect
         if (($oldResource->get('uri') != $resource->get('uri') ||
-            ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
+                ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
             $oldResource->get('uri') != '') {
             $url = urlencode($modx->getOption('site_url').$oldResource->get('uri'));
-            if (!$modx->getCount('seoUrl', ['url' => $url])) {
-                $data = [
+            if (!$modx->getCount('seoUrl', array('url' => $url))) {
+                $data = array(
                     'url' => $url,
                     'resource' => $resource->get('id'),
                     'context_key' => $resource->get('context_key'),
-                ];
+                );
                 $redirect = $modx->newObject('seoUrl');
                 $redirect->fromArray($data);
                 $redirect->save();
             }
             // Recursive set all children resources as redirects
             if ($modx->getOption('use_alias_path')) {
-                $resourceOldBasePath = $oldResource->getAliasPath($oldResource->get('alias'), $oldResource->toArray() + ['isfolder' => 1]);
-                $resourceNewBasePath = $resource->getAliasPath($resource->get('alias'), $resource->toArray() + ['isfolder' => 1]);
-                $childResources = $modx->getIterator('modResource', [
+                $resourceOldBasePath = $oldResource->getAliasPath($oldResource->get('alias'), $oldResource->toArray() + array('isfolder' => 1));
+                $resourceNewBasePath = $resource->getAliasPath($resource->get('alias'), $resource->toArray() + array('isfolder' => 1));
+                $childResources = $modx->getIterator('modResource', array(
                     'uri:LIKE' => $resourceOldBasePath . '%',
                     'uri_override' => '0',
                     'published' => '1',
                     'deleted' => '0',
                     'context_key' => $resource->get('context_key')
-                ]);
+                ));
                 foreach ($childResources as $childResource) {
                     $url = urlencode($modx->getOption('site_url').$childResource->get('uri'));
-                    if (!$modx->getCount('seoUrl', ['url' => $url])) {
-                        $data = [
+                    if (!$modx->getCount('seoUrl', array('url' => $url))) {
+                        $data = array(
                             'url' => $url,
                             'resource' => $childResource->get('id'),
                             'context_key' => $resource->get('context_key'),
-                        ];
+                        );
                         $redirect = $modx->newObject('seoUrl');
                         $redirect->fromArray($data);
                         $redirect->save();
@@ -223,12 +210,12 @@ switch ($modx->event->name) {
                 // Properties not available
                 // This means an this resource has nog SEO Tab properties, which means it is a pre-SEO Tab resource
                 // Fallback to system defaults
-                $properties = [
+                $properties = array(
                     'index' => $modx->getOption('stercseo.index', null, 1),
                     'follow' => $modx->getOption('stercseo.follow', null, 1)
-                ];
+                );
             }
-            $metaContent = ['noodp', 'noydir'];
+            $metaContent = array('noodp', 'noydir');
             $metaContent[] = (intval($properties['index']) ? 'index' : 'noindex');
             $metaContent[] = (intval($properties['follow']) ? 'follow' : 'nofollow');
 
@@ -240,13 +227,15 @@ switch ($modx->event->name) {
         $options      = array();
         $url          = $modx->getOption('server_protocol').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $convertedUrl = urlencode($url);
-        
-        $w = ['url' => $convertedUrl];
-        
+
+        $w = array(
+            'url' => $convertedUrl
+        );
+
         if ($modx->getOption('stercseo.context-aware-alias', null, '0')) {
             $w['context_key'] = $modx->context->key;
         }
-        
+
         $alreadyExists = $modx->getObject('seoUrl', $w);
 
         if ($modx->context->key !== $alreadyExists->get('context_key')) {
@@ -287,9 +276,9 @@ switch ($modx->event->name) {
         $resource->set('uri', '');
         $uriChanged = false;
         if ($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
-            $uriChanged = true;
+            $uriChanged              = true;
         }
-        
+
         // Recursive set redirects for drag/dropped resource, and its children (where uri_override is not set)
         if ($uriChanged && $modx->getOption('use_alias_path')) {
             $oldResource->set('isfolder', true);
@@ -299,29 +288,29 @@ switch ($modx->event->name) {
             );
             $resourceNewBasePath = $resource->getAliasPath(
                 $resource->get('alias'),
-                $resource->toArray() + ['isfolder' => 1]
+                $resource->toArray() + array('isfolder' => 1)
             );
             $cond = $modx->newQuery('modResource');
-            $cond->where([
-                [
+            $cond->where(array(
+                array(
                     'uri:LIKE'     => $resourceOldBasePath . '%',
                     'OR:id:=' => $oldResource->id
-                ],
+                ),
                 'uri_override' => '0',
                 'published' => '1',
                 'deleted' => '0',
                 'context_key' => $resource->get('context_key')
-            ]);
+            ));
 
             $childResources = $modx->getIterator('modResource', $cond);
             foreach ($childResources as $childResource) {
                 $url = urlencode($modx->getOption('site_url').$childResource->get('uri'));
-                if (!$modx->getCount('seoUrl', ['url' => $url])) {
-                    $data = [
+                if (!$modx->getCount('seoUrl', array('url' => $url))) {
+                    $data = array(
                         'url' => $url,
                         'resource' => $childResource->get('id'),
                         'context_key' => $targetCtx
-                    ];
+                    );
                     $redirect = $modx->newObject('seoUrl');
                     $redirect->fromArray($data);
                     $redirect->save();
