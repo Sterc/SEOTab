@@ -26,7 +26,7 @@
  *
  *
  * Events:
- * OnDocFormPrerender,OnDocFormSave,OnHandleRequest,OnPageNotFound
+ * OnDocFormPrerender,OnDocFormSave,OnHandleRequest,OnPageNotFound, OnResourceDuplicate, OnEmptyThrash, OnResourceBeforeSort
  *
  * @author Sterc internet & marketing <modx@sterc.nl>
  *
@@ -336,6 +336,16 @@ switch ($modx->event->name) {
         if (!$stercseo->redirectMigrationStatus()) {
             $modx->regClientStartupHTMLBlock($stercseo->getChunk('migrate/alert', array('message' => $modx->lexicon('stercseo.migrate_alert'))));
             $modx->regClientCSS($stercseo->config['cssUrl'].'migrate.css');
+        }
+        break;
+
+    case 'OnEmptyTrash':
+        if (count($ids) > 0) {
+            foreach ($ids as $id) {
+                $modx->removeCollection('seoUrl', array(
+                    'resource' => $id
+                ));
+            }
         }
 }
 return;

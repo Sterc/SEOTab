@@ -23,7 +23,8 @@
                     "OnResourceDuplicate",
                     "OnManagerPageBeforeRender",
                     "OnResourceBeforeSort",
-                    "OnDocFormSave"
+                    "OnDocFormSave",
+                    "OnEmptyTrash"
                 ]
             }],
             "snippets": [{
