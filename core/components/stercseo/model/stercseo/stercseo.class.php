@@ -243,18 +243,24 @@ class StercSEO
     public function redirectMigrationStatus()
     {
         $migrationStatus = true;
-        $migrationStatusSetting = $this->modx->getObject('modSystemSetting', array('key' => 'stercseo.migration_status', 'namespace' => 'stercseo_custom', 'value' => '1'));
+        $migrationStatusSetting = $this->modx->getObject('modSystemSetting', array(
+            'key'       => 'stercseo.migration_status',
+            'namespace' => 'stercseo_custom',
+            'value'     => '1'
+        ));
         if (!$migrationStatusSetting) {
-            $resources = $this->modx->getIterator('modResource', array('context_key:!=' => 'mgr'));
-            foreach ($resources as $resource) {
-                $properties = $resource->getProperties('stercseo');
-                if ($properties['urls'] && count($properties['urls']) > 0) {
-                    $migrationStatus = false;
-                    break;
-                }
-            }
+            // Search for modResources with an URL's array within the properties
+            // If matches are found, it means the migration hasn't finished yet (false)
+            $resource = $this->modx->getObject('modResource', array(
+                'context_key:!='    => 'mgr',
+                'properties:LIKE'   => '%urls":[{"url":"%'
+            ));
+            $migrationStatus = (is_object($resource)) ? false : true;
+
+            // save new migration status
             $migrationStatusSetting = $this->modx->getObject('modSystemSetting', array('key' => 'stercseo.migration_status', 'namespace' => 'stercseo_custom'));
             if (!$migrationStatusSetting) {
+                // if there is no system setting, create it
                 $migrationStatusSetting = $this->modx->newObject('modSystemSetting');
                 $migrationStatusSetting->set('key', 'stercseo.migration_status');
                 $migrationStatusSetting->set('namespace', 'stercseo_custom');
