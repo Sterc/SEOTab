@@ -1,11 +1,24 @@
-Changelog for SEO Tab.
+----------------------
+Changelog for SEO Tab
+----------------------
 
 SEOTab 2.0.0-pl
 ==============
 - 301 redirects are now stored in a separate table (migration page included)
-- New custom manager page for viewing and managing 301 redirects.
+- New custom manager page for viewing and managing 301 redirects
 - Added systemsetting for excluding usergroups from accessing SEOTab #39
 - Automatically add redirect for resource and children when moving or changing alias/uri (thanks to Michael Engel). PR#63
+- Menu description was added
+- Text is updated
+- Added 'http' check-up and entered pre-populated text field
+- Fixed Bug #71: Target / Resource URL Dialog + Enhancement
+- Fixed Bug #72: Sorting options
+- Fixed Bug #73: Confirmation dialog added
+- Fixed Bug #74: Duplicate-redirect check
+- Fixed Bug #81: 301 from context2 to context1 results in 404
+- Fixed Bug #85: 301 redirect of current page URL is not allowed
+- Fixed Bug #86: noindex results in exclusion from the sitemap
+- Fixed Bug #98: Memory issues after installation solved
 
 SEOTab 1.2.2-pl
 ==============
