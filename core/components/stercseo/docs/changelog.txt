@@ -4,6 +4,7 @@ Changelog for SEO Tab
 
 SEOTab 2.0.0-pl
 ==============
+- PLEASE NOTE: THIS UPDATE CONTAINS A MIGRATION SCRIPT - READ ABOUT THE RISKS on https://github.com/Sterc/SEOTab
 - 301 redirects are now stored in a separate table (migration page included)
 - New custom manager page for viewing and managing 301 redirects
 - Added systemsetting for excluding usergroups from accessing SEOTab #39
@@ -11,14 +12,18 @@ SEOTab 2.0.0-pl
 - Menu description was added
 - Text is updated
 - Added 'http' check-up and entered pre-populated text field
-- Fixed Bug #71: Target / Resource URL Dialog + Enhancement
-- Fixed Bug #72: Sorting options
-- Fixed Bug #73: Confirmation dialog added
-- Fixed Bug #74: Duplicate-redirect check
-- Fixed Bug #81: 301 from context2 to context1 results in 404
-- Fixed Bug #85: 301 redirect of current page URL is not allowed
-- Fixed Bug #86: noindex results in exclusion from the sitemap
-- Fixed Bug #98: Memory issues after installation solved
+- Fixed bug #61: OnPageNotFound doesn't works correctly on site with many resources
+- Fixed bug #71: Target / Resource URL Dialog + Enhancement
+- Fixed bug #72: Sorting options
+- Fixed bug #73: Confirmation dialog added
+- Fixed bug #74: Duplicate-redirect check
+- Fixed bug #81: 301 from context2 to context1 results in 404
+- Fixed bug #85: 301 redirect of current page URL is not allowed
+- Fixed bug #86: noindex results in exclusion from the sitemap
+- Fixed bug #92: Migration dies on timeout
+- Fixed bug #93: Deleting saved objects onEmptyTrash
+- Fixed bug #94: All pages set to noindex,nofollow after installation
+- Fixed bug #98: Memory issues after installation
 
 SEOTab 1.2.2-pl
 ==============
