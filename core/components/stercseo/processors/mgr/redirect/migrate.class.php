@@ -11,7 +11,8 @@ class StercSeoMigrateProcessor extends modProcessor
     public function process()
     {
         $count = 0;
-        $limit = 2000;
+        $limit = 1000;
+        $queryLimit = 100;
         $site_url = $this->modx->getOption('site_url');
 
         $site_urls = array();
@@ -30,19 +31,17 @@ class StercSeoMigrateProcessor extends modProcessor
         }
 
         $c = $this->modx->newQuery('modResource');
-        $c->where(array(
-            'context_key:!=' => 'mgr'
-        ));
-        
         $c->prepare();
-        $results = $this->modx->query($c->toSql());
+
+        $sql = $c->toSql() . ' WHERE ( `modResource`.`context_key` != \'mgr\' AND `modResource`.`properties` LIKE \'%urls":[{"url":"%\' ) LIMIT ' . $queryLimit;
+        $results = $this->modx->query($sql);
 
         while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
             if ($count > $limit) {
                 break;
             }
             $context_key = $row['modResource_context_key'];
-            
+
             $site_url = $site_urls[$context_key];
 
             $properties = json_decode($row['modResource_properties'], true);
