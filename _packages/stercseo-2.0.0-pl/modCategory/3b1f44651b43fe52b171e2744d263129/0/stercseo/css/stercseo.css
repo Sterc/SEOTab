@@ -1,0 +1,85 @@
+/**
+ * StercSEO CSS file
+ *
+ * @author Sterc <modx@sterc.nl>
+ *
+ * @package stercseo
+ */
+#seo-tab .vertical-tabs-panel{
+    background: url("../img/vtabs-bg.png") repeat-y scroll left bottom transparent !important;
+}
+#seo-tab .x-panel-body-noheader .x-grid3-header {
+    background: #F7F7F7;
+    border: 0 none;
+    border-bottom: 1px solid #CCCCCC;
+}
+#seo-tab .vertical-tabs-header ul.x-tab-strip-top li.x-tab-strip-active {
+border-bottom: 2px #92AF4C solid !important;
+}
+#seo-tab .vertical-tabs-header{ padding-bottom: 200px !important;}
+#seo-tab .x-grid3 {
+    border: 1px solid #CCCCCC;
+}
+#seo-tab .x-grid3-header .x-grid3-hd-row td {color: #777; text-shadow:none; border-right: 1px solid #CCCCCC;}
+
+/*.stercseo-grid td.x-grid3-hd-over,.stercseo-grid td.sort-desc,.stercseo-grid td.sort-asc,.stercseo-grid td.x-grid3-hd-menu-open{
+    border-left-color:#CCCCCC;
+    border-right-color:#CCCCCC
+}*/
+.stercseo-grid td.x-grid3-hd-over .x-grid3-hd-inner,.stercseo-grid td.sort-desc .x-grid3-hd-inner,.stercseo-grid td.sort-asc .x-grid3-hd-inner,.stercseo-grid td.x-grid3-hd-menu-open .x-grid3-hd-inner{
+    background:#f2f2f2;
+}
+.stercseo-grid .x-grid3-hd-btn{
+    background-image: url(../img/grid3-hd-btn.gif);
+}
+.stercseo-grid table, .stercseo-grid div, .stercseo-grid td{
+    border-color: #CCCCCC;
+}
+.empty-msg {
+color: gray;
+font: 11px tahoma,arial,helvetica,sans-serif;
+padding: 40px 0;
+text-align: center;
+}
+.empty-msg h4 {
+font-size: 18px;
+margin-bottom: 10px;
+}
+.empty-msg p {
+font-size: 15px;
+margin-bottom: 10px;
+}
+
+
+.stercseo-panel-desc {
+     -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    color: #5A5A5A;
+    line-height: 1.5;
+    padding: 15px;
+    background-color: #fbfbfb;
+    border: 1px solid #CCCCCC !important;
+    margin: 0 0 15px 0;
+}
+.stercseo-panel-desc p {
+	padding: 0;
+}
+.stercseo-header-title{
+    font-size: 14px;
+    color: #777;
+    padding: 0 0 10px;
+}
+
+
+#modx-resource-tabs__seo-tab{
+    background:-webkit-gradient( linear,left bottom,left top,color-stop(0.32,#555),color-stop(0.69,#666),color-stop(0,#555) );
+    border:1px solid #1E1E1E;
+    border-bottom: none;
+/*    margin-left: 10px;
+*/}
+
+.highlight{
+    background: yellow;
+}
