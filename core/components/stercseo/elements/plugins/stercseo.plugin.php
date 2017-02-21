@@ -136,10 +136,10 @@ switch ($modx->event->name) {
                 'changefreq' => (isset($_POST['changefreq']) ? $_POST['changefreq'] : $modx->getOption('stercseo.changefreq', null, 'weekly'))
             );
         }
-        
+
         // If uri is changed or alias (with freeze uri off) has changed, add a new redirect
         if (($oldResource->get('uri') != $resource->get('uri') ||
-            ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
+                ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
             $oldResource->get('uri') != '') {
             $url = urlencode($modx->getOption('site_url').$oldResource->get('uri'));
             if (!$modx->getCount('seoUrl', array('url' => $url))) {
@@ -206,13 +206,19 @@ switch ($modx->event->name) {
                 return;
             }
             $properties = $modx->resource->getProperties('stercseo');
+            if (empty($properties)) {
+                // Properties not available
+                // This means an this resource has nog SEO Tab properties, which means it is a pre-SEO Tab resource
+                // Fallback to system defaults
+                $properties = array(
+                    'index' => $modx->getOption('stercseo.index', null, 1),
+                    'follow' => $modx->getOption('stercseo.follow', null, 1)
+                );
+            }
             $metaContent = array('noodp', 'noydir');
-            if (!$properties['index']) {
-                $metaContent[] = 'noindex';
-            }
-            if (!$properties['follow']) {
-                $metaContent[] = 'nofollow';
-            }
+            $metaContent[] = (intval($properties['index']) ? 'index' : 'noindex');
+            $metaContent[] = (intval($properties['follow']) ? 'follow' : 'nofollow');
+
             $modx->setPlaceholder('seoTab.robotsTag', implode(',', $metaContent));
         }
         break;
@@ -221,15 +227,15 @@ switch ($modx->event->name) {
         $options      = array();
         $url          = $modx->getOption('server_protocol').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $convertedUrl = urlencode($url);
-        
+
         $w = array(
             'url' => $convertedUrl
         );
-        
+
         if ($modx->getOption('stercseo.context-aware-alias', null, '0')) {
             $w['context_key'] = $modx->context->key;
         }
-        
+
         $alreadyExists = $modx->getObject('seoUrl', $w);
 
         if ($modx->context->key !== $alreadyExists->get('context_key')) {
@@ -272,7 +278,7 @@ switch ($modx->event->name) {
         if ($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
             $uriChanged              = true;
         }
-        
+
         // Recursive set redirects for drag/dropped resource, and its children (where uri_override is not set)
         if ($uriChanged && $modx->getOption('use_alias_path')) {
             $oldResource->set('isfolder', true);
