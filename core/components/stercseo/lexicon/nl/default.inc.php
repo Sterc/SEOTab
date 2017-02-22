@@ -58,7 +58,7 @@ $_lang['stercseo.grid_noresults'] = '<h4>Geen redirects</h4><p>Er zijn geen redi
 $_lang['stercseo.redirects_desc'] = 'Wanneer je de URL van een pagina wijzigt, heeft dit ten gevolge dat je álle opgebouwde zoekmachine-waarde (juice) kwijtraakt. Met SEO Tab\'s 301 redirects houd je deze waarde vast! Om je te assisteren, voegt SEO Tab automatisch 301 redirects toe wanneer je de URL van een pagina wijzigt. Klik met je rechtermuisknop op een 301 redirect om deze te verwijderen.';
 $_lang['stercseo.alreadyexists'] = '<strong>[[+url]]</strong> is reeds toegevoegd aan de pagina: <strong>[[+pagetitle]] ([[+id]])</strong>.';
 $_lang['stercseo.uri_label'] = 'Oude URL';
-$_lang['stercseo.uri_label_desc'] = 'Voer een volledige URL in. Bijvoorbeeld: "https://www.google.com/old-pages/about-us".';
+$_lang['stercseo.uri_label_desc'] = 'Voer een volledige URL in. Bijvoorbeeld: "https://www.site.tld/old-pages/about-us".';
 $_lang['stercseo.url_missing_protocol'] = 'Onjuiste URL. Voeg toe: http:// of https://';
 
 //Tab Freeze URL
