@@ -1,0 +1,30 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'unique_key' => 'text',
+  'related_objects' => true,
+  'related_object_attributes' => 
+  array (
+    'Action' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'namespace',
+        1 => 'controller',
+      ),
+    ),
+  ),
+  'namespace' => 'stercseo',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '90fb5a863e3e7dd0f5a8404ec94eefba',
+  'package' => 'modx',
+  'class' => 'modMenu',
+  'signature' => '2df3d67c7c557758d38a1ffa2d538a5a',
+  'native_key' => 'stercseo.seotab',
+  'object' => '{"text":"stercseo.seotab","parent":"components","action":"home","description":"stercseo.menu_desc","icon":"","menuindex":0,"params":"","handler":"","permissions":"","namespace":"stercseo"}',
+);
