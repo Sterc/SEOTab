@@ -47,7 +47,7 @@ $output[] = '
     document.getElementsByClassName("x-window-header-text")[0].innerHTML = setupTitle;
 </script>
 
-<h2>Get free priority updates (OPTIONAL)</h2>
+<h2>Get free priority updates</h2>
 <p>Enter your name and email address below to receive priority updates about our extras.
 Be the first to know about updates and new features.
 <i><b>It is NOT required to enter your name and email to use this extra.</b></i></p>';

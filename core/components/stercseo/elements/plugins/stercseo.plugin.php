@@ -238,7 +238,7 @@ switch ($modx->event->name) {
 
         $alreadyExists = $modx->getObject('seoUrl', $w);
 
-        if ($modx->context->key !== $alreadyExists->get('context_key')) {
+        if (isset($alreadyExists) && ($modx->context->key !== $alreadyExists->get('context_key'))) {
             $q = $modx->newQuery('modContextSetting');
             $q->where([
                 'context_key' => $alreadyExists->get('context_key'),
