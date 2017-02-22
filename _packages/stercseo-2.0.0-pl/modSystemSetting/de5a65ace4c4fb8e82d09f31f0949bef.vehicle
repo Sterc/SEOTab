@@ -7,10 +7,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => '475f381ffba412e5ac2a95d82381d575',
+  'guid' => 'e91b294d9202228b6d24558836b03c55',
   'package' => 'modx',
   'class' => 'modSystemSetting',
-  'signature' => 'fd1decc696a0dcf16ac69dd462726a51',
+  'signature' => 'de5a65ace4c4fb8e82d09f31f0949bef',
   'native_key' => 'stercseo.user_email',
   'object' => '{"key":"stercseo.user_email","value":"","xtype":"textfield","namespace":"stercseo","area":"general","editedon":null}',
 );

@@ -9,10 +9,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => '1c7ca021f29c4ec3dd7983c83f661745',
+  'guid' => '9826718d62aa071196881b7ec91c0954',
   'package' => 'modx',
   'class' => 'modNamespace',
-  'signature' => 'a9b058d20b0dc017559507406975bb2c',
+  'signature' => '510974e0717985d5e5db0efcab7214c1',
   'native_key' => 'stercseo',
   'object' => '{"name":"stercseo","path":"{core_path}components\\/stercseo\\/","assets_path":"{assets_path}components\\/stercseo\\/"}',
 );
