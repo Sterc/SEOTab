@@ -21,10 +21,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => '75158b9b0c6d3f454c78e900e7945754',
+  'guid' => '716eb0339c993284c770d9ecbeb90f3c',
   'package' => 'modx',
   'class' => 'modMenu',
-  'signature' => '1a98b74036e4b160d1fc622648a03543',
+  'signature' => '1f5406c1d0bf97732c70c74b14524f19',
   'native_key' => 'stercseo.seotab',
   'object' => '{"text":"stercseo.seotab","parent":"components","action":"home","description":"stercseo.menu_desc","icon":"","menuindex":0,"params":"","handler":"","permissions":"","namespace":"stercseo"}',
 );

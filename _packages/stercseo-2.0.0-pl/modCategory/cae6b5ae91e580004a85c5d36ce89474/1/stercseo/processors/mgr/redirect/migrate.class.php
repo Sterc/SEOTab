@@ -54,15 +54,24 @@ class StercSeoMigrateProcessor extends modProcessor
                         $q->where(array(
                             'url' => $encoded_url
                         ));
-                        $redirect = $this->modx->query($q->toSql());
-                        if (!is_object($redirect)) {
-                            $this->modx->exec("INSERT INTO {$this->modx->getTableName('seoUrl')} 
-                                SET {$this->modx->escape('url')} = {$this->modx->quote($encoded_url)}, 
-                                    {$this->modx->escape('resource')} = {$this->modx->quote($row['modResource_id'])}, 
-                                    {$this->modx->escape('context_key')} = {$this->modx->quote($context_key)}");
 
-                            $count++;
+                        $query = $q->toSql();
+
+                        // fix for hhvm, which will throw a 500 error if there is an empty query
+                        if (strlen($query) > 0) {
+                            $redirect = $this->modx->query($query);
+                            if (is_object($redirect)) {
+                                continue;
+                            }
                         }
+
+                        // if no matches are found in the block above, this will insert a redirect
+                        $this->modx->exec("INSERT INTO {$this->modx->getTableName('seoUrl')} 
+                            SET {$this->modx->escape('url')} = {$this->modx->quote($encoded_url)}, 
+                                {$this->modx->escape('resource')} = {$this->modx->quote($row['modResource_id'])}, 
+                                {$this->modx->escape('context_key')} = {$this->modx->quote($context_key)}");
+
+                        $count++;
                     }
                 }
                 // reset the urls in properties
