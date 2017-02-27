@@ -17,7 +17,7 @@ $_lang['stercseo.findability'] = 'Findability';
 $_lang['stercseo.index'] = 'Include this page in search engines? (index/noindex)';
 $_lang['stercseo.index_yes'] = 'Yes (index)';
 $_lang['stercseo.index_no'] = 'No (noindex)';
-$_lang['stercseo.index_desc'] = 'Irrelevant pages should not be indexed in search engines. Irrelevant page examples: disclaimer, terms and conditions, privacy policy.';
+$_lang['stercseo.index_desc'] = 'You may wish to exclude pages such as disclaimer, terms and conditions and your privacy policy from being indexed by search engines.';
 
 $_lang['stercseo.follow'] = 'Follow links on this page? (follow/nofollow)';
 $_lang['stercseo.follow_yes'] = 'Yes (follow)';
