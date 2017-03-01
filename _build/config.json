@@ -89,7 +89,11 @@
     },
     "build":{
         "resolver": {
-            "after": ["setupoptions.resolver.php", "stercextra.resolver.php"]
+            "after": [
+                "setupoptions.resolver.php",
+                "stercextra.resolver.php",
+                "uninstall.resolver.php"
+            ]
         },
         "setupOptions":{
             "source": "setup.options.php"
