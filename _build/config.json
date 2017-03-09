@@ -1,18 +1,19 @@
 {
     "name": "StercSEO",
     "lowCaseName": "stercseo",
-    "description": "SEOTab is a MODX package that helps you manage your pages in Google.",
+    "description": "SEO Tab is a MODX Extra that helps you optimize your pages for the best possible performance in search engines, like Google.",
     "author": "Sterc",
     "version": "2.0.0-pl",
     "package":{  
         "menus": [{
             "text": "stercseo.seotab",
+            "description": "stercseo.menu_desc",
             "action": "home"
         }],
         "elements": {
             "plugins": [{
                 "name": "StercSEO",
-                "description": "Plugin to render SEOTab and save all the data.",
+                "description": "Plugin to render SEO Tab and save all the data.",
                 "file": "stercseo.plugin.php",
                 "events": [
                     "OnDocFormPrerender",
@@ -21,12 +22,14 @@
                     "OnPageNotFound",
                     "OnResourceDuplicate",
                     "OnManagerPageBeforeRender",
-                    "OnResourceBeforeSort"
+                    "OnResourceBeforeSort",
+                    "OnDocFormSave",
+                    "OnEmptyTrash"
                 ]
             }],
             "snippets": [{
                 "name": "StercSeoSiteMap",
-                "description": "Outputs the sitemap based on the resource settings made in SEOTab",
+                "description": "Outputs the sitemap based on the resource settings made in SEO Tab",
                 "file": "stercseositemap.snippet.php"
             }],
             "chunks": [],
@@ -69,9 +72,31 @@
             "key": "hide_from_usergroups",
             "value": "",
             "area": "general"
+        },{
+            "key": "user_name",
+            "type": "textfield",
+            "area": "general",
+            "value": ""
+        }, {
+            "key": "user_email",
+            "type": "textfield",
+            "area": "general",
+            "value": ""
         }]
     },
     "database": {
         "tables": ["seoUrl"]
+    },
+    "build":{
+        "resolver": {
+            "after": [
+                "setupoptions.resolver.php",
+                "stercextra.resolver.php",
+                "uninstall.resolver.php"
+            ]
+        },
+        "setupOptions":{
+            "source": "setup.options.php"
+        }
     }
 }
