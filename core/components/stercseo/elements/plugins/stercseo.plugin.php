@@ -188,16 +188,16 @@ switch ($modx->event->name) {
         }
 
         $url       = urlencode($modx->makeUrl($resource->id, $resource->context_key, '', 'full'));
-        $urlExists = $modx->getObject('seoUrl', [
+        $urlExists = $modx->getObject('seoUrl', array(
             'url'         => $url,
             'context_key' => $resource->context_key
-        ]);
+        ));
 
         if ($urlExists) {
-            $modx->removeObject('seoUrl', [
+            $modx->removeObject('seoUrl', array(
                 'url'         => $url,
                 'context_key' => $resource->context_key
-            ]);
+            ));
         }
         break;
 
@@ -241,10 +241,10 @@ switch ($modx->event->name) {
 
         if (isset($alreadyExists) && ($modx->context->key !== $alreadyExists->get('context_key'))) {
             $q = $modx->newQuery('modContextSetting');
-            $q->where([
+            $q->where(array(
                 'context_key' => $alreadyExists->get('context_key'),
                 'key'         => 'site_url'
-            ]);
+            ));
             $q->prepare();
 
             $siteUrl = $modx->getObject('modContextSetting', $q);
