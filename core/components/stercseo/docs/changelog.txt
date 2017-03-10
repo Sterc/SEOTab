@@ -2,6 +2,10 @@
 Changelog for SEO Tab
 ----------------------
 
+SEOTAB 2.0.1-pl
+==============
+- Rewrite [] to array() for backwards compatibility
+
 SEOTab 2.0.0-pl
 ==============
 - PLEASE NOTE: THIS UPDATE CONTAINS A MIGRATION SCRIPT - READ ABOUT THE RISKS on https://github.com/Sterc/SEOTab
