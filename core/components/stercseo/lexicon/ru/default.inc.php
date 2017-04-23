@@ -57,45 +57,45 @@ $_lang['stercseo.uri_header'] = 'Ниже список старых URL этой
 $_lang['stercseo.grid_noresults'] = '<h4>Нет редиректов</h4><p>Для этой страницы редиректы не указаны.</p>';
 $_lang['stercseo.redirects_desc'] = 'Любые изменения вашей страницы влияют на выдачу в поисковых системах. Изменение URL адреса страницы приведёт к утрате всех наработанных факторов ранжирования. С помощью 301 редиректа Вы не потеряете то, что уже успели заработать. StercSEO автоматически добавляет 301 редиректы (переадресацию), после того, как адрес страницы (URL) изменился.';
 $_lang['stercseo.alreadyexists'] = '[[++site_URI]]<strong>[[+URI]]</strong> был добавлен для страницы: <strong>[[+pagetitle]] ([[+id]])</strong>';
-$_lang['stercseo.uri_label'] = 'Old URL';
-$_lang['stercseo.uri_label_desc'] = 'Enter the full URL, including your domain. Example: "https://www.google.com/old-pages/about-us".';
-$_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or https://';
+$_lang['stercseo.uri_label'] = 'Старый URL';
+$_lang['stercseo.uri_label_desc'] = 'Введите полный URL-адрес, включая свой домен. Пример: "https://www.google.com/old-pages/about-us".';
+$_lang['stercseo.url_missing_protocol'] = 'Неверный URL. Добавьте http:// или https://';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Заморозить URL';
 $_lang['stercseo.uri_override'] = 'Заморозить URL псевдоним для этой страницы';
-$_lang['stercseo.uri_after'] = 'Часть адреса URL следующая после ';
-$_lang['stercseo.uri_after_desc'] = 'Freeze URLs can be used to create short URLs. 
-For example, to set this page URL to [[+site_url]]short-url", enter "short-url" in the field below.';
+$_lang['stercseo.uri_after'] = 'Часть адреса URL следующая после [[+site_url]]';
+$_lang['stercseo.uri_after_desc'] = 'Замороженные URL могут использоваться для создания коротких URL. 
+Например, чтобы задать URL для этой страницы [[+site_url]]mini-url", введите "mini-url" в поле выше.';
 
 //Settings
-$_lang['setting_stercseo.context-aware-alias'] = '301 Redirects are unique per context';
-$_lang['setting_stercseo.context-aware-alias_desc'] = 'Make old urls unique to context';
-$_lang['setting_stercseo.index'] = 'Default resource setting: Include in search engines';
-$_lang['setting_stercseo.index_desc'] = 'Include new pages in search engines per default';
-$_lang['setting_stercseo.follow'] = 'Default resource setting: Following links';
-$_lang['setting_stercseo.follow_desc'] = 'Follow links on new pages per default';
-$_lang['setting_stercseo.sitemap'] = 'Default resource setting: Include pages in the Google Sitemap';
-$_lang['setting_stercseo.sitemap_desc'] = 'Include new pages in sitemap.xml per default';
-$_lang['setting_stercseo.priority'] = 'Default resource setting: Priority';
-$_lang['setting_stercseo.priority_desc'] = 'Priority of page in sitemap.xml (0.25 or 0.5 or 1)';
-$_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update frequency';
-$_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
-$_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEO Tab from these usergroups';
-$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEO Tab';
+$_lang['setting_stercseo.context-aware-alias'] = '301 редиректы будут уникальными для каждого контекста';
+$_lang['setting_stercseo.context-aware-alias_desc'] = 'Использовать старые urls для контекста';
+$_lang['setting_stercseo.index'] = 'Настройка по умолчанию: Индексируемость поисковиками';
+$_lang['setting_stercseo.index_desc'] = 'Разрешить индексировать новые страницы в поисковых системах по умолчанию.';
+$_lang['setting_stercseo.follow'] = 'Настройка по умолчанию: Следование по ссылкам';
+$_lang['setting_stercseo.follow_desc'] = 'Разрешить следовать по ссылкам у новых страниц по умолчанию.';
+$_lang['setting_stercseo.sitemap'] = 'Настройка по умолчанию: Включение страницы в sitemap.xml';
+$_lang['setting_stercseo.sitemap_desc'] = 'Добавлять новые страницы в sitemap.xml по умолчанию.';
+$_lang['setting_stercseo.priority'] = 'Настройка по умолчанию: Приоритет';
+$_lang['setting_stercseo.priority_desc'] = 'Приоритет страницы в sitemap.xml (0.25, 0.5 или 1)';
+$_lang['setting_stercseo.changefreq'] = 'Настройка по умолчанию: Частота обновления содержимого';
+$_lang['setting_stercseo.changefreq_desc'] = 'Частота по умолчанию (daily, weekly, monthly)';
+$_lang['setting_stercseo.hide_from_usergroups'] = 'Скрывать вкладку SEO Tab для этих групп пользователей.';
+$_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Список разделенный запятыми групп пользователей, которым не разрешен доступ к вкладке «SEO». Пример: "Administrator,Manager"';
 
 // CMP
-$_lang['stercseo.redirects.description'] = 'Here you can view and manage your 301 redirects. Redirects can also be added from the resource create and update pages.';
-$_lang['stercseo.redirects.window_title'] = 'Add redirect url';
-$_lang['stercseo.uri'] = 'Old url (url to redirect)';
-$_lang['stercseo.target'] = 'Target resource / url';
-$_lang['stercseo.uri_update'] = 'Update redirect';
-$_lang['stercseo.uri_remove'] = 'Remove redirect';
-$_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
-$_lang['stercseo.migrate'] = 'Migrate redirects';
-$_lang['stercseo.migrate_desc'] = 'Here you can migrate your redirects (SEO Tab version 1.2.2 and below) from resource properties to seoUrl objects. This page will automatically migrate all the redirects for you, so no action is required, but please keep this page open for SEO Tab to correctly handle the migration process.';
-$_lang['stercseo.migrate_alert'] = 'Your SEO Tab redirects need to be migrated. Click here to visit the migration page.';
-$_lang['stercseo.migrate_status'] = 'Status';
-$_lang['stercseo.migrate_running'] = 'Currently running migration process. Please keep this page open in your browser.';
-$_lang['stercseo.migrate_success'] = 'Migration completed';
-$_lang['stercseo.migrate_success_msg'] = 'All your redirects have been successfully migrated.';
+$_lang['stercseo.redirects.description'] = 'Здесь вы можете просматривать и управлять своими 301 редиректами. Перенаправления также могут быть добавлены со страниц ресурсов.';
+$_lang['stercseo.redirects.window_title'] = 'Добавить редирект';
+$_lang['stercseo.uri'] = 'Старый url (url для редиректа)';
+$_lang['stercseo.target'] = 'Целевой ресурс / url';
+$_lang['stercseo.uri_update'] = 'Обновить редирект';
+$_lang['stercseo.uri_remove'] = 'Удалить редирект';
+$_lang['stercseo.uri_remove_confirm'] = 'Вы действительно хотите удалить этот редирект?';
+$_lang['stercseo.migrate'] = 'Миграция редиректа';
+$_lang['stercseo.migrate_desc'] = 'Здесь вы можете перенести свои редиректы (SEO Tab версии 1.2.2 и ниже) из свойств ресурса в объекты seoUrl. Эта страница будет автоматически переносить все перенаправления для вас, поэтому никаких действий не требуется, но пожалуйста, держите эту страницу открытой для SEO Tab, чтобы правильно обрабатывать процесс миграции.';
+$_lang['stercseo.migrate_alert'] = 'Редиректы вашей SEO-страницы необходимо перенести. Нажмите здесь, чтобы перейти на страницу перехода.';
+$_lang['stercseo.migrate_status'] = 'Статус';
+$_lang['stercseo.migrate_running'] = 'Текущий процесс миграции. Пожалуйста, держите эту страницу открытой в вашем браузере.';
+$_lang['stercseo.migrate_success'] = 'Миграция завершена!';
+$_lang['stercseo.migrate_success_msg'] = 'Все редиректы были успешно перенесены.';
