@@ -52,6 +52,7 @@ switch ($modx->event->name) {
                 return;
             }
             $properties = $resource->getProperties('stercseo');
+            $properties['searchable'] = $resource->get('searchable');
             $urls = $modx->getCollection('seoUrl', array('resource' => $resource->get('id')));
         }
 

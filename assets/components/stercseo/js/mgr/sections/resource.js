@@ -73,8 +73,9 @@ Ext.onReady(function() {
                         ,cls: 'desc-under'
                     },{
                         xtype: 'modx-combo'
-                        ,name: 'searchable'
-                        ,hiddenName: 'searchable'
+                        ,name: 'stercseo_searchable'
+                        ,id: 'stercseo_searchable'
+                        ,hiddenName: 'stercseo_searchable'
                         ,fieldLabel: _('stercseo.searchable')
                         ,store: new Ext.data.SimpleStore({
                             data: [
@@ -86,8 +87,15 @@ Ext.onReady(function() {
                         ,valueField: "value"
                         ,displayField: "text"
                         ,mode: "local"
-                        ,value: Ext.getCmp('modx-panel-resource').record.searchable
-                        ,listeners: {change: function(){MODx.fireResourceFormChange();}}
+                        ,value: StercSEO.record.searchable ? 1 : 0
+                        ,listeners: {
+                            change: function() {
+                                if (Ext.getCmp('modx-resource-searchable')) {
+                                    Ext.getCmp('modx-resource-searchable').setValue(this.value);
+                                }
+                                MODx.fireResourceFormChange();
+                            }
+                        }
                         ,width: 400
                     },{
                         xtype: 'label'
