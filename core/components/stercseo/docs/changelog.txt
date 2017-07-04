@@ -2,6 +2,10 @@
 Changelog for SEO Tab
 ----------------------
 
+SEOTAB 2.0.2-pl
+==============
+- Fix issue where changing resource template 'searchable' value was reset
+
 SEOTAB 2.0.1-pl
 ==============
 - Rewrite [] to array() for backwards compatibility
