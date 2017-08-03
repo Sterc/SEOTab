@@ -62,7 +62,8 @@ switch ($modx->event->name) {
                 'follow' => $modx->getOption('stercseo.follow', null, '1'),
                 'sitemap' => $modx->getOption('stercseo.sitemap', null, '1'),
                 'priority' => $modx->getOption('stercseo.priority', null, '0.5'),
-                'changefreq' => $modx->getOption('stercseo.changefreq', null, 'weekly')
+                'changefreq' => $modx->getOption('stercseo.changefreq', null, 'weekly'),
+                'searchable' => $modx->getOption('search_default', null, '1')
             );
         }
         $properties['urls'] = '';
