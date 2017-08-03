@@ -2,6 +2,10 @@
 Changelog for SEO Tab
 ----------------------
 
+SEOTAB 2.0.3-pl
+==============
+- Add searchable default property from system setting on new resources
+
 SEOTAB 2.0.2-pl
 ==============
 - Fix issue where changing resource template 'searchable' value was reset
