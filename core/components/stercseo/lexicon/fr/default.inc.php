@@ -64,7 +64,7 @@ $_lang['stercseo.url_missing_protocol'] = 'Incorrect url. Please add http:// or 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'URL fixe';
 $_lang['stercseo.uri_override'] = 'Indiquez une URL fixe pour cette page';
-$_lang['stercseo.uri_after'] = 'URL après ';
+$_lang['stercseo.uri_after'] = 'URL après [[+site_url]]';
 $_lang['stercseo.uri_after_desc'] = 'Freeze URLs can be used to create short URLs. 
 For example, to set this page URL to [[+site_url]]short-url", enter "short-url" in the field below.';
 

@@ -64,7 +64,7 @@ $_lang['stercseo.url_missing_protocol'] = 'Onjuiste URL. Voeg toe: http:// of ht
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';
 $_lang['stercseo.uri_override'] = 'Stel een Freeze URL in voor deze pagina.';
-$_lang['stercseo.uri_after'] = 'URL ná ';
+$_lang['stercseo.uri_after'] = 'URL ná [[+site_url]]';
 $_lang['stercseo.uri_after_desc'] = 'Freeze URL\'s kunnen worden gebruikt om URL\'s gebruiksvriendelijk te maken. 
 Om bijvoorbeeld de URL "[[+site_url]]gebruiksvriendelijke-url" voor deze pagina in te stellen, voer je "gebruiksvriendelijke-url" in.';
 

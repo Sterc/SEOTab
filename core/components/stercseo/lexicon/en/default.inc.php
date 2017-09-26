@@ -63,7 +63,7 @@ $_lang['stercseo.url_missing_protocol'] = 'Incorrect URL. Please add: http:// or
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';
 $_lang['stercseo.uri_override'] = 'Set a Freeze URL for this page.';
-$_lang['stercseo.uri_after'] = 'URL after ';
+$_lang['stercseo.uri_after'] = 'URL after [[+site_url]]';
 $_lang['stercseo.uri_after_desc'] = 'Freeze URLs can be used to create user-friendly URLs. 
 For example, to set this page URL to [[+site_url]]user-friendly-url", enter "user-friendly-url" in the field above.';
 
