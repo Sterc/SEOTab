@@ -303,10 +303,13 @@ switch ($modx->event->name) {
                 'deleted' => '0',
                 'context_key' => $resource->get('context_key')
             ));
-
+            
+            $ctx = $modx->getContext($resource->get('context_key'));
+            $site_url = $ctx->getOption('site_url','',$modx->getOption('site_url'));
+            
             $childResources = $modx->getIterator('modResource', $cond);
             foreach ($childResources as $childResource) {
-                $url = urlencode($modx->getOption('site_url').$childResource->get('uri'));
+                $url = urlencode($site_url.$childResource->get('uri'));
                 if (!$modx->getCount('seoUrl', array('url' => $url))) {
                     $data = array(
                         'url' => $url,
