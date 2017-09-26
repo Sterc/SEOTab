@@ -217,9 +217,10 @@ switch ($modx->event->name) {
                     'follow' => $modx->getOption('stercseo.follow', null, 1)
                 );
             }
-            $metaContent = array('noodp', 'noydir');
-            $metaContent[] = (intval($properties['index']) ? 'index' : 'noindex');
-            $metaContent[] = (intval($properties['follow']) ? 'follow' : 'nofollow');
+            $metaContent = array(
+                (int)$properties['index'] ? 'index' : 'noindex',
+                (int)$properties['follow'] ? 'follow' : 'nofollow'
+            );
 
             $modx->setPlaceholder('seoTab.robotsTag', implode(',', $metaContent));
         }
@@ -305,7 +306,7 @@ switch ($modx->event->name) {
             ));
             
             $ctx = $modx->getContext($resource->get('context_key'));
-            $site_url = $ctx->getOption('site_url','',$modx->getOption('site_url'));
+            $site_url = $ctx->getOption('site_url', '', $modx->getOption('site_url'));
             
             $childResources = $modx->getIterator('modResource', $cond);
             foreach ($childResources as $childResource) {

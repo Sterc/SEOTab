@@ -94,10 +94,8 @@ The settings ```Include in search engines``` and ```Following links``` result in
 If you set ```Include in search engines``` to ```no```, it will generate the following HTML:
 
 ```HTML
-<meta name="robots" content="noodp,noydir,noindex">
+<meta name="robots" content="noindex">
 ```
-
-We add noopd,noydir by default, because we don't want the [Open Directory Project](http://www.dmoz.org/) and the Yahoo Directory (deprecated) to change how are pages are displayed within Google.
 
 ## Bugs and feature requests
 We greatly value your feedback, feature requests and bug reports. Please issue them on [Github](https://github.com/Sterc/SEOTab/issues/new).
