@@ -6,6 +6,7 @@ SEOTAB 2.0.4-pl
 - Added options for generating template specific sitemaps and image sitemaps
 - Add update resolver for replacing true/false property values with 1/0
 - Add check for objects in OnResourceBeforeSort system event in plugin (#121)
+- Fix the onpagenotfound request-url to use SERVER variable instead modx system setting for https
 
 SEOTAB 2.0.3-pl
 ==============
