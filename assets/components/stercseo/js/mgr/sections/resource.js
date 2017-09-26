@@ -232,7 +232,7 @@ Ext.onReady(function() {
                         }
                     },{
                         xtype: 'textfield'
-                        ,fieldLabel: _('stercseo.freeze_uri')
+                        ,fieldLabel: _('stercseo.uri_after',{ site_url: MODx.config.site_url })
                         ,name: 'uri'
                         ,id: 'stercseo-uri'
                         ,maxLength: 255
