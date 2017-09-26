@@ -269,60 +269,64 @@ switch ($modx->event->name) {
             case 'above':
             case 'below':
                 $tmpRes = $modx->getObject('modResource', $target);
-                $target = $tmpRes->get('parent');
-                unset($tmpRes);
+                if ($tmpRes) {
+                    $target = $tmpRes->get('parent');
+                    unset($tmpRes);
+                }
                 break;
         }
         $oldResource = $modx->getObject('modResource', $resource);
         $resource = $modx->getObject('modResource', $resource);
-        $resource->set('parent', $target);
-        $resource->set('uri', '');
-        $uriChanged = false;
-        if ($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
-            $uriChanged              = true;
-        }
-
-        // Recursive set redirects for drag/dropped resource, and its children (where uri_override is not set)
-        if ($uriChanged && $modx->getOption('use_alias_path')) {
-            $oldResource->set('isfolder', true);
-            $resourceOldBasePath = $oldResource->getAliasPath(
-                $oldResource->get('alias'),
-                $oldResource->toArray()
-            );
-            $resourceNewBasePath = $resource->getAliasPath(
-                $resource->get('alias'),
-                $resource->toArray() + array('isfolder' => 1)
-            );
-            $cond = $modx->newQuery('modResource');
-            $cond->where(array(
-                array(
-                    'uri:LIKE'     => $resourceOldBasePath . '%',
-                    'OR:id:=' => $oldResource->id
-                ),
-                'uri_override' => '0',
-                'published' => '1',
-                'deleted' => '0',
-                'context_key' => $resource->get('context_key')
-            ));
-            
-            $ctx = $modx->getContext($resource->get('context_key'));
-            $site_url = $ctx->getOption('site_url', '', $modx->getOption('site_url'));
-            
-            $childResources = $modx->getIterator('modResource', $cond);
-            foreach ($childResources as $childResource) {
-                $url = urlencode($site_url.$childResource->get('uri'));
-                if (!$modx->getCount('seoUrl', array('url' => $url))) {
-                    $data = array(
-                        'url' => $url,
-                        'resource' => $childResource->get('id'),
-                        'context_key' => $targetCtx
-                    );
-                    $redirect = $modx->newObject('seoUrl');
-                    $redirect->fromArray($data);
-                    $redirect->save();
-                }
+        if ($oldResource && $resource) {
+            $resource->set('parent', $target);
+            $resource->set('uri', '');
+            $uriChanged = false;
+            if ($oldResource->get('uri') != $resource->get('uri') && $oldResource->get('uri') != '') {
+                $uriChanged = true;
             }
-        }
+
+            // Recursive set redirects for drag/dropped resource, and its children (where uri_override is not set)
+            if ($uriChanged && $modx->getOption('use_alias_path')) {
+                $oldResource->set('isfolder', true);
+                $resourceOldBasePath = $oldResource->getAliasPath(
+                    $oldResource->get('alias'),
+                    $oldResource->toArray()
+                );
+                $resourceNewBasePath = $resource->getAliasPath(
+                    $resource->get('alias'),
+                    $resource->toArray() + array('isfolder' => 1)
+                );
+                $cond = $modx->newQuery('modResource');
+                $cond->where(array(
+                    array(
+                        'uri:LIKE' => $resourceOldBasePath . '%',
+                        'OR:id:=' => $oldResource->id
+                    ),
+                    'uri_override' => '0',
+                    'published' => '1',
+                    'deleted' => '0',
+                    'context_key' => $resource->get('context_key')
+                ));
+
+                $ctx = $modx->getContext($resource->get('context_key'));
+                $site_url = $ctx->getOption('site_url', '', $modx->getOption('site_url'));
+
+                $childResources = $modx->getIterator('modResource', $cond);
+                foreach ($childResources as $childResource) {
+                    $url = urlencode($site_url . $childResource->get('uri'));
+                    if (!$modx->getCount('seoUrl', array('url' => $url))) {
+                        $data = array(
+                            'url' => $url,
+                            'resource' => $childResource->get('id'),
+                            'context_key' => $targetCtx
+                        );
+                        $redirect = $modx->newObject('seoUrl');
+                        $redirect->fromArray($data);
+                        $redirect->save();
+                    }
+                }
+            } // endif $uriChanged
+        } // endif $oldResource && $resource
         break;
 
     case 'OnResourceDuplicate':
