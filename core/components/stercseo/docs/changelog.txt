@@ -7,6 +7,8 @@ SEOTAB 2.0.4-pl
 - Add update resolver for replacing true/false property values with 1/0
 - Add check for objects in OnResourceBeforeSort system event in plugin (#121)
 - Fix the onpagenotfound request-url to use SERVER variable instead modx system setting for https
+- Get site_url from context object instead of modx getOption in OnResourceBeforeSort event
+- Update russian lexicons (thanks to pitrooo) PR#120
 
 SEOTAB 2.0.3-pl
 ==============
