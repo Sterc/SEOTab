@@ -4,6 +4,8 @@ Changelog for SEO Tab
 SEOTAB 2.0.4-pl
 ==============
 - Added options for generating template specific sitemaps and image sitemaps
+- Add update resolver for replacing true/false property values with 1/0
+-
 
 SEOTAB 2.0.3-pl
 ==============

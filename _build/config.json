@@ -3,7 +3,7 @@
     "lowCaseName": "stercseo",
     "description": "SEO Tab is a MODX Extra that helps you optimize your pages for the best possible performance in search engines, like Google.",
     "author": "Sterc",
-    "version": "2.0.3-pl",
+    "version": "2.0.4-pl",
     "package":{  
         "menus": [{
             "text": "stercseo.seotab",
@@ -92,7 +92,8 @@
             "after": [
                 "setupoptions.resolver.php",
                 "stercextra.resolver.php",
-                "uninstall.resolver.php"
+                "uninstall.resolver.php",
+                "update.resolver.php"
             ]
         },
         "setupOptions":{
