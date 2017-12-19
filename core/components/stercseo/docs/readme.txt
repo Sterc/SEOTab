@@ -1,7 +1,7 @@
 --------------------
 SEO Tab
 --------------------
-Version: 2.0.0-pl
+Version: 2.0.5-pl
 Author: Sterc <modx@sterc.nl>
 License: GNU GPLv2
 --------------------

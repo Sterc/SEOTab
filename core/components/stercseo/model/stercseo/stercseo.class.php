@@ -490,7 +490,10 @@ class StercSEO
                 $fields   = $formtabs[0]['fields'];
             }
         } else {
-            $fields = json_decode($imageTV['input_properties']['formtabs'], true)[0]['fields'];
+            $formtabs = json_decode($imageTV['input_properties']['formtabs'], true);
+            if ($formtabs[0] && $formtabs[0]['fields']) {
+                $fields = $formtabs[0]['fields'];
+            }
         }
 
         if ($fields) {
