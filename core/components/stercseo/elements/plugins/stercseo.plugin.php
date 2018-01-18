@@ -146,7 +146,7 @@ switch ($modx->event->name) {
 	   $site_url = $modx->getOption('site_url');
 	   $ctx = $modx->getContext( $resource->get('context_key'));
 	   if($ctx->getOption('site_url')) {
-	   	$site_url = $ctx->getOption('site_url'
+	   	$site_url = $ctx->getOption('site_url');
 	   }	
             $url = urlencode($site_url.$oldResource->get('uri'));
             if (!$modx->getCount('seoUrl', array('url' => $url))) {
