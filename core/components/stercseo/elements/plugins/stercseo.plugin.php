@@ -143,7 +143,12 @@ switch ($modx->event->name) {
         if (($oldResource->get('uri') != $resource->get('uri') ||
                 ($oldResource->get('uri_override') == 0 && $oldResource->get('alias') != $resource->get('alias'))) &&
             $oldResource->get('uri') != '') {
-            $url = urlencode($modx->getOption('site_url').$oldResource->get('uri'));
+	   $site_url = $modx->getOption('site_url');
+	   $ctx = $modx->getContext( $resource->get('context_key'));
+	   if($ctx->getOption('site_url')) {
+	   	$site_url = $ctx->getOption('site_url'
+	   }	
+            $url = urlencode($site_url.$oldResource->get('uri'));
             if (!$modx->getCount('seoUrl', array('url' => $url))) {
                 $data = array(
                     'url' => $url,
@@ -166,7 +171,7 @@ switch ($modx->event->name) {
                     'context_key' => $resource->get('context_key')
                 ));
                 foreach ($childResources as $childResource) {
-                    $url = urlencode($modx->getOption('site_url').$childResource->get('uri'));
+                    $url = urlencode($site_url.$childResource->get('uri'));
                     if (!$modx->getCount('seoUrl', array('url' => $url))) {
                         $data = array(
                             'url' => $url,
