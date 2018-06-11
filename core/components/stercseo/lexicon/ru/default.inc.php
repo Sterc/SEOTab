@@ -45,9 +45,13 @@ $_lang['stercseo.priority_nopriority'] = '0.25 - Низкий';
 $_lang['stercseo.priority_desc'] = 'Присваивая высокий приоритет, Вы показываете поисковым системам важность этой страницы. Однако, обратите внимание: поисковые системы не будут точно следовать вашим установкам, а воспримут это как рекомендацию.';
 
 $_lang['stercseo.changefreq'] = 'Частота обновления содержимого';
+$_lang['stercseo.changefreq_always'] = 'Всегда';
+$_lang['stercseo.changefreq_hourly'] = 'Ежечасно';
 $_lang['stercseo.changefreq_daily'] = 'Ежедневно';
 $_lang['stercseo.changefreq_weekly'] = 'Еженедельно';
 $_lang['stercseo.changefreq_monthly'] = 'Ежемесячно';
+$_lang['stercseo.changefreq_yearly'] = 'Ежегодно';
+$_lang['stercseo.changefreq_never'] = 'Никогда';
 $_lang['stercseo.changefreq_desc'] = 'Указывает, как часто (вы ожидаете) может меняться конетент (содержимое) этой страницы';
 
 //Tab Redirects

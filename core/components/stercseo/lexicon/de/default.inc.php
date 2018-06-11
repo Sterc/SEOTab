@@ -46,9 +46,13 @@ $_lang['stercseo.priority_nopriority'] = '0.25 - Niedrig';
 $_lang['stercseo.priority_desc'] = 'Mit der Priorität geben Sie Suchmaschinen einen Hinweis auf die Bedeutung dieser Seite. Bitte beachten Sie: Suchmaschinen akzeptieren diese Priorität nicht blind und automatisch.';
 
 $_lang['stercseo.changefreq'] = 'Update Frequenz';
+$_lang['stercseo.changefreq_always'] = 'Immer';
+$_lang['stercseo.changefreq_hourly'] = 'Stündlich';
 $_lang['stercseo.changefreq_daily'] = 'Täglich';
 $_lang['stercseo.changefreq_weekly'] = 'Wöchentlich';
 $_lang['stercseo.changefreq_monthly'] = 'Monatlich';
+$_lang['stercseo.changefreq_yearly'] = 'Jährlich';
+$_lang['stercseo.changefreq_never'] = 'Niemals';
 $_lang['stercseo.changefreq_desc'] = 'Geben Sie an wie oft der Inhalt dieser Seite sich voraussichtlich ändern wird.';
 
 //Tab Redirects

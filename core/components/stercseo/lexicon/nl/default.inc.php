@@ -45,9 +45,13 @@ $_lang['stercseo.priority_nopriority'] = '0.25 - Laag';
 $_lang['stercseo.priority_desc'] = 'Geef zoekmachines een indicatie van het belang van deze pagina door de prioriteit in te stellen. Let op: je prioriteit wordt niet blindelings overgenomen door zoekmachines!';
 
 $_lang['stercseo.changefreq'] = 'Update frequentie';
+$_lang['stercseo.changefreq_always'] = 'Altijd';
+$_lang['stercseo.changefreq_hourly'] = 'Ieder uur';
 $_lang['stercseo.changefreq_daily'] = 'Dagelijks';
 $_lang['stercseo.changefreq_weekly'] = 'Wekelijks';
 $_lang['stercseo.changefreq_monthly'] = 'Maandelijks';
+$_lang['stercseo.changefreq_yearly'] = 'Jaarlijks';
+$_lang['stercseo.changefreq_never'] = 'Nooit';
 $_lang['stercseo.changefreq_desc'] = 'Geef aan hoe vaak je verwacht dat deze pagina van inhoud verandert.';
 
 //Tab Redirects
