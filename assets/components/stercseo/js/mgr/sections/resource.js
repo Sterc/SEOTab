@@ -165,9 +165,14 @@ Ext.onReady(function() {
                         ,fieldLabel: _('stercseo.changefreq')
                         ,store: new Ext.data.SimpleStore({
                             data: [
+                                ['always', _("stercseo.changefreq_always")],
+                                ['hourly', _("stercseo.changefreq_hourly")],
                                 ['daily', _("stercseo.changefreq_daily")],
                                 ['weekly', _("stercseo.changefreq_weekly")],
-                                ['monthly', _("stercseo.changefreq_monthly")], ],
+                                ['monthly', _("stercseo.changefreq_monthly")],
+                                ['yearly', _("stercseo.changefreq_yearly")],
+                                ['never', _("stercseo.changefreq_never")],
+                            ],
                             id: 0,
                             fields: ["value", "text"]
                         })
