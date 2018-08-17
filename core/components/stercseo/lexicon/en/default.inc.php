@@ -96,6 +96,10 @@ $_lang['stercseo.target'] = 'New URL / Resource';
 $_lang['stercseo.uri_update'] = 'Update redirect';
 $_lang['stercseo.uri_remove'] = 'Remove redirect';
 $_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
+$_lang['stercseo.uri_remove_bulk'] = 'Remove selected redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Are you sure you want to remove the selected redirects?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect not specified';
+
 $_lang['stercseo.migrate'] = 'Migrate redirects';
 $_lang['stercseo.migrate_desc'] = 'Upgrading to 2.0.0 from 1.* is highly recommended, but it does introduce some risks. SEO Tab 1.* stored the 301 redirects into the properties-column of a resource. SEO Tab 2 stores it in a seperate database table. This means a migration is needed. The migration-process is memory-intensive and might take a very long time, so just let it roll until it mentions a finished migration.<br /><br />The migration is running while you read this. This page will automatically migrate all the redirects for you, so no action is required, but please keep this page open for SEO Tab to correctly handle the migration process.';
 $_lang['stercseo.migrate_alert'] = 'SEO Tab was updated, but your 301 redirects need to be migrated. Click here to start the migration.';

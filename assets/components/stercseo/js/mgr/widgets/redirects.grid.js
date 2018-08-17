@@ -3,6 +3,8 @@ StercSEO.grid.Redirects = function(config) {
     if (!config.id) {
         config.id = 'stercseo-grid-redirects';
     }
+
+    this.sm = new Ext.grid.CheckboxSelectionModel();
     Ext.applyIf(config,{
         id: config.id
         ,url: StercSEO.config.connectorUrl
@@ -15,7 +17,8 @@ StercSEO.grid.Redirects = function(config) {
         ,autoHeight: true
         ,paging: true
         ,remoteSort: true
-        ,columns: [{
+        ,sm: this.sm
+        ,columns: [this.sm, {
             header: _('stercseo.uri_label')
             ,dataIndex: 'url'
             ,width: 280
@@ -37,6 +40,9 @@ StercSEO.grid.Redirects = function(config) {
             ,scope: this
             ,cls:'primary-button'
             ,id: 'btn-add-uri'
+        }, {
+            text: _('stercseo.uri_remove_bulk'),
+            handler: this.removeRedirectsFromGrid
         },'->',{
             xtype: 'modx-combo-context'
             ,fieldLabel: _('context')
@@ -150,6 +156,24 @@ Ext.extend(StercSEO.grid.Redirects,MODx.grid.Grid,{
             }
             ,listeners: {
                 'success': {fn:function(r) { this.refresh(); },scope:this}
+            }
+        });
+    }
+
+    ,removeRedirectsFromGrid: function () {
+        var cs = this.getSelectedAsList();
+        if (cs === false) return false;
+
+        MODx.msg.confirm({
+            title: _('stercseo.uri_remove_bulk'),
+            text: _('stercseo.uri_remove_bulk_confirm'),
+            url: this.config.url,
+            params: {
+                action: 'mgr/redirect/removeMultiple',
+                redirects: cs
+            },
+            listeners: {
+                'success': { fn:function() { this.refresh(); }, scope:this }
             }
         });
     }
