@@ -31,6 +31,12 @@
  */
 class StercSEO
 {
+    /**
+     * Current namespace.
+     *
+     * @var string
+     */
+    protected $namespace = 'stercseo';
 
     /**
      * @access protected
@@ -54,6 +60,14 @@ class StercSEO
      * Example: web:1;de:4;es:7;fr:10
      */
     public $stercseoTv = null;
+
+    /**
+     * The working context for this request. This is set by calling $this->setWorkingContext
+     * and needs to be an initialised context. Used for getting context-specific settings for example.
+     *
+     * @var \modContext
+     */
+    public $wctx;
 
     public $defaults = array();
 
@@ -113,27 +127,86 @@ class StercSEO
     }
 
     /**
-     * Get a local configuration option or a namespaced system setting by key.
+     * Grabs context specific settings from the current namespace, and loads them into $this->config.
+     * Also returns the newly overridden values in an array.
      *
-     * @param string $key The option key to search for.
-     * @param array $options An array of options that override local options.
-     * @param mixed $default The default value returned if the option is not found locally or as a
-     * namespaced system setting; by default this value is null.
-     * @return mixed The option value or the default value specified.
+     * @param $contextKey
+     * @return array
      */
-    public function getOption($key, $options = array(), $default = null)
+    public function loadContextSettingsFromNamespace($contextKey)
     {
-        $option = $default;
-        if (!empty($key) && is_string($key)) {
-            if ($options != null && array_key_exists($key, $options)) {
-                $option = $options[$key];
-            } elseif (array_key_exists($key, $this->config)) {
-                $option = $this->config[$key];
-            } elseif (array_key_exists("{$this->namespace}.{$key}", $this->modx->config)) {
-                $option = $this->modx->getOption("{$this->namespace}.{$key}");
+        $config = array();
+
+        $c = $this->modx->newQuery('modContextSetting');
+        $c->where(array(
+            'context_key' => $contextKey,
+            'key:LIKE' => $this->namespace . '.%'
+        ));
+        $c->limit(0);
+
+        /** @var \modSystemSetting[] $iterator */
+        $iterator = $this->modx->getIterator('modContextSetting', $c);
+        foreach ($iterator as $setting) {
+            $key = $setting->get('key');
+            $key = substr($key, strlen($this->namespace) + 1);
+            $config[$key] = $setting->get('value');
+        }
+        $this->config = array_merge($this->config, $config);
+
+        return $config;
+    }
+
+    /**
+     * Set the internal working context for grabbing context-specific options.
+     *
+     * @param $key
+     * @return bool|\modContext
+     */
+    public function setWorkingContext($key)
+    {
+        if ($key instanceof \modResource) {
+            $key = $key->get('context_key');
+        }
+
+        if (empty($key)) {
+            return false;
+        }
+
+        $this->wctx = $this->modx->getContext($key);
+        if (!$this->wctx) {
+            $this->modx->log(\modX::LOG_LEVEL_ERROR, 'Error loading working context ' . $key, '', __METHOD__, __FILE__,
+                __LINE__);
+
+            return false;
+        }
+
+        $this->loadContextSettingsFromNamespace($key);
+
+        return $this->wctx;
+    }
+
+    /**
+     * Grabs a setting value by its key, looking at the current working context (see setWorkingContext) first.
+     *
+     * @param $key
+     * @param null $options
+     * @param null $default
+     * @param bool $skipEmpty
+     *
+     * @return mixed
+     */
+    public function getOption($key, $options = null, $default = null, $skipEmpty = false)
+    {
+        if ($this->wctx) {
+            $value = $this->wctx->getOption($key, $default, $options);
+            if ($skipEmpty && $value === '') {
+                return $default;
+            } else {
+                return $value;
             }
         }
-        return $option;
+
+        return $this->modx->getOption($key, $options, $default, $skipEmpty);
     }
 
     /**
