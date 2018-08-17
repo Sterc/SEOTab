@@ -217,6 +217,7 @@ StercSEO.window.Redirect = function(config) {
             ,displayField: 'pagetitle'
             ,baseParams: {
                 action: 'mgr/resource/getlist'
+                ,id: id
                 ,limit: 20
                 ,sort: 'pagetitle'
                 ,dir: 'asc'
