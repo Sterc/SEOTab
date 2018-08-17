@@ -192,7 +192,11 @@ switch ($modx->event->name) {
         if (!$stercseo->isAllowed($resource->context_key)) {
             return;
         }
-
+        
+        /* Tmp overwrite the cache_alias_map setting to prevent that a redirect is removed again. */
+        $cacheAliasMap = $modx->getOption('cache_alias_map', true);
+        $modx->setOption('cache_alias_map', false);
+        
         $url       = urlencode($modx->makeUrl($resource->id, $resource->context_key, '', 'full'));
         $urlExists = $modx->getObject('seoUrl', array(
             'url'         => $url,
@@ -205,6 +209,8 @@ switch ($modx->event->name) {
                 'context_key' => $resource->context_key
             ));
         }
+        
+        $modx->setOption('cache_alias_map', $cacheAliasMap);
         break;
 
     case 'OnLoadWebDocument':
