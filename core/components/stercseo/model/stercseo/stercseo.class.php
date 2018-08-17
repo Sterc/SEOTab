@@ -583,7 +583,7 @@ class StercSEO
         if (!$user) {
             $user = $this->modx->getUser();
         }
-        $exclUsergroups = explode(',', $this->modx->getOption('stercseo.hide_from_usergroups'));
+        $exclUsergroups = array_filter(explode(',', $this->modx->getOption('stercseo.hide_from_usergroups')));
         if (!empty($exclUsergroups)) {
             foreach ($exclUsergroups as $exclUserGroup) {
                 if ($user->isMember($exclUserGroup)) {
