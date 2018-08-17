@@ -20,7 +20,9 @@ StercSEO.grid.Redirects = function(config) {
             header: _('stercseo.uri_label'),
             dataIndex: 'url',
             width: 280,
-            menuDisabled: true
+            menuDisabled: true,
+            xtype: 'templatecolumn',
+            tpl: '<a href="{url}" target="_blank">{url}</a>'
         }, {
             header: _('stercseo.target'),
             dataIndex: 'target',
