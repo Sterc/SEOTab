@@ -52,7 +52,6 @@ switch ($modx->event->name) {
                 return;
             }
             $properties = $resource->getProperties('stercseo');
-            $properties['searchable'] = $resource->get('searchable');
             $urls = $modx->getCollection('seoUrl', array('resource' => $resource->get('id')));
         }
 
@@ -63,9 +62,12 @@ switch ($modx->event->name) {
                 'sitemap' => $modx->getOption('stercseo.sitemap', null, '1'),
                 'priority' => $modx->getOption('stercseo.priority', null, '0.5'),
                 'changefreq' => $modx->getOption('stercseo.changefreq', null, 'weekly'),
-                'searchable' => $modx->getOption('search_default', null, '1')
+                'searchable' => (bool) $modx->getOption('search_default', null, true)
             );
+        } elseif ($resource) {
+            $properties['searchable'] = $resource->get('searchable');
         }
+        
         $properties['urls'] = '';
         // Fetch urls from seoUrl collection
         if ($urls && is_object($urls)) {
