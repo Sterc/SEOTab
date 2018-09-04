@@ -28,6 +28,17 @@ class StercSeoResourceGetListProcessor extends modObjectGetListProcessor
         return $c;
     }
 
+    public function getData()
+    {
+        $data = parent::getData();
+
+        if ($this->getProperty('start') === 0 && (int) $this->getProperty('id') > 0) {
+            $data['results'][] = $this->modx->getObject('modResource', $this->getProperty('id'));
+        }
+
+        return $data;
+    }
+
     public function prepareRow(xPDOObject $object)
     {
         $context_key = $object->get('context_key');
