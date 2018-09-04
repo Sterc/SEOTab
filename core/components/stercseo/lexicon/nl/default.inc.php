@@ -96,6 +96,10 @@ $_lang['stercseo.target'] = 'Nieuwe URL / Bron';
 $_lang['stercseo.uri_update'] = 'Update redirect';
 $_lang['stercseo.uri_remove'] = 'Verwijder redirect';
 $_lang['stercseo.uri_remove_confirm'] = 'Weet je zeker dat je deze redirect wil verwijderen?';
+$_lang['stercseo.uri_remove_bulk'] = 'Verwijder geselecteerde redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Weet je zeker dat je de geselecteerde redirects wilt verwijderen?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect niet gespecificeerd';
+
 $_lang['stercseo.migrate'] = 'Migreer redirects';
 $_lang['stercseo.migrate_desc'] = 'Hier kun je je redirects (SEO Tab versie 1.2.2 en ouder) migreren van resource properties naar seoUrl objects. Deze pagina migreert al je redirects automatisch, een handeling is dus niet vereist. Houd a.u.b. wel deze pagina open zodat SEO Tab het migratieproces correct kan afhandelen.';
 $_lang['stercseo.migrate_alert'] = 'Je SEO Tab redirects moeten worden gemigreerd. Klik hier om de migratie te starten.';

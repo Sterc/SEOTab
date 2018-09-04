@@ -96,6 +96,10 @@ $_lang['stercseo.target'] = 'Ressource/URL de destination';
 $_lang['stercseo.uri_update'] = 'Mettre à jour';
 $_lang['stercseo.uri_remove'] = 'Supprimer';
 $_lang['stercseo.uri_remove_confirm'] = 'Êtes-vous sûr de vouloir supprimer cette redirection ?';
+$_lang['stercseo.uri_remove_bulk'] = 'Remove selected redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Are you sure you want to remove the selected redirects?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect not specified';
+
 $_lang['stercseo.migrate'] = 'Migrer les redirections';
 $_lang['stercseo.migrate_desc'] = 'Vous pouvez migrez vos redirections (des versions 1.2.2 et antérieures) des propriétés de ressources vers les objets seoUrl. Cette page migrera automatiquement les redirections, aucune action de votre part n\'est requise, mais veuillez garder cette page ouverte afin que SEO Tab puisse gérer correctement le processus de migration.';
 $_lang['stercseo.migrate_alert'] = 'Vos redirections ont besoin d\'être migrées. Cliquez ici pour vous rendre à la page de migration.';
