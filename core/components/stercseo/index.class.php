@@ -11,8 +11,8 @@ abstract class StercSeoBaseManagerController extends modExtraManagerController
     {
         $this->stercseo = new StercSEO($this->modx);
 
-        $this->addCss($this->stercseo->getOption('cssUrl').'mgr.css');
-        $this->addJavascript($this->stercseo->getOption('jsUrl').'mgr/stercseo.js');
+        $this->addCss($this->stercseo->config['cssUrl'] . 'mgr.css');
+        $this->addJavascript($this->stercseo->config['jsUrl'] . 'mgr/stercseo.js');
         $this->addHtml('<script type="text/javascript">
         Ext.onReady(function() {
             StercSEO.config = '.$this->modx->toJSON($this->stercseo->config).';
@@ -22,6 +22,7 @@ abstract class StercSeoBaseManagerController extends modExtraManagerController
 
         parent::initialize();
     }
+
     public function getLanguageTopics()
     {
         return array('stercseo:default');
