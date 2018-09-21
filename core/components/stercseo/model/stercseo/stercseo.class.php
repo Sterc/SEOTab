@@ -260,9 +260,10 @@ class StercSEO
             ) . 'model/babel/'
         );
 
+        /* Return if babel is not installed or the alternate links option is set to false or type is index or images. */
         if (!$babel instanceof Babel ||
             (int) $this->modx->getOption('stercseo.xmlsitemap.babel.add_alternate_links') !== 1 ||
-            in_array($options['type'], array('index', 'images'), true)
+            (isset($options['type']) && in_array($options['type'], array('index', 'images'), true))
         ) {
             return '';
         }
