@@ -87,6 +87,8 @@ $_lang['setting_stercseo.changefreq'] = 'Настройка по умолчан�
 $_lang['setting_stercseo.changefreq_desc'] = 'Частота по умолчанию (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Скрывать вкладку SEO Tab для этих групп пользователей.';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Список разделенный запятыми групп пользователей, которым не разрешен доступ к вкладке «SEO». Пример: "Administrator,Manager"';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Здесь вы можете просматривать и управлять своими 301 редиректами. Перенаправления также могут быть добавлены со страниц ресурсов.';

@@ -229,6 +229,7 @@ class StercSEO
                     $resource->toArray(),
                     array(
                         'url'        => $this->modx->makeUrl($resource->get('id'), '', '', 'full'),
+                        'alternates' => $this->getAlternateLinks($resource, $options),
                         'lastmod'    => date('c', $lastmod),
                         'changefreq' => (!empty($properties['changefreq']) ? $properties['changefreq'] : $this->defaults['changefreq']),
                         'priority'   => (!empty($properties['priority']) ? $properties['priority'] : $this->defaults['priority']),
@@ -237,6 +238,47 @@ class StercSEO
             );
         }
         return $this->getChunk($outerTpl, array('wrapper' => $output));
+    }
+
+    /**
+     * Adds alternative language links to sitemap XML.
+     *
+     * @param $resource
+     * @param $options
+     * @return string
+     */
+    public function getAlternateLinks($resource, $options)
+    {
+        /* Include current resource. */
+        $babel = &$this->modx->getService(
+            'babel',
+            'Babel',
+            $this->modx->getOption(
+                'babel.core_path',
+                null,
+                $this->modx->getOption('core_path') . 'components/babel/'
+            ) . 'model/babel/'
+        );
+
+        if (!$babel instanceof Babel ||
+            (int) $this->modx->getOption('stercseo.xmlsitemap.babel.add_alternate_links') !== 1 ||
+            in_array($options['type'], array('index', 'images'), true)
+        ) {
+            return '';
+        }
+
+        $alternates   = [];
+        $translations = $babel->getLinkedResources($resource->get('id'));
+        foreach ($translations as $contextKey => $resourceId) {
+            $this->modx->switchContext($contextKey);
+
+            $alternates[] = $this->getChunk($options['alternateTpl'], array(
+                'cultureKey' => $this->modx->getOption('cultureKey', ['context_key' => $contextKey], 'en'),
+                'url' => $this->modx->makeUrl($resourceId, '', '', 'full')
+            ));
+        }
+
+        return implode(PHP_EOL, $alternates);
     }
 
     /**
