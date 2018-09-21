@@ -87,6 +87,8 @@ $_lang['setting_stercseo.changefreq'] = 'Standaard bronnen setting: update frequ
 $_lang['setting_stercseo.changefreq_desc'] = 'Standaard frequentie (dagelijks, wekelijks, maandelijks)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Verberg SEO Tab voor deze gebruikersgroepen';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Komma gescheiden lijst met gebruikersgroepen die geen toegang hebben tot SEO Tab';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Voeg alternatieve links toe aan de XML Sitemap';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Voeg alternatieve links toe aan de XML Sitemap URLs op basis van Babel vertalingen.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Hier kun je je 301 redirects bekijken en beheren. Redirects kunnen ook worden toegevoegd vanuit de bron maak- en updatepagina\'s.';
@@ -96,6 +98,10 @@ $_lang['stercseo.target'] = 'Nieuwe URL / Bron';
 $_lang['stercseo.uri_update'] = 'Update redirect';
 $_lang['stercseo.uri_remove'] = 'Verwijder redirect';
 $_lang['stercseo.uri_remove_confirm'] = 'Weet je zeker dat je deze redirect wil verwijderen?';
+$_lang['stercseo.uri_remove_bulk'] = 'Verwijder geselecteerde redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Weet je zeker dat je de geselecteerde redirects wilt verwijderen?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect niet gespecificeerd';
+
 $_lang['stercseo.migrate'] = 'Migreer redirects';
 $_lang['stercseo.migrate_desc'] = 'Hier kun je je redirects (SEO Tab versie 1.2.2 en ouder) migreren van resource properties naar seoUrl objects. Deze pagina migreert al je redirects automatisch, een handeling is dus niet vereist. Houd a.u.b. wel deze pagina open zodat SEO Tab het migratieproces correct kan afhandelen.';
 $_lang['stercseo.migrate_alert'] = 'Je SEO Tab redirects moeten worden gemigreerd. Klik hier om de migratie te starten.';

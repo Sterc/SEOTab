@@ -86,6 +86,8 @@ $_lang['setting_stercseo.changefreq'] = 'Default resource setting: update freque
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEO Tab from these usergroups';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEO Tab';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Manage your SEO Tab 301 redirects. 
@@ -96,6 +98,10 @@ $_lang['stercseo.target'] = 'New URL / Resource';
 $_lang['stercseo.uri_update'] = 'Update redirect';
 $_lang['stercseo.uri_remove'] = 'Remove redirect';
 $_lang['stercseo.uri_remove_confirm'] = 'Are you sure you want to remove this redirect?';
+$_lang['stercseo.uri_remove_bulk'] = 'Remove selected redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Are you sure you want to remove the selected redirects?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect not specified';
+
 $_lang['stercseo.migrate'] = 'Migrate redirects';
 $_lang['stercseo.migrate_desc'] = 'Upgrading to 2.0.0 from 1.* is highly recommended, but it does introduce some risks. SEO Tab 1.* stored the 301 redirects into the properties-column of a resource. SEO Tab 2 stores it in a seperate database table. This means a migration is needed. The migration-process is memory-intensive and might take a very long time, so just let it roll until it mentions a finished migration.<br /><br />The migration is running while you read this. This page will automatically migrate all the redirects for you, so no action is required, but please keep this page open for SEO Tab to correctly handle the migration process.';
 $_lang['stercseo.migrate_alert'] = 'SEO Tab was updated, but your 301 redirects need to be migrated. Click here to start the migration.';

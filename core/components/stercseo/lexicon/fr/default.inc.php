@@ -87,6 +87,8 @@ $_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update freque
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEO Tab from these usergroups';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEO Tab';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Gérez ici vos redirections 301. Les redirections peuvent également être ajoutées depuis les pages de création et d\'édition de ressources.';
@@ -96,6 +98,10 @@ $_lang['stercseo.target'] = 'Ressource/URL de destination';
 $_lang['stercseo.uri_update'] = 'Mettre à jour';
 $_lang['stercseo.uri_remove'] = 'Supprimer';
 $_lang['stercseo.uri_remove_confirm'] = 'Êtes-vous sûr de vouloir supprimer cette redirection ?';
+$_lang['stercseo.uri_remove_bulk'] = 'Remove selected redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Are you sure you want to remove the selected redirects?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect not specified';
+
 $_lang['stercseo.migrate'] = 'Migrer les redirections';
 $_lang['stercseo.migrate_desc'] = 'Vous pouvez migrez vos redirections (des versions 1.2.2 et antérieures) des propriétés de ressources vers les objets seoUrl. Cette page migrera automatiquement les redirections, aucune action de votre part n\'est requise, mais veuillez garder cette page ouverte afin que SEO Tab puisse gérer correctement le processus de migration.';
 $_lang['stercseo.migrate_alert'] = 'Vos redirections ont besoin d\'être migrées. Cliquez ici pour vous rendre à la page de migration.';

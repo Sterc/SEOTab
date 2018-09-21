@@ -88,6 +88,8 @@ $_lang['setting_stercseo.changefreq'] = 'Voreinstellung: Update Frequenz';
 $_lang['setting_stercseo.changefreq_desc'] = 'Update Frequenz für neue Seiten (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'SEO Tab für diese Benutzergruppen verbergen';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Kommaseparierte Liste von Benutzergruppen, denen nicht erlaubt ist, auf SEO Tab zuzugreifen';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Hier können Sie Ihre 301 Weiterleitungen anschauen und bearbeiten. Weiterleitungen können ebenso auf den Ressourcen Seiten beim Anlegen und Bearbeiten hinzugefügt werden.';
@@ -97,6 +99,10 @@ $_lang['stercseo.target'] = 'Ziel Ressource / URL';
 $_lang['stercseo.uri_update'] = 'Weiterleitung bearbeiten';
 $_lang['stercseo.uri_remove'] = 'Weiterleitung löschen';
 $_lang['stercseo.uri_remove_confirm'] = 'Sind Sie sicher, dass Sie diese Weiterleitung löschen wollen?';
+$_lang['stercseo.uri_remove_bulk'] = 'Remove selected redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Are you sure you want to remove the selected redirects?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect not specified';
+
 $_lang['stercseo.migrate'] = 'Weiterleitung migrieren';
 $_lang['stercseo.migrate_desc'] = 'Sie können Ihre Weiterleitung (SEO Tab version 1.2.2 und niedriger) von Ressourcen Eigenschaften zu eigenständigen seoURL Objekten migireren. Dies wird automatisch die Daten aller Weiterleitungen für Sie migrieren. Es ist keine weitere Aktion notwendig. Bitte lassen Sie diese Seite geöffnet, damit SEO Tab die Migrierung korrekt beenden kann.';
 $_lang['stercseo.migrate_alert'] = 'Ihre SEO Tab Weiterleitungen müssen migriert werden, bitte klicken Sie hier um die Migrierungs Seite anzuzeigen.';

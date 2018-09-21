@@ -87,6 +87,8 @@ $_lang['setting_stercseo.changefreq'] = 'Настройка по умолчан�
 $_lang['setting_stercseo.changefreq_desc'] = 'Частота по умолчанию (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Скрывать вкладку SEO Tab для этих групп пользователей.';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Список разделенный запятыми групп пользователей, которым не разрешен доступ к вкладке «SEO». Пример: "Administrator,Manager"';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Здесь вы можете просматривать и управлять своими 301 редиректами. Перенаправления также могут быть добавлены со страниц ресурсов.';
@@ -96,6 +98,10 @@ $_lang['stercseo.target'] = 'Целевой ресурс / url';
 $_lang['stercseo.uri_update'] = 'Обновить редирект';
 $_lang['stercseo.uri_remove'] = 'Удалить редирект';
 $_lang['stercseo.uri_remove_confirm'] = 'Вы действительно хотите удалить этот редирект?';
+$_lang['stercseo.uri_remove_bulk'] = 'Remove selected redirects';
+$_lang['stercseo.uri_remove_bulk_confirm'] = 'Are you sure you want to remove the selected redirects?';
+$_lang['stercseo.uri_remove_bulk.redirect_err_ns'] = 'Redirect not specified';
+
 $_lang['stercseo.migrate'] = 'Миграция редиректа';
 $_lang['stercseo.migrate_desc'] = 'Здесь вы можете перенести свои редиректы (SEO Tab версии 1.2.2 и ниже) из свойств ресурса в объекты seoUrl. Эта страница будет автоматически переносить все перенаправления для вас, поэтому никаких действий не требуется, но пожалуйста, держите эту страницу открытой для SEO Tab, чтобы правильно обрабатывать процесс миграции.';
 $_lang['stercseo.migrate_alert'] = 'Редиректы вашей SEO-страницы необходимо перенести. Нажмите здесь, чтобы перейти на страницу перехода.';

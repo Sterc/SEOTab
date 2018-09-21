@@ -54,7 +54,6 @@ switch ($modx->event->name) {
                 return;
             }
             $properties = $resource->getProperties('stercseo');
-            $properties['searchable'] = $resource->get('searchable');
             $urls = $modx->getCollection('seoUrl', array('resource' => $resource->get('id')));
         } elseif (isset($_GET['context_key'])) {
             $stercseo->setWorkingContext($_GET['context_key']);
@@ -69,8 +68,10 @@ switch ($modx->event->name) {
                 'changefreq' => $stercseo->getOption('stercseo.changefreq', null, 'weekly'),
                 'searchable' => $stercseo->getOption('search_default', null, '1')
             );
+        } elseif ($resource) {
+            $properties['searchable'] = $resource->get('searchable');
         }
-
+    
         $properties['urls'] = '';
         // Fetch urls from seoUrl collection
         if ($urls && is_object($urls)) {
@@ -205,7 +206,11 @@ switch ($modx->event->name) {
         if (!$stercseo->isAllowed($resource->context_key)) {
             return;
         }
-
+        
+        /* Tmp overwrite the cache_alias_map setting to prevent that a redirect is removed again. */
+        $cacheAliasMap = $modx->getOption('cache_alias_map', true);
+        $modx->setOption('cache_alias_map', false);
+        
         $url       = urlencode($modx->makeUrl($resource->id, $resource->context_key, '', 'full'));
         $urlExists = $modx->getObject('seoUrl', array(
             'url'         => $url,
@@ -218,6 +223,8 @@ switch ($modx->event->name) {
                 'context_key' => $resource->context_key
             ));
         }
+        
+        $modx->setOption('cache_alias_map', $cacheAliasMap);
         break;
 
     case 'OnLoadWebDocument':
@@ -245,20 +252,28 @@ switch ($modx->event->name) {
         break;
 
     case 'OnPageNotFound':
-        $options      = array();
-        $url          = ($_SERVER['HTTPS'] ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        $convertedUrl = urlencode($url);
+        $options = array();
+        $query   = $modx->newQuery('seoUrl');
+        $url     = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-        $w = array(
-            'url' => $convertedUrl
-        );
+        $query->where(array(
+            array(
+                'url' => urlencode('http://' . $url)
+            ),
+            array(
+                'url' => urlencode('https://' . $url)
+            )
+        ),xPDOQuery::SQL_OR);
 
-        if ($modx->getOption('stercseo.context-aware-alias', null, '0')) {
-            $w['context_key'] = $modx->context->key;
-        }
+         if ($modx->getOption('stercseo.context-aware-alias', null, '0')) {
+             $query->where(
+                 array(
+                     'context_key' => $modx->context->key
+                 )
+             );
+         }
 
-        $alreadyExists = $modx->getObject('seoUrl', $w);
-
+        $alreadyExists = $modx->getObject('seoUrl', $query);
         if (isset($alreadyExists) && ($modx->context->key !== $alreadyExists->get('context_key'))) {
             $q = $modx->newQuery('modContextSetting');
             $q->where(array(
