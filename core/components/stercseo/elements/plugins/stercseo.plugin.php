@@ -240,21 +240,28 @@ switch ($modx->event->name) {
         break;
 
     case 'OnPageNotFound':
-        $options      = array();
-        $protocol     = $modx->getOption('server_protocol', null, 'https');
-        $url          = $protocol . '://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        $convertedUrl = urlencode($url);
+        $options = array();
+        $query   = $modx->newQuery('seoUrl');
+        $url     = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-        $w = array(
-            'url' => $convertedUrl
-        );
+        $query->where(array(
+            array(
+                'url' => urlencode('http://' . $url)
+            ),
+            array(
+                'url' => urlencode('https://' . $url)
+            )
+        ),xPDOQuery::SQL_OR);
 
-        if ($modx->getOption('stercseo.context-aware-alias', null, '0')) {
-            $w['context_key'] = $modx->context->key;
-        }
+         if ($modx->getOption('stercseo.context-aware-alias', null, '0')) {
+             $query->where(
+                 array(
+                     'context_key' => $modx->context->key
+                 )
+             );
+         }
 
-        $alreadyExists = $modx->getObject('seoUrl', $w);
-
+        $alreadyExists = $modx->getObject('seoUrl', $query);
         if (isset($alreadyExists) && ($modx->context->key !== $alreadyExists->get('context_key'))) {
             $q = $modx->newQuery('modContextSetting');
             $q->where(array(
