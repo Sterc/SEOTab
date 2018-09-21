@@ -319,9 +319,14 @@ class StercSEO
         $c->where(
             array(
                 array('context_key:IN' => $contextKey, 'published' => 1, 'deleted' => 0),
-                array('properties:LIKE' => '%"sitemap":"1"%', 'OR:properties:LIKE' => '%"sitemap":null%', 'OR:properties:IS' => null)
             )
         );
+
+        if ($options['type'] !== 'index') {
+            $c->where(
+                array('properties:LIKE' => '%"sitemap":"1"%', 'OR:properties:LIKE' => '%"sitemap":null%', 'OR:properties:IS' => null)
+            );
+        }
 
         if (!$allowSymlinks) {
             $c->where(array('class_key:!=' => 'modSymLink'));
