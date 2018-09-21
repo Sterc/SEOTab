@@ -242,13 +242,14 @@ switch ($modx->event->name) {
     case 'OnPageNotFound':
         $options = array();
         $query   = $modx->newQuery('seoUrl');
+        $url     = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
         $query->where(array(
             array(
-                'url' => urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])
+                'url' => urlencode('http://' . $url)
             ),
             array(
-                'url' => urlencode('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])
+                'url' => urlencode('https://' . $url)
             )
         ),xPDOQuery::SQL_OR);
 
