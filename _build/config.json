@@ -72,7 +72,12 @@
             "key": "hide_from_usergroups",
             "value": "",
             "area": "general"
-        },{
+        }, {
+            "key": "xmlsitemap.babel.add_alternate_links",
+            "type": "combo-boolean",
+            "value": "1",
+            "area": "XML Sitemap"
+        }, {
             "key": "user_name",
             "type": "textfield",
             "area": "general",

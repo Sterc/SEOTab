@@ -87,6 +87,8 @@ $_lang['setting_stercseo.changefreq'] = 'Default resource setting: Update freque
 $_lang['setting_stercseo.changefreq_desc'] = 'Default frequency (daily, weekly, monthly)';
 $_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEO Tab from these usergroups';
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEO Tab';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
+$_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Gérez ici vos redirections 301. Les redirections peuvent également être ajoutées depuis les pages de création et d\'édition de ressources.';
