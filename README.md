@@ -56,6 +56,13 @@ An example of a sitemap-call with all properties set to a default-value would be
 [[!StercSeoSiteMap? &contexts=`web` &allowSymlinks=`0` &outerTpl=`sitemap/outertpl` &rowTpl=`sitemap/rowtpl`]]
 ```
 
+**XML Sitemap related system settings**
+
+| Key                                           | Description                                                                                                                                                   |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| stercseo.xmlsitemap.babel.add_alternate_links | Add alternate links to XML Sitemap based on Babel Translations                                                                                                |
+| stercseo.xmlsitemap.dependent_ultimateparent  | Resources depend on properties of parent/ultimate parent. This enables you to hide resources if their parent/ultimate parent resource is deleted/unpublished. |
+
 ### Creating an index sitemap and template specific sitemaps
 In order to create an index sitemap please follow the steps below:
 1. Create a Google Sitemap page as you would normally do and add the parameter &type=`index`, for example:

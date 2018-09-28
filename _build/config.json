@@ -78,6 +78,11 @@
             "value": "1",
             "area": "XML Sitemap"
         }, {
+            "key": "xmlsitemap.dependent_ultimateparent",
+            "type": "combo-boolean",
+            "value": "0",
+            "area": "XML Sitemap"
+        }, {
             "key": "user_name",
             "type": "textfield",
             "area": "general",

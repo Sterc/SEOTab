@@ -90,6 +90,8 @@ $_lang['setting_stercseo.hide_from_usergroups'] = 'SEO Tab für diese Benutzergr
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Kommaseparierte Liste von Benutzergruppen, denen nicht erlaubt ist, auf SEO Tab zuzugreifen';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent'] = 'Resources depend on properties of parent/ultimate parent';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent_desc'] = 'If turned on, resources will be hidden from the XML sitemap if their parent or ultimate parent resource is deleted or unpublished.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Hier können Sie Ihre 301 Weiterleitungen anschauen und bearbeiten. Weiterleitungen können ebenso auf den Ressourcen Seiten beim Anlegen und Bearbeiten hinzugefügt werden.';
