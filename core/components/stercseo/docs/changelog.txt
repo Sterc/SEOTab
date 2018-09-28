@@ -1,10 +1,33 @@
 ----------------------
 Changelog for SEO Tab
 ----------------------
-SEOTAB 2.0.5-pl
+SEOTAB 2.2.0-pl
 ==============
-- Fix error on update resolver
+- Added system setting so resoures with unpublished parent can automatically be excluded from XML sitemap
+- Prevent adding multiple redirects which are the same (#96)
+- Added check if a redirect already exists when creating a freeze URI (#53)
+- Added check so resources with noindex/nofollow are also automatically excluded from XML sitemap (#138)
+- Added option to add alternate language links to XML sitemap based on Babel #67
+- Fixed bug #131: XML sitemaps can be excluded from resource sitemap but be shown in index sitemap
+- Fixed bug #91/#147: Made 301 redirects independent of used server protocol
+- Fixed bug #148: 301 redirect was not being created when changing alias
+- Fixed bug #141: Showing new URL/Resource with correct value when using paginated results
+- Added option for bulk removing redirects in CMP #137
+- Fixed bug #143: Fixed issue with excluded usergroups check
+- System settings made overwritable per context (#158)
+- Made old URLs clickable in CMP and resource tab (#113)
+- Fixed bug (#144): Default SEO properties are not being set
+- Added all resource fields to be available inside sitemap rowTpl (#150)
+- Fixed bug #153: notice Undefined index: HTTPS
+- Fixed bug #149: alias not found warnings in manager context
+
+SEOTAB 2.1.0-pl
+==============
 - Validate if formtabs data exists in seoImageSiteMap
+- Fixed default values for SEO Tab install in existing website
+- Fixed error on update resolver
+- Added SimpleCart compatibility
+- Fix redirects without correct site_url context
 
 SEOTAB 2.0.4-pl
 ==============
