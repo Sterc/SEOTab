@@ -108,8 +108,13 @@ switch ($modx->event->name) {
         if (!$stercseo->isAllowed($oldResource->get('context_key'))) {
             return;
         }
-        $properties = $oldResource->getProperties('stercseo');
 
+        $stercseo->setWorkingContext($resource->get('context_key'));
+
+        /* If freeze URI is set, checks if a redirect already exists for the freeze URI and returns error if a redirect has been found. */
+        $stercseo->checkIfFreezeUriExistsAsRedirect($resource);
+
+        $properties = $oldResource->getProperties('stercseo');
         if (isset($_POST['urls'])) {
             $urls = $modx->fromJSON($_POST['urls']);
             foreach ($urls as $url) {
@@ -127,7 +132,6 @@ switch ($modx->event->name) {
             }
         }
 
-        $stercseo->setWorkingContext($resource->get('context_key'));
         if ($mode == 'upd') {
             $newProperties = array(
                 'index' => (isset($_POST['index']) ? $_POST['index'] : $properties['index']),

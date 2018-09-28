@@ -109,3 +109,7 @@ $_lang['stercseo.migrate_status'] = 'Status';
 $_lang['stercseo.migrate_running'] = 'Het migratieproces is momenteel bezig op de achtergrond. Houd deze pagina a.u.b. open in je browser. SLUIT DIT VENSTER NIET!';
 $_lang['stercseo.migrate_success'] = 'Migratieproces voltooid.';
 $_lang['stercseo.migrate_success_msg'] = 'Al je redirects zijn succesvol gemigreerd.';
+
+/* Resource. */
+$_lang['stercseo.resource.freeze_uri.redirect_exists'] = 'De pagina kon niet worden opgeslagen omdat er al een SEO Tab redirect is gevonden met de opgegeven Freeze URL: [[+uri]].
+ Geef een andere Freeze URL op of verwijder de redirect in het SEO Tab component en sla vervolgens de pagina opnieuw op.';

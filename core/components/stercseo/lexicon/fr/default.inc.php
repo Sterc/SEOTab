@@ -109,3 +109,7 @@ $_lang['stercseo.migrate_status'] = 'Statut';
 $_lang['stercseo.migrate_running'] = 'Processus de migration en cours. Veuillez garder cette page ouverte dans votre navigateur.';
 $_lang['stercseo.migrate_success'] = 'Migration complète';
 $_lang['stercseo.migrate_success_msg'] = 'Toutes vos redirections ont été migrées avec succès.';
+
+/* Resource. */
+$_lang['stercseo.resource.freeze_uri.redirect_exists'] = 'Could not save the current resource because a SEO Tab redirect already exists for the provided freeze URI: [[+uri]]. 
+ Please provide a different freeze URI or remove the redirect in the SEO Tab component and save the resource again.';
