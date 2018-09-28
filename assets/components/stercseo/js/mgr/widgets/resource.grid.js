@@ -63,12 +63,29 @@ Ext.extend(StercSEO.grid.Items, MODx.grid.Grid, {
                     var newRecord = new myRecord({
                         url: r.a.result.object.url
                     });
-                    var store = Ext.getCmp(id).getStore();
-                    store.insert(store.getCount(), newRecord);
-                    var JsonData = Ext.encode(Ext.pluck(store.data.items, 'data'));
-                    Ext.getCmp('sterceseo-urls').setValue(JsonData);
-                    MODx.fireResourceFormChange();
 
+                    var store = Ext.getCmp(id).getStore();
+
+                    var exists = false;
+                    store.each(function (rec) {
+                        if (rec.data.url === r.a.result.object.url) {
+                            exists = true;
+                        }
+                    });
+
+                    if (exists) {
+                        Ext.MessageBox.show({
+                            title: _('stercseo.resource.error.redirect_already_exists.title'),
+                            msg: _('stercseo.resource.error.redirect_already_exists.msg'),
+                            buttons: Ext.Msg.OK
+                        });
+                    } else {
+                        store.insert(store.getCount(), newRecord);
+                        var JsonData = Ext.encode(Ext.pluck(store.data.items, 'data'));
+
+                        Ext.getCmp('sterceseo-urls').setValue(JsonData);
+                        MODx.fireResourceFormChange();
+                    }
                 },
                 scope:this}
             }
