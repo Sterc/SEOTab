@@ -111,3 +111,6 @@ $_lang['stercseo.migrate_status'] = 'Status';
 $_lang['stercseo.migrate_running'] = 'Het migratieproces is momenteel bezig op de achtergrond. Houd deze pagina a.u.b. open in je browser. SLUIT DIT VENSTER NIET!';
 $_lang['stercseo.migrate_success'] = 'Migratieproces voltooid.';
 $_lang['stercseo.migrate_success_msg'] = 'Al je redirects zijn succesvol gemigreerd.';
+
+$_lang['stercseo.resource.error.redirect_already_exists.title'] = 'Redirect bestaat al';
+$_lang['stercseo.resource.error.redirect_already_exists.msg']   = 'De redirect die je probeert toe te voegen voor deze pagina bestaat al reeds. Om die reden is de redirect niet nogmaals toegevoegd.';

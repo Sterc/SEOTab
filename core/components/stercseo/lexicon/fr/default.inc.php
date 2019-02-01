@@ -111,3 +111,6 @@ $_lang['stercseo.migrate_status'] = 'Statut';
 $_lang['stercseo.migrate_running'] = 'Processus de migration en cours. Veuillez garder cette page ouverte dans votre navigateur.';
 $_lang['stercseo.migrate_success'] = 'Migration complète';
 $_lang['stercseo.migrate_success_msg'] = 'Toutes vos redirections ont été migrées avec succès.';
+
+$_lang['stercseo.resource.error.redirect_already_exists.title'] = 'Redirect already exists';
+$_lang['stercseo.resource.error.redirect_already_exists.msg']   = 'The redirect you we\'re trying to add already exists for this resource and therefore the redirect was not saved.';
