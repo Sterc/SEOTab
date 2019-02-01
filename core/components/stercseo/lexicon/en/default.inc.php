@@ -112,5 +112,8 @@ $_lang['stercseo.migrate_running'] = 'Currently running migration process in the
 $_lang['stercseo.migrate_success'] = 'Migration completed';
 $_lang['stercseo.migrate_success_msg'] = 'All your redirects have been successfully migrated.';
 
+/* Resource. */
+$_lang['stercseo.resource.freeze_uri.redirect_exists'] = 'Could not save the current resource because a SEO Tab redirect already exists for the provided freeze URI: [[+uri]]. 
+ Please provide a different freeze URI or remove the redirect in the SEO Tab component and save the resource again.';
 $_lang['stercseo.resource.error.redirect_already_exists.title'] = 'Redirect already exists';
 $_lang['stercseo.resource.error.redirect_already_exists.msg']   = 'The redirect you we\'re trying to add already exists for this resource and therefore the redirect was not saved.';

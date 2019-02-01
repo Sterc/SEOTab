@@ -800,4 +800,43 @@ class StercSEO
         }
         return $migrationStatus;
     }
+
+    /**
+     * When saving a resource this checks if a redirect URL already exists for the provided freeze URI.
+     *
+     * @param $resource
+     * @return bool
+     */
+    public function checkIfFreezeUriExistsAsRedirect($resource)
+    {
+        if ($resource->get('uri_override') === 1) {
+            $siteUrl = $this->getOption('site_url', '', $this->modx->getOption('site_url'));
+            $url     = str_replace(array('http://', 'https://'), '', $siteUrl . $resource->get('uri'));
+
+            $query = $this->modx->newQuery('seoUrl');
+            $query->where(array(
+                array(
+                    'url' => urlencode('http://' . $url)
+                ),
+                array(
+                    'url' => urlencode('https://' . $url)
+                )
+            ), xPDOQuery::SQL_OR);
+
+            $query->where(array('context_key' => $resource->get('context_key')));
+
+            $count = $this->modx->getCount('seoUrl', $query);
+            if ($count > 0) {
+                $this->modx->event->output(
+                    $this->modx->lexicon(
+                        'stercseo.resource.freeze_uri.redirect_exists',
+                        array(
+                            'uri' => $siteUrl . $resource->get('uri')
+                        )
+                    )
+                );
+                return false;
+            }
+        }
+    }
 }
