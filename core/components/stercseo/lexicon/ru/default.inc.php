@@ -89,6 +89,8 @@ $_lang['setting_stercseo.hide_from_usergroups'] = 'Скрывать вкладк
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Список разделенный запятыми групп пользователей, которым не разрешен доступ к вкладке «SEO». Пример: "Administrator,Manager"';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent'] = 'Resources depend on properties of parent/ultimate parent';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent_desc'] = 'If turned on, resources will be hidden from the XML sitemap if their parent or ultimate parent resource is deleted or unpublished.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Здесь вы можете просматривать и управлять своими 301 редиректами. Перенаправления также могут быть добавлены со страниц ресурсов.';
