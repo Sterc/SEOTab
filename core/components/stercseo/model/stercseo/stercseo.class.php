@@ -474,7 +474,19 @@ class StercSEO
         $c = $this->modx->newQuery('modResource');
         $c->where(
             array(
-                array('context_key:IN' => $contextKey, 'published' => 1, 'deleted' => 0),
+                array(
+                    'context_key:IN'         => $contextKey,
+                    'published'              => 1,
+                    'deleted'                => 0
+                )
+            )
+        );
+
+        /* Exclude pages with noindex and nofollow. */
+        $c->where(
+            array(
+                'properties:LIKE'    => '%"index":"1"%',
+                'OR:properties:LIKE' => '%"follow":"1"%'
             )
         );
 
