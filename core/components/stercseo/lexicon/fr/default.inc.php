@@ -89,6 +89,8 @@ $_lang['setting_stercseo.hide_from_usergroups'] = 'Hide SEO Tab from these userg
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Comma separated list of usergroups who are not allowed to access SEO Tab';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Add alternate links to XML Sitemap';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Adds alternate links to XML Sitemap URLs based on Babel translations.';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent'] = 'Resources depend on properties of parent/ultimate parent';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent_desc'] = 'If turned on, resources will be hidden from the XML sitemap if their parent or ultimate parent resource is deleted or unpublished.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Gérez ici vos redirections 301. Les redirections peuvent également être ajoutées depuis les pages de création et d\'édition de ressources.';
@@ -113,3 +115,5 @@ $_lang['stercseo.migrate_success_msg'] = 'Toutes vos redirections ont été migr
 /* Resource. */
 $_lang['stercseo.resource.freeze_uri.redirect_exists'] = 'Could not save the current resource because a SEO Tab redirect already exists for the provided freeze URI: [[+uri]]. 
  Please provide a different freeze URI or remove the redirect in the SEO Tab component and save the resource again.';
+$_lang['stercseo.resource.error.redirect_already_exists.title'] = 'Redirect already exists';
+$_lang['stercseo.resource.error.redirect_already_exists.msg']   = 'The redirect you we\'re trying to add already exists for this resource and therefore the redirect was not saved.';

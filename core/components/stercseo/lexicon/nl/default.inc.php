@@ -89,6 +89,8 @@ $_lang['setting_stercseo.hide_from_usergroups'] = 'Verberg SEO Tab voor deze geb
 $_lang['setting_stercseo.hide_from_usergroups_desc'] = 'Komma gescheiden lijst met gebruikersgroepen die geen toegang hebben tot SEO Tab';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links'] = 'Voeg alternatieve links toe aan de XML Sitemap';
 $_lang['setting_stercseo.xmlsitemap.babel.add_alternate_links_desc'] = 'Voeg alternatieve links toe aan de XML Sitemap URLs op basis van Babel vertalingen.';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent'] = 'Toon pagina\'s afhankelijk van de parent/ultieme parent';
+$_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent_desc'] = 'Indien aangezet worden pagina\'s uitgesloten van de XML sitemap indien de parent/ultimate parent pagina is verwijderd of gedepubliceerd.';
 
 // CMP
 $_lang['stercseo.redirects.description'] = 'Hier kun je je 301 redirects bekijken en beheren. Redirects kunnen ook worden toegevoegd vanuit de bron maak- en updatepagina\'s.';
@@ -113,3 +115,5 @@ $_lang['stercseo.migrate_success_msg'] = 'Al je redirects zijn succesvol gemigre
 /* Resource. */
 $_lang['stercseo.resource.freeze_uri.redirect_exists'] = 'De pagina kon niet worden opgeslagen omdat er al een SEO Tab redirect is gevonden met de opgegeven Freeze URL: [[+uri]].
  Geef een andere Freeze URL op of verwijder de redirect in het SEO Tab component en sla vervolgens de pagina opnieuw op.';
+$_lang['stercseo.resource.error.redirect_already_exists.title'] = 'Redirect bestaat al';
+$_lang['stercseo.resource.error.redirect_already_exists.msg']   = 'De redirect die je probeert toe te voegen voor deze pagina bestaat al reeds. Om die reden is de redirect niet nogmaals toegevoegd.';

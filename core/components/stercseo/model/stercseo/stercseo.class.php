@@ -291,6 +291,13 @@ class StercSEO
             return $this->sitemapImages($contextKey, $resources, $options);
         }
 
+        /* If resources should be displayed based upon parent/ultimate parent properties. */
+        $sitemapDependsOnUltimateParent = (bool) $this->getOption('stercseo.xmlsitemap.dependent_ultimateparent', null, false);
+        if ($sitemapDependsOnUltimateParent) {
+            $resources = $this->transformArray($resources);
+            $resources = $this->filterResourcesByParentProperties($resources);
+        }
+
         $output = '';
         foreach ($resources as $resource) {
             $properties = $resource->getProperties('stercseo');
@@ -310,7 +317,40 @@ class StercSEO
                 )
             );
         }
+
         return $this->getChunk($outerTpl, array('wrapper' => $output));
+    }
+
+    /**
+     * Transform array so it is indexed by resource id.
+     *
+     * @param $resources
+     * @return array
+     */
+    public function transformArray($resources)
+    {
+        $array = [];
+
+        if  ($resources) {
+            foreach ($resources as $resource) {
+                $array[$resource->get('id')] = $resource;
+            }
+        }
+
+        return $array;
+    }
+
+    public function filterResourcesByParentProperties($resources)
+    {
+        foreach ($resources as $resourceId => $resource) {
+            if ($resource->get('parent') > 0) {
+                if (!array_key_exists($resource->get('parent'), $resources)) {
+                    unset($resources[$resource->get('id')]);
+                }
+            }
+        }
+
+        return $resources;
     }
 
     /**
@@ -434,7 +474,19 @@ class StercSEO
         $c = $this->modx->newQuery('modResource');
         $c->where(
             array(
-                array('context_key:IN' => $contextKey, 'published' => 1, 'deleted' => 0),
+                array(
+                    'context_key:IN'         => $contextKey,
+                    'published'              => 1,
+                    'deleted'                => 0
+                )
+            )
+        );
+
+        /* Exclude pages with noindex and nofollow. */
+        $c->where(
+            array(
+                'properties:LIKE'    => '%"index":"1"%',
+                'OR:properties:LIKE' => '%"follow":"1"%'
             )
         );
 
