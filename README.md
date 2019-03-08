@@ -1,5 +1,5 @@
 # MODX SEO Tab - The best way to perform in search engines
-![SEO Tab version](https://img.shields.io/badge/version-2.0.0-blue.svg) ![MODX Extra by Sterc](https://img.shields.io/badge/checked%20by-sterc-ff69b4.svg) ![MODX version requirements](https://img.shields.io/badge/modx%20version%20requirement-2.4%2B-brightgreen.svg)
+![SEO Tab version](https://img.shields.io/badge/version-2.2.0-brightgreen.svg) ![MODX Extra by Sterc](https://img.shields.io/badge/extra%20by-sterc-ff69b4.svg) ![MODX version requirements](https://img.shields.io/badge/modx%20version%20requirement-2.6%2B-blue.svg)
 
 SEO Tab is a MODX Extra that helps you optimize your pages for the best possible performance in search engines, like Google.
 
