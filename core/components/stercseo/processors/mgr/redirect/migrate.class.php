@@ -66,10 +66,11 @@ class StercSeoMigrateProcessor extends modProcessor
                         }
 
                         // if no matches are found in the block above, this will insert a redirect
-                        $this->modx->exec("INSERT INTO {$this->modx->getTableName('seoUrl')} 
-                            SET {$this->modx->escape('url')} = {$this->modx->quote($encoded_url)}, 
-                                {$this->modx->escape('resource')} = {$this->modx->quote($row['modResource_id'])}, 
-                                {$this->modx->escape('context_key')} = {$this->modx->quote($context_key)}");
+                        $this->modx->exec("INSERT INTO {$this->modx->getTableName('seoUrl')}
+                            SET {$this->modx->escape('url')} = {$this->modx->quote($encoded_url)},
+                                {$this->modx->escape('resource')} = {$this->modx->quote($row['modResource_id'])},
+                                {$this->modx->escape('context_key')} = {$this->modx->quote($context_key)},
+                                {$this->modx->escape('uri_ignore_params')} = {$this->modx->quote($row['uri_ignore_params'])}");
 
                         $count++;
                     }

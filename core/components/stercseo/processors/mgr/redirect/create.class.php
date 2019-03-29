@@ -13,10 +13,10 @@ class StercSeoCreateProcessor extends modObjectCreateProcessor
 
     public function beforeSave()
     {
-        $pagetitle  = '';
-        $resource   = $this->modx->getObject('modResource', $this->getProperty('resource'));
-        $encodedUrl = urlencode($this->getProperty('url'));
-        $url        = parse_url($this->getProperty('url'));
+        $pagetitle         = '';
+        $resource          = $this->modx->getObject('modResource', $this->getProperty('resource'));
+        $encodedUrl        = urlencode($this->getProperty('url'));
+        $url               = parse_url($this->getProperty('url'));
 
         if ($url['scheme'] === null) {
             $this->addFieldError('url', $this->modx->lexicon('stercseo.url_missing_protocol'));

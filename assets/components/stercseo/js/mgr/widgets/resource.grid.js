@@ -58,10 +58,15 @@ Ext.extend(StercSEO.grid.Items, MODx.grid.Grid, {
                     var myRecord = Ext.data.Record.create([{
                         name: 'url',
                         type: 'string'
+                    },
+                    {
+                        name: 'uri_ignore_params',
+                        type: 'int'
                     }]);
 
                     var newRecord = new myRecord({
-                        url: r.a.result.object.url
+                        url: r.a.result.object.url,
+                        uri_ignore_params: r.a.result.object.uri_ignore_params,
                     });
 
                     var store = Ext.getCmp(id).getStore();
@@ -82,7 +87,7 @@ Ext.extend(StercSEO.grid.Items, MODx.grid.Grid, {
                     } else {
                         store.insert(store.getCount(), newRecord);
                         var JsonData = Ext.encode(Ext.pluck(store.data.items, 'data'));
-
+                        console.log(JsonData);
                         Ext.getCmp('sterceseo-urls').setValue(JsonData);
                         MODx.fireResourceFormChange();
                     }
@@ -139,7 +144,7 @@ StercSEO.window.CreateItem = function(config) {
         title: _('stercseo.item_create'),
         id: this.ident,
         modal:true,
-        height: 200,
+        height: 300,
         width: 475,
         url: StercSEO.config.connector_url,
         baseParams: {
@@ -167,7 +172,17 @@ StercSEO.window.CreateItem = function(config) {
             }
         },{
             xtype: 'label',
-            text: _('stercseo.uri_label_desc'),
+            text: _('stercseo.uri_ignore_params_label'),
+            cls: 'desc-under'
+        },{
+            xtype: 'xcheckbox'
+            ,boxLabel: _('stercseo.uri_ignore_params_label')
+            ,hideLabel: true
+            ,name: 'uri_ignore_params'
+            ,value: 1
+        },{
+            xtype: 'label',
+            text: _('stercseo.uri_ignore_params_label_desc'),
             cls: 'desc-under'
         }]
     });

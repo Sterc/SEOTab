@@ -51,6 +51,7 @@ class StercSeoGetListProcessor extends modObjectGetListProcessor
             }
         }
         $object->set('url', urldecode($object->get('url')));
+        $object->set('uri_ignore_params', $object->get('uri_ignore_params'));
 
         /* Get context name from context. Defaults to context_key */
         $contextName = $object->get('context_key');

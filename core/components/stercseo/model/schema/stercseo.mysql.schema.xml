@@ -2,7 +2,8 @@
 <model package="stercseo" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="stercseo">
     <object class="seoUrl" table="seo_urls" extends="xPDOSimpleObject">
         <field key="resource" dbtype="integer" precision="10" phptype="int" null="false" default="" />
-        <field key="url" dbtype="varchar"  precision="255" phptype="string" null="false" default="" /> 
-        <field key="context_key" dbtype="varchar" precision="100" phptype="string" null="false" default="" /> 
-    </object>    
+        <field key="url" dbtype="varchar"  precision="255" phptype="string" null="false" default="" />
+        <field key="context_key" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="uri_ignore_params" dbtype="integer" precision="1" phptype="int" null="false" default="" /> 
+    </object>
 </model>
