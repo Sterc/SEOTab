@@ -602,7 +602,7 @@ SEOTab 1.0.0-pl
       'vehicle_class' => 'xPDOObjectVehicle',
       'class' => 'modCategory',
       'guid' => 'de080e3e39a3a5e9608baa05272fa7e9',
-      'native_key' => NULL,
+      'native_key' => null,
       'filename' => 'modCategory/f2f25e21af48c449b26ab197bc6a6352.vehicle',
       'namespace' => 'stercseo',
     ),
