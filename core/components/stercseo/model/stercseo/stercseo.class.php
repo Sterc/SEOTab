@@ -626,6 +626,7 @@ class StercSEO
 
                     $output .= $this->getChunk($options['imagesRowTpl'], array(
                         'url'    => $this->modx->makeUrl($resource->get('id'), '', '', 'full'),
+                        'pagetitle'    => $resource->get('pagetitle'),
                         'images' => $imagesOutput
                     ));
                 }
