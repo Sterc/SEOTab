@@ -1,6 +1,9 @@
 ----------------------
 Changelog for SEO Tab
 ----------------------
+SEOTAB 2.2.1-pl
+- Fix error: babel class to prevent overload on error.log
+
 SEOTAB 2.2.0-pl
 ==============
 - Added system setting so resoures with unpublished parent can automatically be excluded from XML sitemap
@@ -117,7 +120,7 @@ SEOTab 1.0.9-pl
 
 SEOTab 1.0.8-pl
 ==============
-- Fixed disappearing values when only update 301 redirects. This also fixes the multi context bug. 
+- Fixed disappearing values when only update 301 redirects. This also fixes the multi context bug.
 - Removed custom CSS for MODX 2.3
 
 SEOTab 1.0.7-pl

@@ -3,8 +3,8 @@
     "lowCaseName": "stercseo",
     "description": "SEO Tab is a MODX Extra that helps you optimize your pages for the best possible performance in search engines, like Google.",
     "author": "Sterc",
-    "version": "2.2.0-pl",
-    "package":{  
+    "version": "2.2.1-pl",
+    "package":{
         "menus": [{
             "text": "stercseo.seotab",
             "description": "stercseo.menu_desc",
