@@ -4,7 +4,7 @@
  */
 $xpdo_meta_map['seoUrl']= array (
   'package' => 'stercseo',
-  'version' => NULL,
+  'version' => null,
   'table' => 'seo_urls',
   'extends' => 'xPDOSimpleObject',
   'fields' => 
