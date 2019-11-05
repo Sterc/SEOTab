@@ -7,15 +7,16 @@ $xpdo_meta_map['seoUrl']= array (
   'version' => NULL,
   'table' => 'seo_urls',
   'extends' => 'xPDOSimpleObject',
-  'fields' => 
+  'fields' =>
   array (
     'resource' => 0,
     'url' => '',
     'context_key' => '',
+    'uri_ignore_params' => 0
   ),
-  'fieldMeta' => 
+  'fieldMeta' =>
   array (
-    'resource' => 
+    'resource' =>
     array (
       'dbtype' => 'integer',
       'precision' => '10',
@@ -23,7 +24,7 @@ $xpdo_meta_map['seoUrl']= array (
       'null' => false,
       'default' => 0,
     ),
-    'url' => 
+    'url' =>
     array (
       'dbtype' => 'varchar',
       'precision' => '255',
@@ -31,7 +32,7 @@ $xpdo_meta_map['seoUrl']= array (
       'null' => false,
       'default' => '',
     ),
-    'context_key' => 
+    'context_key' =>
     array (
       'dbtype' => 'varchar',
       'precision' => '100',
@@ -39,5 +40,13 @@ $xpdo_meta_map['seoUrl']= array (
       'null' => false,
       'default' => '',
     ),
+   'uri_ignore_params' =>
+    array (
+      'dbtype' => 'integer',
+      'precision' => '1',
+      'phptype' => 'int',
+      'null' => false,
+      'default' => 0,
+    )
   ),
 );

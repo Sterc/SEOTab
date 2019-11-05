@@ -63,12 +63,14 @@ $_lang['stercseo.alreadyexists'] = '<b>[[+url]]</b> has already been added to re
 $_lang['stercseo.uri_label'] = 'Old URL';
 $_lang['stercseo.uri_label_desc'] = 'Enter the full URL, including your domain. Example: "https://www.site.tld/old-pages/about-us".';
 $_lang['stercseo.url_missing_protocol'] = 'Incorrect URL. Please add: http:// or https://';
+$_lang['stercseo.uri_ignore_params_label'] = 'Ignore URL Parameters in the redirect';
+$_lang['stercseo.uri_ignore_params_label_desc'] = 'For example, UTM parameters such as ?utm_campaign={item}&utm_source=website';
 
 //Tab Freeze URL
 $_lang['stercseo.freeze_uri'] = 'Freeze URL';
 $_lang['stercseo.uri_override'] = 'Set a Freeze URL for this page.';
 $_lang['stercseo.uri_after'] = 'URL after [[+site_url]]';
-$_lang['stercseo.uri_after_desc'] = 'Freeze URLs can be used to create user-friendly URLs. 
+$_lang['stercseo.uri_after_desc'] = 'Freeze URLs can be used to create user-friendly URLs.
 For example, to set this page URL to [[+site_url]]user-friendly-url", enter "user-friendly-url" in the field above.';
 
 //Settings
@@ -92,7 +94,7 @@ $_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent'] = 'Resources depe
 $_lang['setting_stercseo.xmlsitemap.dependent_ultimateparent_desc'] = 'If turned on, resources will be hidden from the XML sitemap if their parent or ultimate parent resource is deleted or unpublished.';
 
 // CMP
-$_lang['stercseo.redirects.description'] = 'Manage your SEO Tab 301 redirects. 
+$_lang['stercseo.redirects.description'] = 'Manage your SEO Tab 301 redirects.
 Redirects can also be added when editing a resource by clicking the tab called "SEO".';
 $_lang['stercseo.redirects.window_title'] = 'Add redirect URL';
 $_lang['stercseo.uri'] = 'Old URL (URL to redirect)';
@@ -113,7 +115,7 @@ $_lang['stercseo.migrate_success'] = 'Migration completed';
 $_lang['stercseo.migrate_success_msg'] = 'All your redirects have been successfully migrated.';
 
 /* Resource. */
-$_lang['stercseo.resource.freeze_uri.redirect_exists'] = 'Could not save the current resource because a SEO Tab redirect already exists for the provided freeze URI: [[+uri]]. 
+$_lang['stercseo.resource.freeze_uri.redirect_exists'] = 'Could not save the current resource because a SEO Tab redirect already exists for the provided freeze URI: [[+uri]].
  Please provide a different freeze URI or remove the redirect in the SEO Tab component and save the resource again.';
 $_lang['stercseo.resource.error.redirect_already_exists.title'] = 'Redirect already exists';
 $_lang['stercseo.resource.error.redirect_already_exists.msg']   = 'The redirect you we\'re trying to add already exists for this resource and therefore the redirect was not saved.';

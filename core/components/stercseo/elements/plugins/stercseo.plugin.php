@@ -71,7 +71,7 @@ switch ($modx->event->name) {
         } elseif ($resource) {
             $properties['searchable'] = $resource->get('searchable');
         }
-    
+
         $properties['urls'] = '';
         // Fetch urls from seoUrl collection
         if ($urls && is_object($urls)) {
@@ -125,6 +125,7 @@ switch ($modx->event->name) {
                         'url' => urlencode($url['url']),
                         'resource' => $oldResource->get('id'),
                         'context_key' => $oldResource->get('context_key'),
+						'uri_ignore_params' => $url['uri_ignore_params'],
                     );
                     $redirect->fromArray($data);
                     $redirect->save();
@@ -210,11 +211,11 @@ switch ($modx->event->name) {
         if (!$stercseo->isAllowed($resource->context_key)) {
             return;
         }
-        
+
         /* Tmp overwrite the cache_alias_map setting to prevent that a redirect is removed again. */
         $cacheAliasMap = $modx->getOption('cache_alias_map', true);
         $modx->setOption('cache_alias_map', false);
-        
+
         $url       = urlencode($modx->makeUrl($resource->id, $resource->context_key, '', 'full'));
         $urlExists = $modx->getObject('seoUrl', array(
             'url'         => $url,
@@ -227,7 +228,7 @@ switch ($modx->event->name) {
                 'context_key' => $resource->context_key
             ));
         }
-        
+
         $modx->setOption('cache_alias_map', $cacheAliasMap);
         break;
 
@@ -258,8 +259,8 @@ switch ($modx->event->name) {
     case 'OnPageNotFound':
         $options = array();
         $query   = $modx->newQuery('seoUrl');
-        $url     = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-
+		$url     = $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		$url_query = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
         $query->where(array(
             array(
                 'url' => urlencode('http://' . $url)
@@ -294,8 +295,17 @@ switch ($modx->event->name) {
 
         if ($alreadyExists) {
             $url = $modx->makeUrl($alreadyExists->get('resource'), $alreadyExists->get('context_key'), '', 'full', $options);
+			if($url_query) {
+				if($alreadyExists->get('uri_ignore_params') === 1) {
+					$modx->sendRedirect($url."?".$url_query, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+				} else {
+					$modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+				}
 
-            $modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+			} else {
+				$modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+			}
+
         }
         break;
 
@@ -353,7 +363,7 @@ switch ($modx->event->name) {
                 $stercseo->setWorkingContext($resource->get('context_key'));
 
                 $site_url = $stercseo->getOption('site_url', '', $modx->getOption('site_url'));
-                
+
                 $childResources = $modx->getIterator('modResource', $cond);
                 foreach ($childResources as $childResource) {
                     $url = urlencode($site_url . $childResource->get('uri'));

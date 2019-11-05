@@ -14,7 +14,8 @@ class StercSeoUpdateProcessor extends modObjectUpdateProcessor
     public function beforeSave()
     {
         $url = urlencode($this->object->get('url'));
-        if ($existing = $this->modx->getObject($this->classKey, array('url' => $url))) {
+        $uri_ignore_params = $this->object->get('uri_ignore_params');
+        if ($existing = $this->modx->getObject($this->classKey, array('url' => $url, 'uri_ignore_params' => $uri_ignore_params))) {
             $this->addFieldError(
                 'url',
                 $this->modx->lexicon(

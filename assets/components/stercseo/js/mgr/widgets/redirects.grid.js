@@ -14,7 +14,7 @@ StercSEO.grid.Redirects = function(config) {
         },
         save_action: 'mgr/redirect/updatefromgrid',
         autosave: true,
-        fields: ['id', 'resource', 'target', 'url', 'context_key', 'context_name'],
+        fields: ['id', 'resource', 'target', 'url', 'context_key', 'context_name','uri_ignore_params'],
         autoHeight: true,
         paging: true,
         remoteSort: true,
@@ -36,6 +36,19 @@ StercSEO.grid.Redirects = function(config) {
             dataIndex: 'context_name',
             width: 80,
             menuDisabled: true
+        },{
+            header: _('stercseo.uri_ignore_params_label'),
+            dataIndex: 'uri_ignore_params',
+            width: 80,
+            menuDisabled: true,
+            renderer: function(value) {
+    			if (value === 1) {
+    				return "Yes";
+    			} else {
+                    return "No";
+                }
+
+		   }
         }],
         tbar: [{
             text: _('stercseo.uri_add'),
@@ -148,7 +161,7 @@ Ext.extend(StercSEO.grid.Redirects, MODx.grid.Grid, {
     },
     removeRedirect: function(btn, e) {
         if (!this.menu.record) return false;
-        
+
         MODx.msg.confirm({
             title: _('stercseo.uri_remove')
             ,text: _('stercseo.uri_remove_confirm')
@@ -254,6 +267,16 @@ StercSEO.window.Redirect = function(config) {
             typeAhead: true,
             editable: true,
             forceSelection: true
+        },{
+            xtype: 'xcheckbox'
+            ,boxLabel: _('stercseo.uri_ignore_params_label')
+            ,hideLabel: true
+            ,name: 'uri_ignore_params'
+            ,value: 1
+        },{
+            xtype: 'label',
+            text: _('stercseo.uri_ignore_params_label_desc'),
+            cls: 'desc-under'
         }]
     });
     StercSEO.window.Redirect.superclass.constructor.call(this, config);
