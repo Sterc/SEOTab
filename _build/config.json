@@ -72,6 +72,10 @@
             "key": "hide_from_usergroups",
             "value": "",
             "area": "general"
+        },{
+            "key": "hide_for_resources",
+            "value": "",
+            "area": "general"
         }, {
             "key": "xmlsitemap.babel.add_alternate_links",
             "type": "combo-boolean",

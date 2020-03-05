@@ -44,6 +44,9 @@ switch ($modx->event->name) {
         if (!$stercseo->checkUserAccess()) {
             return;
         }
+        if (!$stercseo->checkResourceAccess($id)) {
+            return;
+        }
 
         $resource =& $modx->event->params['resource'];
         if ($resource) {
