@@ -258,7 +258,8 @@ switch ($modx->event->name) {
     case 'OnPageNotFound':
         $options = array();
         $query   = $modx->newQuery('seoUrl');
-        $url     = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $uri     = explode("?",$_SERVER['REQUEST_URI']);
+        $url     = $_SERVER['HTTP_HOST'] . $uri[0];
 
         $query->where(array(
             array(
@@ -294,6 +295,7 @@ switch ($modx->event->name) {
 
         if ($alreadyExists) {
             $url = $modx->makeUrl($alreadyExists->get('resource'), $alreadyExists->get('context_key'), '', 'full', $options);
+            if(!empty($uri[1])) $url .= "?".$uri[1];
 
             $modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
         }
