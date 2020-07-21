@@ -22,11 +22,9 @@ if ($object->xpdo) {
             $modx->addPackage('stercseo', $modelPath, null);
 
 
-
             $manager = $modx->getManager();
 
             $manager->createObjectContainer('seoUrl');
-
 
             break;
     }
