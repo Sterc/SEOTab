@@ -1,1 +1,0 @@
-<div id="stercseo-panel-home-div"></div>

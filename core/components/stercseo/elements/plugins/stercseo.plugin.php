@@ -258,7 +258,7 @@ switch ($modx->event->name) {
     case 'OnPageNotFound':
         $options = array();
         $query   = $modx->newQuery('seoUrl');
-        $url     = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $url     = urldecode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
         $query->where(array(
             array(

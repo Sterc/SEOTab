@@ -1,1 +1,0 @@
-<xhtml:link rel="alternate" hreflang="[[+cultureKey]]" href="[[+url]]"/>
