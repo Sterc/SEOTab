@@ -362,6 +362,12 @@ class StercSEO
      */
     public function getAlternateLinks($resource, $options)
     {
+        /* Return if babel model path does not exist */
+        $babelModelPath = $this->modx->getOption('babel.core_path', null, $this->modx->getOption('core_path') . 'components/babel/').'model/babel/';
+        if (!file_exists($babelModelPath)) {
+            return '';
+        }
+
         /* Include current resource. */
         $babel = &$this->modx->getService(
             'babel',
