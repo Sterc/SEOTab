@@ -1,6 +1,12 @@
 ----------------------
 Changelog for SEO Tab
 ----------------------
+
+SEO Tab 2.2.3-pl
+==============
+- Fix: Work with trailing slash
+- Fix: Adding redirects from resource page
+
 SEO Tab 2.2.2-pl
 ==============
 - Fix: Could not load class: Babel from babel (#229, thanks to @jako)

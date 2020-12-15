@@ -3,7 +3,7 @@
     "lowCaseName": "stercseo",
     "description": "SEO Tab is a MODX Extra that helps you optimize your pages for the best possible performance in search engines, like Google.",
     "author": "Sterc",
-    "version": "2.2.2-pl",
+    "version": "2.2.3-pl",
     "package":{
         "menus": [{
             "text": "stercseo.seotab",
@@ -30,7 +30,7 @@
             "snippets": [{
                 "name": "StercSeoSiteMap",
                 "description": "Outputs the sitemap based on the resource settings made in SEO Tab",
-                "file": "stercseositemap.snippet.php"
+                "file": "StercSeoSiteMap.snippet.php"
             }],
             "chunks": [],
             "templates": [],

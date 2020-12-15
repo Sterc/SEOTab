@@ -258,16 +258,18 @@ switch ($modx->event->name) {
     case 'OnPageNotFound':
         $options = array();
         $query   = $modx->newQuery('seoUrl');
-        $url     = urldecode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        $url     = rtrim(urldecode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '/');
 
-        $query->where(array(
-            array(
-                'url' => urlencode('http://' . $url)
-            ),
-            array(
-                'url' => urlencode('https://' . $url)
-            )
-        ),xPDOQuery::SQL_OR);
+        $where = array();
+        $prefixes = array('http://', 'https://');
+        $suffixes = array('', '/');
+        foreach ($prefixes as $prefix) {
+            foreach ($suffixes as $suffix) {
+                $where[] = array('url' => urlencode($prefix . $url . $suffix));
+            }
+        }
+        
+        $query->where($where, xPDOQuery::SQL_OR);
 
          if ($modx->getOption('stercseo.context-aware-alias', null, '0')) {
              $query->where(

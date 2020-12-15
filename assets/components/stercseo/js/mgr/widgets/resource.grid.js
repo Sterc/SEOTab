@@ -61,7 +61,8 @@ Ext.extend(StercSEO.grid.Items, MODx.grid.Grid, {
                     }]);
 
                     var newRecord = new myRecord({
-                        url: r.a.result.object.url
+                        id: r.a.result.object.id,
+                        url: decodeURIComponent(r.a.result.object.url)
                     });
 
                     var store = Ext.getCmp(id).getStore();
@@ -143,12 +144,12 @@ StercSEO.window.CreateItem = function(config) {
         width: 475,
         url: StercSEO.config.connector_url,
         baseParams: {
-            action: 'mgr/url/return',
-            id: MODx.request.id
+            action: 'mgr/redirect/create',
+            resource: MODx.request.id
         },
         labelAlign: 'left',
         labelWidth: 'auto',
-        action: 'mgr/url/return',
+        action: 'mgr/redirect/create',
         fields: [{
             xtype: 'textfield',
             fieldLabel: _('stercseo.uri_label'),
