@@ -117,17 +117,19 @@ switch ($modx->event->name) {
         $properties = $oldResource->getProperties('stercseo');
         if (isset($_POST['urls'])) {
             $urls = $modx->fromJSON($_POST['urls']);
-            foreach ($urls as $url) {
-                $check = $modx->getObject('seoUrl', array( 'url' => urlencode($url['url']), 'resource' => $oldResource->get('id'), 'context_key' => $oldResource->get('context_key')));
-                if (!$check) {
-                    $redirect = $modx->newObject('seoUrl');
-                    $data = array(
-                        'url' => urlencode($url['url']),
-                        'resource' => $oldResource->get('id'),
-                        'context_key' => $oldResource->get('context_key'),
-                    );
-                    $redirect->fromArray($data);
-                    $redirect->save();
+            if(count($urls){
+                foreach ($urls as $url) {
+                    $check = $modx->getObject('seoUrl', array( 'url' => urlencode($url['url']), 'resource' => $oldResource->get('id'), 'context_key' => $oldResource->get('context_key')));
+                    if (!$check) {
+                        $redirect = $modx->newObject('seoUrl');
+                        $data = array(
+                            'url' => urlencode($url['url']),
+                            'resource' => $oldResource->get('id'),
+                            'context_key' => $oldResource->get('context_key'),
+                        );
+                        $redirect->fromArray($data);
+                        $redirect->save();
+                    }
                 }
             }
         }
