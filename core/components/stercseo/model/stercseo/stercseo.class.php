@@ -776,6 +776,17 @@ class StercSEO
         return true;
     }
 
+    public function checkResourceAccess($id = 0)
+    {
+        if ($id) {
+            $resources = array_filter(explode(',', $this->modx->getOption('stercseo.hide_for_resources')));
+            if(!empty($resources) && in_array($id, $resources)) {
+                return false;
+            }    
+        }
+        return true;
+    }
+
     public function redirectMigrationStatus()
     {
         $migrationStatus = true;
