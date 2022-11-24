@@ -297,7 +297,7 @@ switch ($modx->event->name) {
         if ($alreadyExists) {
             $url = $modx->makeUrl($alreadyExists->get('resource'), $alreadyExists->get('context_key'), '', 'full', $options);
 
-            $modx->sendRedirect($url, 0, 'REDIRECT_HEADER', 'HTTP/1.1 301 Moved Permanently');
+            $modx->sendRedirect($url, ['responseCode' => 'HTTP/1.1 301 Moved Permanently']);
         }
         break;
 
